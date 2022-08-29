@@ -1,0 +1,96 @@
+@import url('base.css');
+
+.active {
+    background-color: black;
+    color: seashell;
+    border-radius: 10%;
+    padding: 0.5em;
+}
+
+.start {
+    text-align: center;
+}
+
+.start h2 {
+    margin-top: 0.5em;
+}
+
+.start ul {
+    list-style: none;
+    margin-top: 0.5em;
+}
+
+.start ul li {
+    display: inline-block;
+    padding-right: 1em;
+}
+
+.start ul li img {
+    width: 25em;
+    height: 20em;
+    border-radius: 50%;
+}
+
+.start ul li img:hover {
+    filter: sepia(1);
+}
+
+.stars {
+    height: 100vh;
+    text-align: center;
+    background-color: aliceblue;
+    margin-top: 5em;
+    padding: 1em;
+}
+
+.stars h1 {
+    margin-bottom: 2em;
+}
+
+.stars_master {
+    border-radius: 5%;    
+}
+
+.stars_list {
+    list-style: none;
+}
+
+.stars_list li {
+    display: inline-block;
+    padding-right: 1em;
+}
+
+.stars_list img {
+    width: 7em;
+    height: 5em;
+    border-radius: 5%;
+    transition: 0.5s ease-out;
+    border-radius: 50%;
+}
+
+.stars_list img:hover {
+    width: 12em;
+    height: 10em;
+    cursor: pointer;
+}
+
+.stars_content p {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding-left: 2em;
+    padding-right: 2em;
+    text-align: justify;
+    text-indent: 2em;
+    margin-top: 1em;
+}
+
+.stars_content button {
+    padding: 0.5em;
+    border-radius: 50%;
+    background-color: black;
+    color: seashell;
+}
+
+.stars_content button:hover {
+    cursor: pointer;
+    background-color: gray;
+}

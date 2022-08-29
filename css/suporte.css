@@ -1,0 +1,126 @@
+@import url('base.css');
+
+.active {
+    background-color: black;
+    color: seashell;
+    border-radius: 10%;
+    padding: 0.5em;
+}
+
+.main_container {
+    text-align: center;    
+}
+
+.main_container img {
+    margin-top: 1em;
+    border-radius: 25%;
+}
+
+.instructions {
+    text-align: center;
+}
+
+.t {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.t img {
+    width: 5em;
+    height: 5em;    
+}
+
+.help {    
+    padding-top: 2em;
+    text-align: center;
+    background-color: aliceblue;
+    height: 100vh;
+    background-image: url("../img_/support/plant.jpg");
+    background-size: cover;
+}
+
+.help h2 {
+    margin-top: 2em;
+}
+
+
+.question {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1em;
+}
+
+.question tr,td {
+    padding-right: 2em;
+}
+
+.question input[type="radio"] {
+    width: 1.5em;
+    height: 1.5em;
+    margin-right: 1em;
+}
+
+.only_other {
+    margin-top: 1em;
+    display: none;
+}
+
+.only_other p {
+    font-size: 1.2em;
+}
+
+.only_other textarea{
+    resize: none;
+    border-radius: 10%;
+    width: 50em;
+    height: 10em;
+    margin-top: 1em;    
+    font-size: 1em;
+    text-align: center;
+    padding: 2em;
+}
+
+.only_other button, .t_h button {
+    text-align: center;
+    margin-top: 1em;
+    padding: 1.5em;
+    border-radius: 50%;
+}
+
+.only_other button:hover, .t_h button:hover {
+    background-color: cyan;
+    cursor: pointer;
+}
+
+.t_h, #t_h {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1em;
+}
+
+.t_h tr,.t_h td, #t_h tr, #t_h td {
+    padding-right: 2em;
+    padding-top: 1em;
+}
+
+.t_h td, #t_h td {
+    font-size: 1.2em;
+}
+
+.t_h textarea, #t_h textarea {
+    resize: none;
+    border-radius: 10%;
+    width: 50em;
+    height: 7em;
+    margin-top: 1em;    
+    font-size: 1em;
+    text-align: center;
+    padding: 2em;
+}
+
+.sel, .man {
+    padding: 0.2em;
+    font-size: 0.8em;
+    border-radius: 5%;
+    text-align: center;
+}

@@ -1,0 +1,95 @@
+@import url('base.css');
+
+.active {
+    background-color: black;
+    color: seashell;
+    border-radius: 10%;
+    padding: 0.5em;
+}
+
+
+.firm {
+    text-align: center;        
+    height: 25em;
+    overflow-y: auto;
+}
+
+.firm p {
+    margin-bottom: 1em;
+}
+
+.group {
+    margin-top: 3em;
+}
+
+.total {
+    text-align: center;
+    color: brown;
+    margin-top: 0.5em;
+}
+
+.ask_task {
+    text-align: center;
+    margin-top: 2em;    
+}
+
+.choose_one {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.choose_one img {
+    width: 6em;
+    height: 6em;
+    border-radius: 50%;
+}
+
+.choose_one img:hover {
+    cursor: pointer;
+    filter: sepia(1);
+}
+
+.choose_one td {
+    padding-right: 3em;
+}
+
+.choose_one input[type="radio"] {        
+    width: 1.5em;    
+    height: 1.5em;        
+}
+
+.choose_one button {
+    padding: 0.5em;
+    border-radius: 50%;
+    margin-top: 2em;
+}
+
+.choose_one button:hover {
+    cursor: pointer;
+    background-color: aqua;
+}
+
+.loading {
+    border-bottom: 0.5em solid brown;        
+    border-right: 0.5em solid brown;        
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    width: 2em;
+    height: 2em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2em;
+}
+
+#ad, #mb, #tv, #st {
+    display: none;
+}
+
+#mb_only_android, #mb_only_ios {
+    display: none;
+}
+
+@keyframes spin {
+    from{transform: rotate(0deg);}
+    to{transform: rotate(360deg);}
+}

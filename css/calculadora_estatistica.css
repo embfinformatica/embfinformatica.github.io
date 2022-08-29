@@ -1,0 +1,355 @@
+* {
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+header {
+    background-image: url('../img_/informatics/hand_calc.jpg');
+    background-position: -20em 0em;
+    background-size: cover;
+    height: 100vh;
+}        
+
+.container {
+    position: relative;
+}
+
+.upper {
+    text-align: right;     
+    padding-top: 1em;       
+}
+
+.upper img {
+    padding-right: 6.5em;   
+    width: 5em;         
+    height: 5em;
+}
+
+.upper h1 {
+    padding-right: 1em;
+    animation: rotate 3s ease-in-out;
+}
+
+.list ul {
+    list-style: none;
+}
+
+.list ul li {            
+    background-image: linear-gradient(to bottom right, rgba(59, 19, 170, 0.664), rgba(180, 17, 17, 0.644));
+    margin-bottom: 2em;
+    padding-right: 20em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: 1em;
+    background-size: cover;
+    border-radius: 2%;
+    width: fit-content;
+    transition: ease-out 1s;
+    animation: fill 3s ease-in;
+}
+
+.list ul li:hover {
+    cursor: pointer;        
+    background-color: brown;    
+    padding-right: 23em;
+}
+
+.list ul li a {
+    text-decoration: none;
+    color: seashell;
+}
+
+.active_li {
+    background-color: brown;
+}
+
+.list ul li a:hover {
+    color: yellow;
+}        
+
+.avg_median {
+    position: absolute;
+    top: 2em;
+    right: 5em;
+    background-color: rgba(255, 241, 50, 0.9);
+    border-radius: 5%;
+    padding: 1em;
+    text-align: center;       
+    width: 35em;     
+    height: 22em;    
+    display: none;
+}
+
+.avg_median textarea {
+    margin-top: 1em;
+    resize: none;
+    text-align: center;        
+}
+
+.avg_median button {
+    padding: 0.5em;
+    background-color: aquamarine;
+    margin-top: 1em;
+}
+
+.avg_median button:hover {
+    cursor: pointer;
+    background-color: aqua;
+}
+
+.standard_desviation {
+    position: absolute;
+    top: 2em;
+    right: 5em;
+    background-color: rgba(255, 241, 50, 0.9);
+    border-radius: 5%;
+    padding: 1em;
+    text-align: center;       
+    width: 35em;     
+    height: 22em;        
+    display: none;
+}
+
+.standard_desviation textarea {
+    margin-top: 1em;
+    resize: none;
+    text-align: center;        
+}
+
+.standard_desviation button {
+    padding: 0.5em;
+    background-color: aquamarine;
+    margin-top: 1em;
+}
+
+.standard_desviation button:hover {
+    cursor: pointer;
+    background-color: aqua;
+}
+
+.variance {
+    position: absolute;
+    top: 2em;
+    right: 5em;
+    background-color: rgba(255, 241, 50, 0.9);
+    border-radius: 5%;
+    padding: 1em;
+    text-align: center;       
+    width: 35em;     
+    height: 22em;     
+    display: none;       
+}
+
+.variance textarea {
+    margin-top: 1em;
+    resize: none;
+    text-align: center;        
+}
+
+.variance button {
+    padding: 0.5em;
+    background-color: aquamarine;
+    margin-top: 1em;
+}
+
+.variance button:hover {
+    cursor: pointer;
+    background-color: aqua;
+}
+
+.cv {
+    position: absolute;
+    top: 2em;
+    right: 5em;
+    background-color: rgba(255, 241, 50, 0.9);
+    border-radius: 5%;
+    padding: 1em;
+    text-align: center;       
+    width: 35em;     
+    height: 22em;    
+    display: none;    
+}
+
+.cv textarea {
+    margin-top: 1em;
+    resize: none;
+    text-align: center;        
+}
+
+.cv button {
+    padding: 0.5em;
+    background-color: aquamarine;
+    margin-top: 1em;
+}
+
+.cv button:hover {
+    cursor: pointer;
+    background-color: aqua;
+}
+
+.cur {
+    position: absolute;
+    top: 2em;
+    right: 5em;
+    background-color: rgba(255, 241, 50, 0.9);
+    border-radius: 5%;
+    padding: 1em;
+    text-align: center;       
+    width: 35em;     
+    height: 22em;   
+    display: none;     
+}
+
+.cur textarea {
+    margin-top: 1em;
+    resize: none;
+    text-align: center;        
+}
+
+.cur button {
+    padding: 0.5em;
+    background-color: aquamarine;
+    margin-top: 1em;
+}
+
+.cur button:hover {
+    cursor: pointer;
+    background-color: aqua;
+}
+
+.asy {
+    position: absolute;
+    top: 2em;
+    right: 5em;
+    background-color: rgba(255, 241, 50, 0.9);
+    border-radius: 5%;
+    padding: 1em;
+    text-align: center;       
+    width: 35em;     
+    height: 22em;    
+    display: none;   
+}
+
+.asy textarea {
+    margin-top: 1em;
+    resize: none;
+    text-align: center;        
+}
+
+.asy button {
+    padding: 0.5em;
+    background-color: aquamarine;
+    margin-top: 1em;
+}
+
+.asy button:hover {
+    cursor: pointer;
+    background-color: aqua;
+}
+
+.jur {
+    position: absolute;
+    top: 2em;
+    right: 5em;
+    background-color: rgba(255, 241, 50, 0.9);
+    border-radius: 5%;
+    padding: 1em;
+    text-align: center;       
+    width: 35em;     
+    height: 22em;        
+    display: none;
+}
+
+.jur table {    
+    border-spacing: 1em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.jur input[type='number'] {
+    width: 10em;
+    text-align: center;
+    padding: 0.2em;
+}
+
+
+.jur button {
+    padding: 0.5em;
+    background-color: aquamarine;
+    margin-top: 1em;
+}
+
+.jur button:hover {
+    cursor: pointer;
+    background-color: aqua;
+}
+
+.jurC {
+    position: absolute;
+    top: 2em;
+    right: 5em;
+    background-color: rgba(255, 241, 50, 0.9);
+    border-radius: 5%;
+    padding: 1em;
+    text-align: center;       
+    width: 35em;     
+    height: 22em;          
+    display: none;  
+}
+
+.jurC table {    
+    border-spacing: 1em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.jurC input[type='number'] {
+    width: 10em;
+    text-align: center;
+    padding: 0.2em;
+}
+
+
+.jurC button {
+    padding: 0.5em;
+    background-color: aquamarine;
+    margin-top: 1em;
+}
+
+.jurC button:hover {
+    cursor: pointer;
+    background-color: aqua;
+}
+
+.copyright ul {
+    list-style: none;
+    position: absolute;
+    bottom: 2em;
+    right: 2em;
+}
+
+.copyright ul li {
+    display: inline-block;
+    font-weight: bold;
+}
+
+.copyright img {
+    width: 2em;
+    height: 2em;
+}
+
+@keyframes fill {
+    0%{padding-right: 0em; filter: sepia(1);}
+    50%{padding-right: 10em; background-color: rgba(19, 170, 44, 0.568);}
+    100%{padding-right: 20em; background-color: rgba(54, 182, 165, 0.527);}                                                
+}
+
+@keyframes rotate {
+    from{transform: rotate3d(0,0,0,0deg);}
+    to{transform: rotate3d(-1,1,1,360deg);}            
+}
+
+@keyframes tiktok {
+    from{color: seashell;}
+    to{color: yellow;}
+}

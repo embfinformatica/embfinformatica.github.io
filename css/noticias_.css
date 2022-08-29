@@ -1,0 +1,75 @@
+@import url('base.css');
+
+header {
+    height: unset;
+}
+
+.active {
+    background-color: black;
+    color: seashell;
+    border-radius: 10%;
+    padding: 0.5em;
+}
+
+.btn_sof {
+    background-color: black;
+    color: white;
+    padding: 0.5em;
+    margin-left: 1em;
+}
+
+.big {
+    list-style: none;    
+    margin-top: 1em;
+    margin-left: 5em;
+}
+
+.big li {
+    display: inline-block;
+}
+
+.big li:hover {
+    cursor: pointer;
+    filter: grayscale(1);
+}
+
+.small {
+    list-style: none;    
+}
+
+.small li {
+    display: block;    
+}
+
+.small li h1:hover {
+    cursor: pointer;
+    color: gray;
+}
+
+.pages {
+    margin-top: 1em;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.pages ul {
+    list-style: none;    
+}
+
+.pages ul li {
+    display: inline-block;
+    background-color: black;
+    color: white;
+    padding: 1em;
+    width: fit-content;
+}
+
+.pages ul li:hover {
+    cursor: pointer;
+    background-color: gray;
+}
+
+.pages .on_page {
+    background-color: gray;
+}
+

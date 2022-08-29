@@ -1,0 +1,108 @@
+* {
+    font-family: 'Courier New', Courier, monospace;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+header {    
+    height: 100vh;
+    background-size: cover;
+}
+
+.links_up ul {
+    list-style: none;
+}
+
+.links_up ul li {
+    display: inline-block;
+    font-size: 0.9em;
+}
+
+.links_up ul li img {
+    width: 1.5em;
+    height: 1.5em;    
+}
+
+.links_up ul li img:hover {
+    cursor: pointer;            
+}
+
+.part_up {
+    background-color: aliceblue;    
+}
+
+.part_up ul {
+    list-style: none;    
+    padding: 1em;    
+    padding-left: 1.9em;
+}
+
+.part_up ul li {
+    display: inline-block;   
+    color: black;     
+    font-weight: bold;    
+}
+
+.part_up ul li a {
+    text-decoration: none;
+    color: black;
+    transition-timing-function: ease-out;
+    transition-delay: 0.1s;
+    transition-duration: 0.3s;    
+}
+
+.part_up ul li a:hover {
+    background-color: black;
+    color: seashell;
+    border-radius: 10%;
+    padding: 0.5em;    
+}
+
+.main_logo {
+    width: 2.5em;
+    height: 2.5em;
+    position: absolute;
+    left: 0.5em;
+}
+
+.main_logo:hover {
+    cursor: pointer;
+}
+
+.top_link {
+    padding-right: 2.5em;    
+}
+
+body {
+    background-color: aliceblue;
+}
+
+.credits {
+    border-top: 0.2em solid darkgray;
+    border-bottom: 0.2em solid darkgray;
+    padding: 1em;
+    font-size: 0.8em;
+}
+
+.useful {
+    list-style: none;
+    text-align: right;
+}
+
+.useful li {
+    padding-right: 0.5em;
+    display: inline-block;
+    margin-top: 0.5em;
+    margin-right: 1em;
+    margin-bottom: 2em;
+}
+
+.useful img {
+    width: 6em;
+    height: 2.5em;    
+}
+
+.useful img:hover {
+    cursor: pointer;
+}
