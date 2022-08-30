@@ -8,7 +8,7 @@
 }
 
 #slide {
-    background-image: url("../bigdata/obito_pe.png");
+    background-image: url("../img_/web_design_/01.jpg");
     background-size: cover;    
     height: 86vh;    
     background-position: 0em -5em;
@@ -47,7 +47,6 @@
     display: block;
     text-align: center;
     margin-top: 5em;
-    
 }
 
 .now_content h1 {

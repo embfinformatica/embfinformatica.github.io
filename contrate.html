@@ -1,0 +1,1152 @@
+<!--
+
+    Desenvolvido por Eduardo Programador.
+    Copyright 2022. Todos os Direitos Reservados.
+
+    Contato: consultoria@eduardoprogramador.com
+
+-->
+
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="author" content="Eduardo Programador">
+    <meta name="description" content="Desenvolvimento de Softwares, Aplicativos, Web Design e Detetive Profissional">
+    <meta name="keywords" content="desenvolvimento de software,aplicativos,apps,web design,detetive profissional">
+    <meta name="application-name" content="Eduardo Programador (Contrate)">
+    <meta name="robots" content="index, follow">
+    <title>Eduardo Programador - Contrate</title>
+    <link rel="icon" type="image/png" href="img_/logos/logo.png">
+    <link rel="stylesheet" type="text/css" href="css/contrate.css">
+    <script type="text/javascript" src="js/tasks.js"></script>
+    <script type="text/javaxcript" src="js/regexwarrior.js"></script>
+    <script type="text/javascript" src="js/duscript.js"></script>
+    <script type="text/javascript" src="js/chat.js"></script>    
+    <script type="text/javascript" src="js/contrate.js"></script>
+</head>
+
+<header>
+
+    <div class="part_up">
+        <ul>        
+        <img alt="Logotipo" src="img_/logos/logo.png" class="main_logo" title="Eduardo Programador" onclick="const tasks = new Tasks(); tasks.set('https://eduardoprogramador.com');"></li>
+        
+
+        <li class="top_link"><nav class="links_up">
+            <ul>
+                <li><a href="softwares.html">Softwares</a></li>
+                <li><a href="aplicativos.html">Aplicativos</a></li>
+                <li><a href="jogos.html">Jogos</a></li>                
+                <li><a href="web_design.html">Web Design</a></li>
+                <li><a href="consultoria.html">Consultoria</a></li>
+                <li><a href="detetive.html">Detetive</a></li>                
+                <li><a href="analise_dados.html">Estatística</a></li>                
+            </ul>
+        </nav>
+        </li>
+
+        <li class="top_link"><nav class="links_up">
+            <ul>
+                <li><a href="#" class="active" style="color: seashell;">Contrate</a></li>
+                <li><a href="bigdata/valores.pdf">Valores</a></li>
+                <li><a href="services.html">Serviços</a></li>
+                <li><a href="lgpd.html">LGPD</a></li>
+                <li><a href="suporte.html">Suporte</a></li>
+            </ul>
+        </nav>
+        </li>
+
+        <li><nav class="links_up">
+            <ul>
+                <li><img alt="Pesquisar" src="img_/assets/search.png" title="Pesquisar"></li>
+                <li><img alt="Comprar" src="img_/assets/buy.png" title="Comprar"></li>
+            </ul>
+        </nav>
+        </li>
+        </ul>
+    </div>    
+
+    <div class="firm">
+        <h1>Faça um Orçamento Online Sem Compromisso!</h1>
+        <p>
+            Monte agora mesmo, em poucos cliques, um orçamento feito por você mesmo, de forma 100% online, sem qualquer compromisso.<br>                
+            Caso não deseje o contrato, não iremos incomodá-lo e nem entraremos em contato.<br>
+            Se você decidir que sim, guarde o código e siga as instruções na página para validar o orçamento.
+        </p>
+
+
+        
+        <label for="group" class="l_group">Escolha o Tipo de Serviço: </label>
+        <select class="group" name="group" id="ad_select">
+            <option value="nothing">---</option>
+            <option value="analise_dados">Análise de Dados</option>
+            <option value="app_mobile">Aplicativos Mobile</option>
+            <option value="app_tv">Aplicativos para SmartTV</option>
+            <option value="web_site">Construção de Web Site</option>
+            <option value="consult">Consultoria em TI</option>
+            <option value="games">Design e Criação de Games</option>
+            <option value="detective">Detetive, Investigação Privada e Cibernética</option>
+            <option value="desktop">Software para Desktop</option>                                                                    
+        </select>
+
+        <div class="ask_task" id="ad">            
+            <table class="choose_one">
+                <tr>
+                    <td colspan="2"><p>Escolha a Linguagem de Programação</p></td>
+                </tr>
+                <tr>
+                    <td>                                            
+                        <img alt="R" src="img_/logos/r.jpg" id="ad_r">
+                        <p>R</p>                                            
+                    </td>
+    
+                    <td>                    
+                        <img alt="Python" src="img_/logos/python.jpg" id="ad_python">
+                        <p>Python</p>                    
+                    </td>        
+                </tr>                
+
+                <tr>
+                    <td colspan="2"><p>Informe o Formato do seu Arquivo</p></td>
+                </tr>
+
+                <tr>
+                    <td>                                            
+                        <input type="radio" value="csv" id="ad_csv" checked>
+                        <p>.CSV</p>
+                    </td>
+
+                    <td>                                            
+                        <input type="radio" value="json" id="ad_json">
+                        <p>.JSON</p>
+                    </td>                       
+                        
+                </tr>
+
+                <tr>
+                    <td>                                            
+                        <input type="radio" value="xml" id="ad_xml">
+                        <p>.XML</p>
+                    </td>                 
+                    <td>                                            
+                        <input type="radio" name="xlsx" id="ad_xlsx">
+                        <p>.XLSX</p>
+                    </td>
+                </tr>
+
+                <tr>                    
+
+                    <td>                                            
+                        <input type="radio" name="ods" id="ad_ods">
+                        <p>.ODS</p>
+                    </td>
+
+                    <td>                                            
+                        <input type="radio" name="pdf" id="ad_pdf">
+                        <p>.PDF</p>
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <p>Qual a quantidade de Linhas (Registros)?</p>
+                    </td>                    
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="range" min="0" max="1000000" value="1" step="10000" id="ad_line">
+                    </td>                    
+                    <td>
+                        <p id="p_ad_line">1</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <p>Qual a quantidade de colunas (atributos)?</p>
+                    </td>                    
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="range" min="0" max="20" value="1" id="ad_col">
+                    </td>                    
+                    <td>
+                        <p id="p_ad_col">1</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2"><button id="ad_ok" onclick="window.print();">Finalizar</button></td>
+                </tr>
+
+
+
+
+            </table>
+        </div>
+        
+        <div class="ask_task" id="co">            
+            <table class="choose_one">
+                <tr>
+                    <td colspan="2"><p>Qual o serviço que você almeja?</p></td>
+                </tr>
+
+                <tr>
+                    <td>                                            
+                        <input type="radio" value="assessoria" id="co_assessoria">
+                        <p>Assessoria em TI</p>
+                    </td>
+
+                    <td>                                            
+                        <input type="radio" value="software" id="co_software">
+                        <p>Consultoria em Desenvolvimento de Software</p>
+                    </td>                       
+                        
+                </tr>
+
+                <tr>
+                    <td>                                            
+                        <input type="radio" value="sql" id="co_sql">
+                        <p>Suporte em Banco de Dados</p>
+                    </td>                 
+                    <td>                                            
+                        <input type="radio" name="security" id="co_security">
+                        <p>Assessoria em Tecnologia da Informação</p>
+                    </td>
+                </tr>
+
+                <tr>                    
+
+                    <td>                                            
+                        <input type="radio" name="thinking" id="co_thinking">
+                        <p>Parecer Técnico</p>
+                    </td>
+
+                    <td>                                            
+                        <input type="radio" name="co_uml" id="co_uml">
+                        <p>Modelagem de Processos de Negócio / UML</p>
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <p>Qual a quantidade de Horas Requeridas? (Máximo de 2h / dia)</p>
+                    </td>                    
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="range" min="2" max="50" value="1" id="co_hour">
+                    </td>                    
+                    <td>
+                        <p id="p_co_hour">1</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2"><button id="ad_ok" onclick="window.print();">Finalizar</button></td>
+                </tr>
+
+
+
+
+            </table>
+        </div>
+
+        <div class="ask_task" id="mb">            
+            <table class="choose_one">
+                <tr>
+                    <td colspan="2"><p>Escolha a Plataforma de Destino:</p></td>
+                </tr>
+                <tr>
+                    <td>                                            
+                        <img alt="Android" src="img_/logos/droid.png" id="mb_android">
+                        <p>Android</p>                                            
+                    </td>
+    
+                    <td>                    
+                        <img alt="IOS" src="img_/logos/apple.jpg" id="mb_ios">
+                        <p>IOS</p>                    
+                    </td>        
+                </tr>                
+
+                <tr>
+                    <td colspan="2"><p>Escolha a Linguagem de Programação:</p></td>
+                </tr>                
+                
+                <tr id="mb_only_android">
+                    <td>                                            
+                        <img alt="Java" src="img_/logos/java.png" id="mb_java">
+                        <p>Java</p>                                            
+                    </td>
+    
+                    <td>                    
+                        <img alt="Kotlin" src="img_/logos/kotlin.jfif" id="mb_kotlin">
+                        <p>Kotlin</p>                    
+                    </td>        
+                </tr>                
+
+                <tr id="mb_only_ios">
+                    <td>                                            
+                        <img alt="Swift" src="img_/logos/swift.jpg" id="mb_swift">
+                        <p>Swift</p>                                            
+                    </td>
+    
+                    <td>                    
+                        <img alt="Objective-C" src="img_/logos/objectivec.png" id="mb_objective_c">
+                        <p>Objective-C</p>                    
+                    </td>        
+                </tr>                
+                
+                <tr>
+                    <td colspan="2"><p>Informe os recursos a serem gerenciados no App:</p></td>
+                </tr>                                
+
+                <tr>
+                    <td>
+                        <input type="checkbox" id="mb_c_native">
+                        <p>Código Nativo em C/C++</p>
+                    </td>
+
+                    <td>
+                        <input type="checkbox" id="mb_c_gps">
+                        <p>GPS</p>
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="checkbox" id="mb_c_camera">
+                        <p>Câmera</p>
+                    </td>
+
+                    <td>
+                        <input type="checkbox" id="mb_c_microfone">
+                        <p>Microfone</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="checkbox" id="mb_c_audio">
+                        <p>Áudio</p>
+                    </td>
+
+                    <td>
+                        <input type="checkbox" id="mb_c_video">
+                        <p>Vídeo</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="checkbox" id="mb_c_sqlite">
+                        <p>Banco de Dados (Sqlite)</p>
+                    </td>
+
+                    <td>
+                        <input type="checkbox" id="mb_c_sql">
+                        <p>Banco de Dados (Sql)</p>
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="checkbox" id="mb_c_accelerometer">
+                        <p>Acelerômetro</p>
+                    </td>
+
+                    <td>
+                        <input type="checkbox" id="mb_c_giroscope">
+                        <p>Giroscópio</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="checkbox" id="mb_c_vibration">
+                        <p>Vibração</p>
+                    </td>
+
+                    <td>
+                        <input type="checkbox" id="mb_c_explorer">
+                        <p>Explorador de Arquivos</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="checkbox" id="mb_c_internet">
+                        <p>Internet</p>
+                    </td>
+
+                    <td>
+                        <input type="checkbox" id="mb_read_image">
+                        <p>Leitura de Imagem</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="checkbox" id="mb_c_screenshot">
+                        <p>Screenshot</p>
+                    </td>
+
+                    <td>
+                        <input type="checkbox" id="mb_c_text">
+                        <p>Leitura de Textos</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="checkbox" id="mb_c_pdf">
+                        <p>Leitura de PDF</p>
+                    </td>
+
+                    <td>
+                        <input type="checkbox" id="mb_c_read_video">
+                        <p>Leitura de Vídeo</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="checkbox" id="mb_c_facial">
+                        <p>Reconhecimento Facial</p>
+                    </td>
+
+                    <td>
+                        <input type="checkbox" id="mb_c_fingers">
+                        <p>Biometria (Dedos)</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="checkbox" id="mb_c_firebase">
+                        <p>Firebase</p>
+                    </td>
+
+                    <td>
+                        <input type="checkbox" id="mb_c_crypto">
+                        <p>Criptografia</p>
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="checkbox" id="mb_c_share">
+                        <p>Compartilhamento</p>
+                    </td>
+
+                    <td>
+                        <input type="checkbox" id="mb_c_bluetooth">
+                        <p>Bluetooth</p>
+                    </td>
+
+                </tr>
+                                                                                                
+                <tr>
+                    <td colspan="2"><button id="mb_ok" onclick="window.print();">Finalizar</button></td>
+                </tr>                
+
+
+
+            </table>
+        </div>
+        
+        <div class="ask_task" id="so">            
+            <table class="choose_one">
+                <tr>
+                    <td colspan="2"><p>Qual o Sistema Operacional do Software?</p></td>
+                </tr>
+                <tr>
+                    <td>                                            
+                        <img alt="Windows" src="img_/lang/windows.png" id="so_windows">
+                        <p>Windows</p>                                            
+                    </td>
+    
+                    <td>                    
+                        <img alt="Linux" src="img_/lang/linux.jfif" id="so_linux">
+                        <p>Linux</p>                    
+                    </td>        
+                    
+                </tr>
+                <tr>
+                    <td>                                            
+                        <img alt="Mac OS" src="img_/lang/mac.png" id="so_mac">
+                        <p>Mac OS</p>                                            
+                    </td>
+    
+                    <td>                    
+                        <img alt="Raspberry" src="img_/lang/rasp.png" id="so_raspberry">
+                        <p>Raspberry</p>                    
+                    </td>        
+                    
+                </tr>
+
+                <tr>
+                    <td colspan="2"><p>Escolha a Linguagem de Programação:</p></td>
+                </tr>                
+                
+                <tr id="so_only_so">
+                    <td>                                            
+                        <img alt="C / C++" src="img_/lang/c.png" id="so_c">
+                        <p>C / C++</p>                                            
+                    </td>
+    
+                    <td>                    
+                        <img alt="Java" src="img_/lang/java.png" id="so_java">
+                        <p>Java</p>                    
+                    </td>        
+                </tr>
+                
+                <tr id="so_only_so">
+                    <td>                                            
+                        <img alt="Javascript" src="img_/lang/js.png" id="so_javascript">
+                        <p>Javascript</p>                                            
+                    </td>
+    
+                    <td>                    
+                        <img alt="PHP" src="img_/lang/php.png" id="so_php">
+                        <p>PHP</p>                    
+                    </td>        
+                </tr>
+                
+                <tr id="so_only_so">
+                    <td>                                            
+                        <img alt="Ruby" src="img_/lang/ruby.png" id="so_ruby">
+                        <p>Ruby</p>                                            
+                    </td>
+    
+                    <td>                    
+                        <img alt="Python" src="img_/lang/python.png" id="so_python">
+                        <p>Python</p>                    
+                    </td>        
+                </tr>
+                
+                <tr id="so_only_so">
+                    <td>                                            
+                        <img alt="Swift" src="img_/lang/swift.jfif" id="so_swift">
+                        <p>Swift</p>                                            
+                    </td>
+    
+                    <td>                    
+                        <img alt="C Sharp" src="img_/lang/c_sharp.png" id="so_c_sharp">
+                        <p>C# / Objective C</p>                    
+                    </td>        
+                </tr>
+                
+
+                
+                <tr>
+                    <td colspan="2"><p>Recursos do Sistema a serem gerenciados:</p></td>
+                </tr>                                
+
+                <tr>
+                    <td>
+                        <input type="checkbox" id="so_c_camera">
+                        <p>Câmera</p>
+                    </td>
+
+                    <td>
+                        <input type="checkbox" id="so_c_microphone">
+                        <p>Microfone</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="checkbox" id="so_c_audio">
+                        <p>Áudio</p>
+                    </td>
+
+                    <td>
+                        <input type="checkbox" id="so_c_video">
+                        <p>Vídeo</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="checkbox" id="so_c_sqlite">
+                        <p>Banco de Dados (Sqlite)</p>
+                    </td>
+
+                    <td>
+                        <input type="checkbox" id="so_c_sql">
+                        <p>Banco de Dados (Sql)</p>
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="checkbox" id="so_c_internet">
+                        <p>Internet</p>
+                    </td>
+
+                    <td>
+                        <input type="checkbox" id="so_c_explorer">
+                        <p>Explorador de Arquivos</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="checkbox" id="so_c_screenshot">
+                        <p>Screenshot</p>
+                    </td>
+
+                    <td>
+                        <input type="checkbox" id="so_c_pdf">
+                        <p>Leitura de PDF</p>
+                    </td>
+                    
+                </tr>
+
+
+                <tr>
+                    
+                    <td>
+                        <input type="checkbox" id="so_c_share">
+                        <p>Compartilhamento</p>
+                    </td>
+
+                    <td>
+                        <input type="checkbox" id="so_c_crypto">
+                        <p>Criptografia</p>
+                    </td>
+
+                </tr>
+                                                                                                
+                <tr>
+                    <td colspan="2"><button id="mb_ok" onclick="window.print();">Finalizar</button></td>
+                </tr>                
+
+
+
+            </table>
+        </div>
+        
+        <div class="ask_task" id="ga">            
+            <table class="choose_one">
+                <tr>
+                    <td colspan="2"><p>Qual a plataforma do Jogo?</p></td>
+                </tr>
+                <tr>
+                    <td>                                            
+                        <img alt="Windows" src="img_/logos/windows_.jpg" id="ga_windows">
+                        <p>Windows</p>                                            
+                    </td>
+    
+                    <td>                    
+                        <img alt="linux" src="img_/logos/linux_.png" id="ga_linux">
+                        <p>Linux</p>                    
+                    </td>        
+                </tr>
+                
+                <tr>
+                    <td>                                            
+                        <img alt="Navegador Web" src="img_/informatics/linux_shell.png" id="ga_web">
+                        <p>Navegador Web</p>                                            
+                    </td>
+    
+                    <td>                    
+                        <img alt="Android" src="img_/logos/droid.png" id="ga_android">
+                        <p>Android</p>                    
+                    </td>        
+                </tr>
+                
+                <tr>
+                    <td>                                            
+                        <img alt="IOS" src="img_/logos/apple.jpg" id="ga_ios">
+                        <p>IOS</p>                                            
+                    </td>
+    
+                    <td>                    
+                        <img alt="Console" src="img_/informatics/video_game.jpg" id="ga_console">
+                        <p>Console (SNES, Playstation, etc.)</p>                    
+                    </td>        
+                </tr>
+                
+                
+                <tr>
+                    <td colspan="2"><p>Informe os recursos embutidos no Game:</p></td>
+                </tr>                                
+
+                <tr>
+                    <td>
+                        <input type="checkbox" id="ga_c_native">
+                        <p>Código Nativo em C/C++</p>
+                    </td>
+
+                    <td>
+                        <input type="checkbox" id="ga_c_online">
+                        <p>Muiltiplay On-line</p>
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="checkbox" id="ga_c_sqlite">
+                        <p>Banco de Dados (Sqlite)</p>
+                    </td>
+
+                    <td>
+                        <input type="checkbox" id="ga_c_sql">
+                        <p>Banco de Dados (Sql)</p>
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="checkbox" id="ga_c_screenshot">
+                        <p>Screenshot</p>
+                    </td>
+
+                    <td>
+                        <input type="checkbox" id="ga_c_vibration">
+                        <p>Vibração</p>
+                    </td>
+                </tr>
+                                                                                                
+                <tr>
+                    <td colspan="2"><button id="mb_ok" onclick="window.print();">Finalizar</button></td>
+                </tr>                
+
+
+
+            </table>
+        </div>
+        
+        <div class="ask_task" id="dt">            
+            <table class="choose_one">
+                <tr>
+                    <td colspan="2"><p>Escolha o tipo de investigação privada:</p></td>
+                </tr>
+                <tr>
+                    <td>                                            
+                        <img alt="Investigação Cibernética" src="img_/security/computer_padlock.jpg" id="dt_cyber">
+                        <p>Investigação Cibernética</p>                                            
+                    </td>
+    
+                    <td>                    
+                        <img alt="Papiloscopia" src="img_/detetive/forensical.png" id="dt_papiloscopia">
+                        <p>Papiloscopia</p>                    
+                    </td>        
+                </tr>
+                
+                <tr>
+                    <td>                                            
+                        <img alt="Investigação de Pessoa Física" src="img_/detetive/home_office.jpg" id="dt_pessoa">
+                        <p>Investigação de Pessoa Física</p>                                            
+                    </td>
+    
+                    <td>                    
+                        <img alt="Investigação Empresarial" src="img_/job/office.jpg" id="dt_empresarial">
+                        <p>Investigação Empresarial</p>                    
+                    </td>        
+                </tr>
+                
+                <tr>
+                    <td>                                            
+                        <img alt="Inquérito Policial" src="img_/security/handcuff.png" id="dt_inquerito">
+                        <p>Participação em Inquérito Policial (Lei 13.432/17)</p>                                            
+                    </td>
+    
+                    <td>                    
+                        <img alt="Monitoramento" src="img_/detetive/sherlock.jpg" id="dt_monitoramento">
+                        <p>Monitoramento</p>                    
+                    </td>        
+                </tr>
+                
+                
+                <tr>
+                    <td colspan="2"><p>Recursos que dem constar do relatório do Detetive:</p></td>
+                </tr>                                
+
+                <tr>
+                    <td>
+                        <input type="checkbox" id="dt_c_fixa">
+                        <p>Campana Fixa</p>
+                    </td>
+
+                    <td>
+                        <input type="checkbox" id="dt_c_movel">
+                        <p>Campana Móvel</p>
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="checkbox" id="dt_c_sotaque">
+                        <p>Análise de Sotaque</p>
+                    </td>
+
+                    <td>
+                        <input type="checkbox" id="dt_c_informaticos">
+                        <p>Perícia em Dispositivos Informáticos</p>
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="checkbox" id="dt_c_presencial">
+                        <p>Acompanhamento Presencial</p>
+                    </td>
+
+                    <td>
+                        <input type="checkbox" id="dt_c_digital">
+                        <p>Coleta de Digitais</p>
+                    </td>
+                </tr>
+                                                                                                
+                <tr>
+                    <td colspan="2"><button id="dt_ok" onclick="window.print();">Finalizar</button></td>
+                </tr>                
+
+
+
+            </table>
+        </div>
+
+        <div class="ask_task" id="tv">            
+            <table class="choose_one">
+                <tr>
+                    <td colspan="2"><p>Qual a TV de destino?</p></td>
+                </tr>
+                <tr>
+                    <td>                                            
+                        <img alt="Samsung TV" src="img_/logos/samsung.jpg" id="tv_samsung">
+                        <p>Samsung TV</p>                                            
+                    </td>
+    
+                    <td>                    
+                        <img alt="LG TV" src="img_/logos/lg.jpg" id="tv_lg">
+                        <p>LG TV</p>                    
+                    </td>
+                </tr>
+                    
+                <tr>
+                    <td>                                            
+                        <img alt="Sony TV" src="img_/logos/sony.jpg" id="tv_sony">
+                        <p>Sony TV</p>                                            
+                    </td>
+    
+                    <td>                    
+                        <img alt="Android TV" src="img_/logos/droid.png" id="tv_android">
+                        <p>Android TV</p>                    
+                    </td>
+                </tr>                                
+                
+                <tr>
+                    <td colspan="2"><p>Informe os recursos a serem gerenciados na TV:</p></td>
+                </tr>                                
+
+                <tr>
+                    <td>
+                        <input type="checkbox" id="tv_c_native">
+                        <p>Código Nativo em C/C++</p>
+                    </td>
+
+                    <td>
+                        <input type="checkbox" id="tv_c_gps">
+                        <p>GPS</p>
+                    </td>
+
+                </tr>                                
+
+                <tr>
+                    <td>
+                        <input type="checkbox" id="tv_c_sqlite">
+                        <p>Banco de Dados (Sqlite)</p>
+                    </td>
+
+                    <td>
+                        <input type="checkbox" id="tv_c_sql">
+                        <p>Banco de Dados (Sql)</p>
+                    </td>
+
+                </tr>                                
+
+                <tr>
+                    <td>
+                        <input type="checkbox" id="tv_c_internet">
+                        <p>Internet</p>
+                    </td>
+
+                    <td>
+                        <input type="checkbox" id="tv_read_image">
+                        <p>Leitura de Imagem</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="checkbox" id="tv_c_screenshot">
+                        <p>Screenshot</p>
+                    </td>
+
+                    <td>
+                        <input type="checkbox" id="tv_c_text">
+                        <p>Leitura de Textos</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="checkbox" id="tv_c_pdf">
+                        <p>Leitura de PDF</p>
+                    </td>
+
+                    <td>
+                        <input type="checkbox" id="tv_c_read_video">
+                        <p>Leitura de Vídeo</p>
+                    </td>
+                </tr>                                                
+                                                                                                
+                <tr>
+                    <td colspan="2"><button id="tv_ok" onclick="window.print();">Finalizar</button></td>
+                </tr>                
+
+            </table>
+        </div>
+        
+        <div class="ask_task" id="st">            
+            <table class="choose_one">
+                <tr>
+                    <td colspan="2"><p>Qual o tipo de implementação Web?</p></td>
+                </tr>
+                <tr>
+                    <td>                                            
+                        <img alt="Web Site" src="img_/logos/logo.png" id="st_site">
+                        <p>Web Site</p>                                            
+                    </td>
+    
+                    <td>                    
+                        <img alt="Aplicativo Web" src="img_/logos/logo.png" id="st_app">
+                        <p>Aplicativo Web</p>                    
+                    </td>
+                </tr>
+                    
+                <tr>
+                    <td>                                            
+                        <img alt="Intranet" src="img_/logos/logo.png" id="st_intranet">
+                        <p>Intranet</p>                                            
+                    </td>
+    
+                    <td>                    
+                        <img alt="API para Desenvolvedores" src="img_/logos/logo.png" id="st_api">
+                        <p>API para Desenvolvedores</p>                    
+                    </td>
+                </tr>                                
+                
+                <tr>
+                    <td colspan="2"><p>O que a aplicação / site deverá conter?</p></td>
+                </tr>                                
+
+                <tr>
+                    <td>
+                        <input type="checkbox" id="st_c_sql">
+                        <p>Banco SQL (Relacional)</p>
+                    </td>
+
+                    <td>
+                        <input type="checkbox" id="st_c_nosql">
+                        <p>Banco NoSQL (Não Relacional)</p>
+                    </td>
+
+                </tr>                                
+
+                <tr>
+                    <td>
+                        <input type="checkbox" id="st_c_domain">
+                        <p>Domínio Próprio (www.example.com)</p>
+                    </td>
+
+                    <td>
+                        <input type="checkbox" id="st_c_emal">
+                        <p>E-mail Corporativo</p>
+                    </td>
+
+                </tr>                                
+
+                <tr>
+                    <td>
+                        <input type="checkbox" id="st_c_gps">
+                        <p>Aplicação GPS</p>
+                    </td>
+
+                    <td>
+                        <input type="checkbox" id="st_c_server">
+                        <p>Servidor Dedicado</p>
+                    </td>
+                </tr>
+                                                                                                
+                <tr>
+                    <td colspan="2"><button id="tv_ok" onclick="window.print();">Finalizar</button></td>
+                </tr>                
+
+            </table>
+        </div>
+            
+
+    </div>
+    
+
+
+    <div class="loading"></div>
+
+    <div class="total">
+        <h1 id="total">Total: R$ 0,00</h1>
+    </div>
+
+
+
+    
+
+    <div class="cookie" id="cookie">
+        <ul>
+            <li>
+                <div class="c_instruction">
+                    <h5>Cookies e Lei Geral de Proteção de Dados (LGPD)</h5>
+                        <p>
+                            Este site usa cookies e oferece a você oportunidade de customizá-los, ativando ou desativando<br> cookies opcionais, 
+                            de maneira a oferecer ao usuário a melhor experiência e mostrar-lhe anúncios <br>relevantes, tudo de acordo com a Lei 
+                            de Dados. Para mais informações, consulte nossa <a href="politica-de-privacidade.html">Política de Privacidade</a>.
+                        </p>
+                </div>
+            </li>
+
+
+            <li class="manage" id="manage">Gerenciar</li>
+            <li class="go_on" id="go_on">Ok, Prosseguir</li>
+        </ul>
+    </div>
+
+    <div class="cookie_manage" id="cookie_manage">
+        <img src="img_/assets/close_button.png" id="btn_close_manage">
+        <h1>Gerenciar Cookies</h1>
+        <h5>Ative ou Desative os Seguintes Tipos de Cookies</h5>
+        <table>
+            <tr>
+                <td><input type="checkbox" id="cookie_follow" value="cookie_follow"></td>
+                <td>Cookies de Rastreamento</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" checked id="cookie_statistics" value="cookie_statistics"></td>
+                <td>Cookies de Estatística</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="cookie_security" value="cookie_security"></td>
+                <td>Cookies de Segurança</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="cookie_marketing" value="cookie_marketing"></td>
+                <td>Cookies de Marketing</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="cookie_better" value="cookie_better"></td>
+                <td>Cookies de Melhorias</td>
+            </tr>
+        </table>
+        <button id="btn_save_manage">Salvar</button>
+    </div>
+    
+
+    <img class="chat" alt="chat" src="img_/assets/chat.jpg" id="chat">
+    <img class="chat_close" alt="close_chat" src="img_/assets/close_button.png" id="chat_close">
+
+    <div style="display: none;">
+        <p id="secret">123</p>
+        <p id="secret_msg">123</p>
+    </div>
+
+    <div class="chat_main" id="chat_main">
+        <div class="toolbar">
+            <table class="tb_bar">
+                <tr>
+                    <td><h1>Fale com a Kelly</h1></td>
+                    <td><img alt="down_arrow" src="img_/assets/down_arrow_circle.png" id="chat_main_close"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="messages" id="messages">
+            <p class="day_week" id="day_week">qua., 6 de abr.</p>
+            <div class="kelly_msg" id="kelly_msg">
+                <table>
+                    <tr>
+                        <td><img alt="kelly_logo" src="img_/assets/chat.jpg"></td>
+                        <td>
+                            <p id="kelly_init_msg">
+                                Olá! Eu sou a Kelly, programadora e detetive. 
+                                Estou aqui para auxiliar você no que precisa. 
+                                Como posso ajudar?
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="user_msg" id="user_msg">
+                
+            </div>
+
+            <div class="user_input">
+                <table class="tb_input">
+                    <tr>
+                        <td><input type="text" maxlength="300" placeholder="Digitar Mensagem" id="chat_main_input"></td>
+                        <td><img alt="button_send" src="img_/assets/send.png" id="chat_main_send"></td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>        
+    </div>
+
+</header>
+
+<body>    
+
+<footer>
+
+    <div class="credits">
+        <p>Copyright© 2019-2022 EDUARDO PROGRAMADOR. Todos os direitos reservados.<br>
+            EDUARDO FARIA., analista de sistemas de formação, servidor público federal e autônomo, residente e situado em Recife/PE.
+            <br><br>
+            EDUARDO PROGRAMADOR, marca operada por EDUARDO FARIA nas áreas de desenvolvimento de sistemas e investigação privada.
+            <br>
+            <a>WhatsApp</a> para contato com o desenvolvedor.<br><br>
+            Este website é mais bem visualizado em computadores e notebooks.
+        </p>
+    </div>
+
+    <ul class="useful">
+        <li><img alt="Playtore" src="img_/logos/play_store.png" onclick="const tasks = new Tasks(); tasks_.go('https://play.google.com/store/apps/details?id=com.eduardoprogramador.ondeeuestou');"></li>
+        <li><img alt="Microsoft Store" src="img_/logos/store_microsoft.jpg" onclick="const tasks = new Tasks(); tasks.go('https://www.microsoft.com/pt-br/p/mysql-client-go/9pmcw63w4g3b?activetab=pivot:overviewtab');"></li>
+        <li><img alt="Amazon Store" src="img_/logos/amazon.png" onclick="const tasks = new Tasks(); tasks.go('https://www.amazon.com.br/eduprogramacao-Wifi-Analyzer/dp/B087D5WBCP/ref=sr_1_3?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=1DWI7JNLPAVUH&keywords=wifi+analyzer&qid=1648824044&sprefix=wifi+analyze%2Caps%2C194&sr=8-3');"></li>
+        <li><img alt="Github" src="img_/logos/github.png" onclick="const tasks = new Tasks(); tasks.go('https://github.com/eduprogrammer');"></li>
+    </ul>
+
+    <script>
+        document.onload = main();
+    </script>
+
+
+</footer>
+
+</html>
