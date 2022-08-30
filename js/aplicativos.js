@@ -1,6 +1,5 @@
 function main() {
-    const tasks = new Tasks();
-    const chat = new Chat();
+    const tasks = new Tasks();    
 
     var isServerReady = false;        
            
