@@ -1,0 +1,201 @@
+<!--
+    Copyright 2022. Eduardo Programador
+    www.eduardoprogramador.com
+    consultoria@eduardoprogramador.com
+    Todos os direitos reservados
+
+    Template destinado para fins didáticos e demonstrativos no site Eduardo Programador.
+    O código descrito contém direitos autorais. 
+    Você pode utilizá-lo como template em seu site,
+    porém deve incluir a informação do Copyright completa do item acima.
+
+-->
+
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="content-type" content="text/html">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="author" content="Eduardo Programador">
+    <meta name="description" content="Eduardo Programador - Modelo de Web Design Um">
+    <meta name="keywords" content="web,design,web design,modelo,site,template,templates para site">
+    <meta name="robots" content="index,follow">
+    
+    <style>
+
+        * {
+            margin: 0;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        header {
+            background-image: url('img/05.jpg');
+            background-size: cover;
+            height: 100vh;
+        }        
+
+        .container {
+            position: relative;
+        }
+
+        .upper {
+            text-align: right;     
+            padding-top: 1em;       
+        }
+
+        .upper img {
+            padding-right: 6.5em;            
+        }
+
+        .upper h1 {
+            padding-right: 1em;
+            animation: rotate 3s ease-in-out;
+        }
+
+        .list ul {
+            list-style: none;
+        }
+
+        .list ul li {            
+            background-image: linear-gradient(to bottom right, rgba(59, 19, 170, 0.664), rgba(180, 17, 17, 0.644));
+            margin-bottom: 2em;
+            padding-right: 20em;
+            padding-top: 0.5em;
+            padding-bottom: 0.5em;
+            padding-left: 1em;
+            background-size: cover;
+            border-radius: 2%;
+            width: fit-content;
+            transition: ease-out 1s;
+            animation: fill 3s ease-in;
+        }
+
+        .list ul li:hover {
+            cursor: pointer;        
+            background-color: brown;    
+            padding-right: 23em;
+        }
+
+        .list ul li a {
+            text-decoration: none;
+            color: seashell;
+        }
+
+        .active_li {
+            background-color: brown;
+        }
+
+        .list ul li a:hover {
+            color: yellow;
+        }        
+
+        .mural {
+            position: absolute;
+            top: 0em;
+            right: 22em;
+            background-color: rgba(78, 3, 107, 0.658);
+            border-radius: 5%;
+            padding: 1em;
+            text-align: center;            
+        }
+
+        .mural h1 {
+            animation: tiktok linear 0.5s infinite;
+        }
+        
+
+        .mural img {
+            width: 15em;
+            height: 20em;
+            border-radius: 50%;                        
+        }
+
+        .mural p, .mural h1 {
+            color: seashell;
+        }
+
+        .copyright ul {
+            list-style: none;
+            position: absolute;
+            bottom: 2em;
+            right: 2em;
+        }
+
+        .copyright ul li {
+            display: inline-block;
+            font-weight: bold;
+        }
+        
+        .copyright img {
+            width: 2em;
+            height: 2em;
+        }
+
+        @keyframes fill {
+            0%{padding-right: 0em; filter: sepia(1);}
+            50%{padding-right: 10em; background-color: rgba(19, 170, 44, 0.568);}
+            100%{padding-right: 20em; background-color: rgba(54, 182, 165, 0.527);}                                                
+        }
+
+        @keyframes rotate {
+            from{transform: rotate3d(0,0,0,0deg);}
+            to{transform: rotate3d(-1,1,1,360deg);}            
+        }
+
+        @keyframes tiktok {
+            from{color: seashell;}
+            to{color: yellow;}
+        }
+
+                
+    </style>    
+
+</head>
+
+<header>    
+
+    <div class="upper">
+        <img src="img/04.png">
+        <h1>Eduardo Programador</h1>
+    </div>
+
+    <div class="container">
+        <nav class="list">
+            <ul>
+                <li class="active_li"><a href="#" class="active_a" style="color: yellow;">Página Inicial</a></li>
+                <li><a href="#">Softwares Empresariais</a></li>
+                <li><a href="#">Aplicativos para Smartphone</a></li>
+                <li><a href="#">Inteligência Artificial</a></li>
+                <li><a href="#">Análise de Dados</a></li>
+                <li><a href="#">Web Design</a></li>
+                <li><a href="#">Trabalhe Conosco</a></li>
+            </ul>
+        </nav>
+        <div class="mural">
+            <h1>Junte-se a Nós!</h1>
+            <img src="img/06.jpg">
+            <p>
+                Faça como a Joana, seja independente!<br>
+                Trabalhe construindo sites com HTML e CSS e<br> 
+                garanta seu sucesso na área de Web Design.
+            </p>
+        </div>
+    </div>
+
+    <div class="copyright">
+        <ul>
+            <li><img src="img/04.png"></li>
+            <li>Copyright 2022. Eduardo Programador</li>
+        </ul>
+    </div>
+
+</header>
+
+<body>
+    <!--
+        Você pode construir seu código HTML aqui...
+    -->
+</body>
+
+</html>

@@ -1,0 +1,322 @@
+
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+}
+
+
+header {
+    background-image: url(../img/angel_new.png);    
+    background-position: 0px -200px;
+    background-size: cover;
+    height: 130vh;
+}
+
+
+h1 {
+    font-size: 40px;    
+    text-align: center;
+    color: crimson;        
+    padding-top: 20px;
+    animation-name: spin;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+}
+
+#plot {
+    animation-name: spin;
+    animation-duration: 1.5s;
+    animation-timing-function: linear;
+}
+
+.cnpj_params ul {
+    list-style: none;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.cnpj_params ul li {
+    display: inline-block;
+    padding-right: 10px;
+}
+
+.cnpj_params input[type="text"] {
+    padding: 10px;
+    text-align: center;
+    border-radius: 10%;
+    font-size: 20px;
+}
+
+.cnpj_params input[type="text"]:focus, .cnpj_result input[type="text"]:active {
+    background-color: cyan;
+}
+
+
+.see {
+    right: 0px;
+    left: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    bottom: 10px;
+    position: absolute;
+}
+
+.cnpj_result {
+    border: 2px solid black;
+    padding: 5px 5px;
+}
+
+.table_header h2 {
+    text-align: center;
+}
+
+.table_header h3 {
+    text-align: center;
+}
+
+.table_header img {
+    width: 100px;
+    border-radius: 50%;
+    margin-left: 100px;
+}
+
+table {
+    border-collapse: separate;
+    padding: 10px 10px;
+}
+
+table li {
+    font-size: 14px;
+    
+}
+
+td {
+    border: 2px solid black;
+    text-align: left;
+}
+
+.print {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 50px;
+    padding: 10px 10px;
+    font-size: 20px;
+}
+
+.cnpj_result li.bold {
+    font-weight: bold;
+}
+
+.ultimate {
+    margin-top: 20px;
+}
+
+ul {
+    list-style: none;
+}
+
+.qsa {
+    margin-top: 20px;
+}
+
+button {
+    background-color: yellowgreen;
+    filter: opacity(0.9);
+    padding: 10px;
+    border-radius: 10%;
+    font-size: 20px;
+}
+
+button:hover {
+    background-color: yellow;
+}
+
+
+
+.home a {
+    position: absolute;
+    top: 100px;
+    right: 200px;
+    padding: 10px;
+    text-decoration: none;
+    color:black;
+    background-color: coral;
+    border-radius: 10%;
+}
+
+.home a:hover {
+    background-color: yellow;
+}
+
+
+.download_app h1 {
+    font-size: 20px;
+    text-align: unset;
+    padding: unset;
+
+}
+
+.download_app ul li p {
+    font-size: 14px;
+}
+
+.download_app img {
+    width: 100px;
+}
+
+.download_app ul {
+    list-style: none;
+    margin: 0px 0px;
+    padding: 0px 0px;
+    float: right;
+    margin-top: 350px;
+}
+
+.download_app ul li {
+    display: block;
+    margin: 0px 0px;
+    padding: 0px 0px;
+    text-align: center;
+}
+
+.loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    visibility: hidden;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+.see ul {
+    list-style: none;
+}
+
+.see ul li {
+    display: inline-block;
+}
+
+.microsoft {
+    margin: unset;
+    background-color: cornflowerblue;
+    width: 200px;
+    margin: unset;
+    font-family: unset;
+    padding: unset;
+    position: absolute;
+    text-align: center;
+    border-radius: 25%;
+    font-size: 10px;
+    margin-top: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    right: 130px;
+    display: block;
+
+    
+}
+
+.microsoft h2 {
+    font-size: 16px;
+}
+
+.microsoft img {
+    width: 80px;
+}
+
+
+
+@keyframes appear {
+    from{margin-left: 1000px;}
+    to{margin-left: unset;}    
+}
+
+
+.policy_dialog {    
+    background-image: url("../img/cookies.jpg");
+    background-size: cover;    
+    width: fit-content;    
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+    padding: 10px;
+    border-radius: 10%;
+    padding: 20px;
+    z-index: 10;
+    height: unset;
+    animation-name: policy_anim;
+    animation-duration: 3s;
+    display: block;
+}
+
+.policy_dialog h1 {
+    text-align: center;
+}
+
+.btns {
+    text-align: center;
+}
+
+.policy_dialog button {
+    border-radius: 10%;
+    padding: 10px;
+}
+
+.policy_dialog button:hover {
+    cursor: pointer;
+    background-color: goldenrod;
+}
+
+.agree {
+    background-color: chartreuse;
+}
+
+.disagree {
+    background-color: firebrick;
+}
+
+
+@keyframes policy_anim {
+    from{right: -2000px;}
+    to{right: 10px;}
+}
+
+.live {
+    position: fixed;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    bottom: 50px;
+    left: 150px;    
+    transition: 1s ease-in;
+}
+
+.live:hover {
+    cursor: pointer;
+    width: 400px;
+    height: 400px;
+}
+
+.theme {
+    list-style: none;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.theme li {
+    display: inline-block;
+}
+
+.theme {
+    position: absolute;
+    top: 220px;
+    left: 20px;
+}

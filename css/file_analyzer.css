@@ -1,0 +1,125 @@
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    text-align: center;
+}
+
+header {
+    background-image: url("../img/sherlock_40.png");
+    background-size: cover;    
+    background-position: 0px -300px;
+    height: 100vh;
+}
+
+.main h1 {
+    padding-top: 50px;
+    font-size: 40px;
+}
+
+.main h2 {
+    font-size: 20px;
+}
+
+.description {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 30px;
+}
+
+.params {
+    margin-top: 20px;
+}
+
+.result {
+    margin-top: 20px;    
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.content {
+    margin-top: 20px;    
+}
+
+textarea {
+    width: 1000px;
+    margin-top: 10px;
+    border-radius: 5%;
+    height: 140px;
+    overflow-y: scroll;
+    overflow-x: scroll;
+    text-align: center;    
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th,td {
+    border: 1px solid black;
+    padding: 2px;
+}
+
+.policy_dialog {
+    background-image: linear-gradient(to bottom right,cyan,pink);
+    width: fit-content;
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+    padding: 10px;
+    border-radius: 10%;
+    padding: 20px;
+    z-index: 10;
+    animation-name: policy_anim;
+    animation-duration: 3s;
+    display: block;
+}
+
+.policy_dialog h1 {
+    text-align: center;
+}
+
+.btns {
+    text-align: center;
+}
+
+.policy_dialog button {
+    border-radius: 10%;
+    padding: 10px;
+}
+
+.policy_dialog button:hover {
+    cursor: pointer;
+    background-color: goldenrod;
+}
+
+.agree {
+    background-color: chartreuse;
+}
+
+.disagree {
+    background-color: firebrick;
+}
+
+
+@keyframes policy_anim {
+    from{right: -2000px;}
+    to{right: 10px;}
+}
+
+.home a {
+    position: absolute;
+    top: 100px;
+    right: 200px;
+    text-decoration: none;
+    color:black;
+    padding: 10px;
+    background-color: coral;
+    border-radius: 50%;
+}
+
+.home a:hover {
+    background-color: yellow;
+}

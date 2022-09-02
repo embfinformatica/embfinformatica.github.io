@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>File Analyzer</title>
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="stylesheet" type="text/css" href="css/file_analyzer.css">
+    <script type="text/javascript" src="js/functions.js"></script>
+</head>
+
+<header>
+
+    <div class="home">
+        <a href="index.html">Início</a>
+    </div>
+
+    <div class="main">
+        <h1>File Analyzer</h1>
+        <h2>Serviço de Análise de Conteúdo de Arquivos</h2>        
+    </div>
+
+    <p class="description">Com o File Analyzer, você confere de maneira online o conteúdo de um arquivo hospedado em seu computador, 
+        adquirindo informações sobre o tamanho do documento, conteúdo nele embutido, extensão e até o Hash criptográfico (MD5, Sha1, Sha256 e Sha512). 
+        O sistema suporta arquivos de até <strong>15mb</strong>.
+    </p>
+
+
+<div class="params">
+    <form method="post" action="php/file_analyzer.php" enctype="multipart/form-data">
+        <input type="file" name="file_ana" id="file_ana">
+        <input type="submit" name="go" id="go" value="Analisar">
+    </form>
+</div>
+
+<div class="result">
+    <table>
+        <tr>
+            <th>Tamanho do Arquivo (Bytes):</th>
+            <td>-</td>
+        </tr>
+
+        <tr>
+            <th>Tipo do Arquivo:</th>
+            <td>-</td>
+        </tr>
+
+        <tr>
+            <th>MD5:</th>
+            <td>-</td>
+        </tr>
+
+        <tr>
+            <th>SHA1:</th>
+            <td>-</td>
+        </tr>
+
+        <tr>
+            <th>SHA256:</th>
+            <td>-</td>
+        </tr>
+
+        <tr>
+            <th>SHA512:</th>
+            <td></td>
+        </tr>        
+
+    </table>
+
+    <div class="content">
+        <p>Conteúdo do Arquivo:</p>
+        <textarea></textarea>
+    </div>
+
+    <div class="foot">
+        <p>Copytight 2021. Eduardo Programador</p>
+    </div>
+
+</div>
+
+<div class="policy_dialog" id="policy_dialog">
+    <h1>Aviso de Privacidade</h1><br>
+
+    <p>Sua privacidade é muito importante e seus dados são cuidados com zelo.<br> 
+        Contudo, de modo a proporcionar-lhe a melhor experiência e por razões<br> 
+        de segurança e melhoria do serviço, Eduardo Programador fornece cookies,<br> 
+        coleta seu IP, data e hora de acesso e outros dados de conexão.<br><br> 
+        Confira na íntegra a <a href="politica-de-privacidade.html">Política de Privacidade</a> do desenvolvedor atualizada.</p><br>
+
+    <p>Entendi o aviso e a finalidade da coleta dos dados, logo:</p><br>                
+    
+    <div class="btns">
+    <button class="agree" id="agree">Aceito</button>
+
+    
+    <button class="disagree" id="disagree">* Não Aceito</button>
+    </div><br>
+
+    <p>* Ao continuar no site, você aceita tacitamente os termos de privacidade.</p>
+    
+</div>
+
+</header>
+
+<body>
+
+    <script>
+
+        $(document).ready(function () {
+            
+
+            if(location.protocol === 'http:') {
+            window.location.replace("https://eduardoprogramador.com/consulta_cnpj.html");
+            
+        }
+
+        if(getOldCookie().localeCompare("") == 0) {
+                    $("#policy_dialog").show();
+                } else {
+                    $("#policy_dialog").hide();
+                }
+
+                $("#agree").click(function () {
+                       
+                       setNewCookie();
+                       $("#policy_dialog").hide();
+
+                   });
+
+                   $("#disagree").click(function () {
+                      
+                       $.ajax({
+
+                           url : "php/cookies.php",
+                           method : "POST",
+                           data : {
+                               "name_cookie" : "refused",
+                               "value_cookie" : "refused",
+                               "expiration_cookie" : "refused",
+                               "privacy_accepted" : "no"
+                           }
+
+                       });
+                       $("#policy_dialog").hide();
+
+                       alert("Você recusou a política de privacidade de Eduardo Programador.\nGentilmente, você será reconduzido à página anterior do seu navegador.\nCaso deseje voltar, é necessário concordar com os termos de uso.\n\nObrigado!");
+                       window.history.go(-1);
+
+                   });
+
+                   function setNewCookie() {            
+
+let chars = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','0','1','2','3','4','5','6','7','8','9'];
+let nums = ['0','1','2','3','4','5','6','7','8','9'];
+let len = chars.length;
+
+var cName = "_eduardoprogramador_com", cValue = "", cTime = "", cookie = "";
+
+for(var i = 0; i < 15; i++) {
+
+    let index = Math.floor(Math.random() * (len - 1));
+    cValue += chars[index];
+}
+
+for(var i = 0; i < 10; i++) {
+    let nIndex = nums.length;
+    let index = Math.floor(Math.random() * (nIndex-1));
+    cValue += nums[index];
+}
+
+let d = new Date();
+d.setTime(d.getTime() + 365 * 24 * 60 * 60 * 1000);
+
+cookie = cName + "=" + cValue + ";expires=" + d.toUTCString() + ";path=/";            
+document.cookie = cookie;            
+
+$.ajax({
+
+    url : "php/cookies.php",
+    method : "POST",
+    data : {
+
+        "name_cookie" : cName,
+        "value_cookie" : cValue,
+        "expiration_cookie" : d.toUTCString(),
+        "privacy_accepted" : "yes"
+    }
+
+});
+
+
+};
+
+function getOldCookie() {
+        
+let name = "_eduardoprogramador_com=";
+let decodedCookie = decodeURIComponent(document.cookie);
+let ca = decodedCookie.split(';');
+for(let i = 0; i <ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+    }
+if (c.indexOf(name) == 0) {
+return c.substring(name.length, c.length);
+}
+}
+
+return "";          
+
+};
+
+
+        });
+
+        var theTime = new Date();
+        
+            var day = theTime.getDate();
+            var month = theTime.getMonth() + 1;
+            var year = theTime.getFullYear();
+            var hour = theTime.getHours();
+            var min = theTime.getMinutes();
+            var seconds = theTime.getSeconds();
+                                    
+
+            $.ajax({
+                    url : "php/services.php",
+                    method : "POST",
+                    data : {
+                        'service' : "File Analyzer",
+                        'date' : day + "/" + month + "/" + year,
+                        'time' : hour + ":" + min + ":" + seconds,
+                        'param' : "File Analyzer"
+                    }
+                });        
+
+            
+    </script>
+
+</body>
+
+</html>

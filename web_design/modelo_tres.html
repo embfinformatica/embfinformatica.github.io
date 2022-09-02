@@ -1,0 +1,131 @@
+<!--
+    Copyright 2022. Eduardo Programador
+    www.eduardoprogramador.com
+    consultoria@eduardoprogramador.com
+    Todos os direitos reservados
+
+    Template destinado para fins didáticos e demonstrativos no site Eduardo Programador.
+    O código descrito contém direitos autorais. 
+    Você pode utilizá-lo como template em seu site,
+    porém deve incluir a informação do Copyright completa do item acima.
+
+-->
+
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="content-type" content="text/html">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="author" content="Eduardo Programador">
+    <meta name="description" content="Eduardo Programador - Modelo de Web Design Três">
+    <meta name="keywords" content="web,design,web design,modelo,site,template,templates para site">
+    <meta name="robots" content="index,follow">
+    
+    <style>
+
+        * {
+            margin: 0;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        header {
+            background-image: url('img/07.jpg');
+            background-size: cover;
+            height: 100vh;
+        }        
+
+        .container {
+            position: relative;
+        }                
+
+        .menu ul {
+            list-style: none;
+            padding-top: 5em;
+            text-align: right;
+        }
+
+        .menu ul li {
+            display: inline-block;
+            transform: rotate3d(14,-14,-14,45deg);
+            transition: 0.1s ease-in;                        
+        }
+
+        .menu ul li:hover {
+            cursor: pointer;
+            text-decoration: underline yellowgreen 1em;
+            color: brown;
+        }
+
+        .logo {
+            position: absolute;
+            left: 5em;
+            width: 5em;
+            height: 5em;
+            top: 4em;
+            transition: 1s ease-in-out;
+        }
+
+        .logo:hover {
+            cursor: pointer;
+            filter: grayscale(1);
+        }
+
+        .reallity {
+            background-color: rgba(29, 158, 57, 0.637);
+            position: absolute;
+            bottom: 2em;
+            width: 100%;    
+            text-align: center;
+            padding-top: 1em;
+            padding-bottom: 1em;
+            animation: comeToRight 2s ease-in-out;
+        }
+
+        .reallity p {
+            color: seashell;
+            font-size: 2em;
+        }
+
+        @keyframes comeToRight {
+            from{transform: translateX(-100em);}
+            to{transform: translateX(0em);}
+        }
+                
+    </style>    
+
+</head>
+
+<header>        
+
+    <div class="container">
+
+        <img class="logo" src="img/04.png" title="Copyright 2022. Eduardo Programador">        
+
+        <nav class="menu">
+            <ul>
+                <li style="color: blue;">Início</li>
+                <li>Web Design</li>
+                <li>Aplicativos</li>
+                <li>Banco de Dados</li>
+                <li>TI em Nuvem</li>
+                <li>Para Desktop</li>
+                <li>Customizáveis</li>
+
+            </ul>
+        </nav>
+    </div>        
+
+    <div class="reallity">
+        <p>Aqui os seus projetos viram realidade!</p>
+    </div>
+
+</header>
+
+<body>
+    <!--
+        Você pode construir seu código HTML aqui...
+    -->
+</body>
+
+</html>

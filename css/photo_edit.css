@@ -1,0 +1,99 @@
+* {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 0;
+}
+
+header {
+    background-image: url("../img/paint.png");
+    background-size: cover;
+    height: 200vh;
+}
+
+h1 {
+    font-size: 40px;
+    padding-top: 20px;
+    margin-left: 100px;
+    border-bottom: 3px solid red;
+}
+
+h2 {
+    text-align: right;
+    font-size: 20px;
+    margin-left: 100px;
+    padding: 5px;
+}
+
+h3 {
+    text-align: center;
+    padding-top: 20px;
+    border-left: 3px solid red;
+    border-right: 3px solid red;
+    margin-left: 150px;
+    margin-right: 150px;
+    padding-bottom: 20px;
+}
+
+.params {
+    text-align: center;
+}
+
+.copyright {
+    position: absolute;
+    top: 10px;
+    text-align: center;
+    left: 500px;
+    right: 500px;
+}
+
+.desktop {
+
+    padding-top: 20px;
+    width: 640px;
+    height: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    background-color: rgba(255, 255, 255, 1);
+    
+}
+
+.desktop img {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 640px;
+    height: 480px;
+    display: block;
+}
+
+.desktop canvas {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 640px;
+    height: 480px;
+    display: block;
+}
+
+.desktop button {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.home {
+    text-decoration: none;
+    background-color: chocolate;
+    border-radius: 15%;
+    color:black;
+    padding: 5px;
+    font-size: 25px;
+    position: absolute;
+    right: 50px;
+    top: 20px;
+}
+
+.home:hover {
+    background-color: brown;
+}

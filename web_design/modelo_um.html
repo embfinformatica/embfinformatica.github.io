@@ -1,0 +1,202 @@
+<!--
+    Copyright 2022. Eduardo Programador
+    www.eduardoprogramador.com
+    consultoria@eduardoprogramador.com
+    Todos os direitos reservados
+
+    Template destinado para fins didáticos e demonstrativos no site Eduardo Programador.
+    O código descrito contém direitos autorais. 
+    Você pode utilizá-lo como template em seu site,
+    porém deve incluir a informação do Copyright completa do item acima.
+
+-->
+
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="content-type" content="text/html">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="author" content="Eduardo Programador">
+    <meta name="description" content="Eduardo Programador - Modelo de Web Design Um">
+    <meta name="keywords" content="web,design,web design,modelo,site,template,templates para site">
+    <meta name="robots" content="index,follow">
+    <link rel="icon" type="image/png" href="img/logo.png">
+    
+    <style>
+
+        * {
+            margin: 0;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        header {
+            background-image: url('img/01.jpg');
+            background-size: cover;
+            height: 100vh;
+        }        
+
+        nav {
+            animation: appear 10s ease-in;
+        }
+
+        .principal ul {
+            list-style: none;            
+            text-align: center;
+            padding-top: 1em;
+        }
+
+        .principal ul li {
+            display: inline-block;
+            padding-right: 5em;
+            padding-left: 0.5em;
+            padding-top: 0.3em;
+            padding-bottom: 0.3em;
+            margin-right: 0.5em;
+            background-image: url('img/02.jpg');
+            border-radius: 5%;
+            background-size: cover;            
+            transition: ease-in-out 0.5s;
+        }        
+
+        .principal ul li:hover {
+            cursor: pointer;
+            filter: grayscale(1);
+            border: 0.2em seashell solid;            
+        }
+        
+        .principal ul li a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            font-size: 1em;
+        }            
+
+        .active {
+            filter: grayscale(0.7);
+            border: 0.2em yellow solid;            
+        }
+
+        .light {
+            padding-top: 1em;
+            padding-bottom: 1em;
+            position: relative;
+            margin-top: 8em;
+            text-align: center;
+            border-top: 1em dotted seashell;
+            border-bottom: 1em dotted seashell;
+            background-color: rgba(80, 67, 67, 0.548);            
+            animation-name: cine;            
+            animation-timing-function: linear;
+            animation-duration: 2s;
+        }
+
+        .person {
+            text-align: left;
+            padding-left: 10em;
+        }
+
+        .person h1 {
+            padding-left: 1.2em;
+        }
+
+        .person img {
+            width: 15em;
+            height: 15em;
+            border-radius: 50%;            
+        }
+
+        .description {
+            text-align: right;            
+            position: absolute;
+            top: 1em;
+            right: 5em;
+        }
+
+        .description p {
+            color: aquamarine;
+            font-size: 1.5em;
+        }        
+
+        .copyright ul {
+            list-style: none;
+            text-align: center;
+            margin-top: 5em;
+        }
+
+        .copyright ul li {
+            display: inline-block;
+        }
+
+        .copyright img {
+            width: 2em;
+            height: 2em;
+        }
+
+        @keyframes cine {
+            from{transform: translateX(-100em)}
+            to{transform: translateX(0em);}
+        }
+
+        @keyframes appear {
+            0%{filter: opacity(0);}
+            100%{filter: opacity(1);}
+        }
+        
+        
+
+    </style>
+    
+    <script>
+
+    </script>
+
+</head>
+
+<header>
+    <nav class="principal">
+        <ul>
+            <li class="active"><a href="#" style="color: blue;">Início</a></li>
+            <li><a href="#">Oportunidades</a></li>
+            <li><a href="#">Sua Empresa</a></li>
+            <li><a href="#">Novidades</a></li>
+            <li><a href="#">Contato</a></li>
+        </ul>
+    </nav>
+
+    <div class="light">
+        <div class="person">
+            <img src="img/03.jpg">
+            <h1>Web Design</h1>
+        </div>
+        <div class="description">
+            <p>
+                Aqui a sua solução é arquitetada do início e<br> 
+                extraímos os desenhos que estão na sua mente,<br> 
+                dando formas na internet, através de códigos<br> 
+                e engenharia de software.
+            </p>
+            <br>
+            <p>
+                Faria, Eduardo (Programador)
+            </p>
+
+        </div>
+    </div>
+
+    <div class="copyright">        
+        <ul>
+            <li><img src="img/04.png"></li>
+            <li>Copyright 2022. Eduardo Programador</li>
+        </ul>
+    </div>
+
+</header>
+
+<body>
+    <!--
+        Você pode construir seu código HTML aqui...
+    -->
+</body>
+
+</html>

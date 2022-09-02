@@ -1,0 +1,233 @@
+* {
+    margin: 0;
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+header {
+    height: 100vh;
+    background-size: cover;
+    background-image: url("../img/iphone_user.jpg");
+
+}
+
+.container h1 {
+    font-size: 40px;
+    padding-top: 20px;
+}
+
+.first {
+    background-color: rgba(114, 54, 54, 0.801);
+    padding: 10px;
+    font-size: 20px;
+    margin-top: 30px;
+    color: burlywood;
+}
+
+.second {
+    background-image: linear-gradient(to bottom right,red,burlywood);
+    margin-top: 35px;
+    font-size: 18px;
+    color: chartreuse;
+    padding: 5px;
+    padding-left: 50px;
+    padding-right: 50px;
+    columns: 3;
+}
+
+.params {
+    margin-top: 50px;
+    list-style: none;
+}
+
+.params li {
+    display: inline-block;
+    padding-right: 10px;
+}
+
+.ddd {
+    width: 50px;
+    padding: 10px;
+    color: chocolate;
+}
+
+.number {
+    width: 150px;
+    padding: 10px;
+    color: chocolate;
+}
+
+.params button {
+    padding: 10px;
+    background-color: darkgoldenrod;
+}
+
+.credits {
+    position: absolute;
+    bottom: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bold;
+    color: darkslateblue;
+    background-color: darkseagreen;
+    left: 0;
+    right: 0;
+}
+
+.phone {
+    width: 400px;
+    height: 200px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#send:hover {
+    cursor: pointer;
+    background-color: goldenrod;
+}
+
+.policy_dialog {    
+    background-image: url("../img/cookies.jpg");
+    background-size: cover;    
+    width: fit-content;
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+    padding: 10px;
+    border-radius: 10%;
+    padding: 20px;
+    z-index: 10;
+    height: unset;
+    animation-name: policy_anim;
+    animation-duration: 3s;
+    display: block;
+}
+
+.policy_dialog h1 {
+    text-align: center;
+}
+
+.btns {
+    text-align: center;
+}
+
+.policy_dialog button {
+    border-radius: 10%;
+    padding: 10px;
+}
+
+.policy_dialog button:hover {
+    cursor: pointer;
+    background-color: goldenrod;
+}
+
+.agree {
+    background-color: chartreuse;
+}
+
+.disagree {
+    background-color: firebrick;
+}
+
+
+@keyframes policy_anim {
+    from{right: -2000px;}
+    to{right: 10px;}
+}
+
+footer {
+    height: 50vh;
+    background-image: url("../img/footer.png");
+    background-size: cover;
+    background-position: 0px -90px;
+    background-color: white;
+}
+
+.programming_languages {
+    list-style: none;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.programming_languages li {
+    display: inline-block;
+    padding-right: 10px;
+}
+
+.programming_languages img {
+    width: 60px;
+    height: 60px;
+    border-radius: 15%;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in;
+}
+
+.programming_languages img:hover {
+    width: 100px;
+    height: 80px;
+    border-radius: 10%;
+}
+
+.policy {
+    text-align: right;
+    margin-top: 10px;
+}
+
+.policy ul {
+    list-style: none;
+}
+
+.policy ul li {
+    padding-right: 25px;
+    display: inline-block;
+}
+
+.policy ul li a {
+    text-decoration: none;
+    font-size: 20px;
+    color:teal
+}
+
+.policy ul li a:hover {
+    color:chocolate;
+    border-bottom: 2px solid chocolate;
+}
+
+
+.copyright {
+    margin-top: 10px;
+}
+
+.up_arrow {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    width: 50px;        
+}
+
+.up_arrow:hover {
+    filter: sepia(1);
+    cursor: pointer;
+}
+
+
+
+.up_arrow:hover {
+    filter: sepia(1);
+    cursor: pointer;
+}
+
+.home a {
+    position: absolute;
+    top: 20px;
+    right: 200px;
+    padding: 10px;
+    text-decoration: none;
+    color:black;
+    background-color: coral;
+    border-radius: 10%;
+}
+
+.home a:hover {
+    background-color: yellow;
+}

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="author" content="Eduardo Programador">
+    <meta name="description" content="auxilio emergencial online,consulta auxilio emergencial">
+    <meta name="keywords" content="auxilio emergencial, consulta auxilio emergencial">
+    <meta name="application-name" content="Eduardo Programador (Auxílio Emergencial)">
+    <meta name="robots" content="index, follow">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/chat_functions.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="css/emergencial.css">
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <title>Auxílio Emergencial</title>
+</head>
+
+<header>
+
+</header>
+
+<body>
+
+    <!----
+    <div class="chat" id="initChat" onclick="displayChat()">
+
+        <img src="img/logo.png"></img>
+        <p>Fale agora com o Programador</p>
+
+    </div>
+
+    <div class="chat_inside" id="chat_inside">
+
+        <h1 id="insideClose" onclick="closeChat()">[X]</h1>
+
+        <div class="chat_content" id="chat_content">
+        <div class="chat_me">
+            <br>
+            <ul>
+            <li><img src="img/ico_dev.png"></img></li>
+            <li><h2>Eduardo Programador</h2></li>
+            </ul>
+        </div>
+
+        <table>
+            <tr>
+                <th><p>Nome:</p></th>
+                <td><input type="text" placeholder="Nome" maxlength="50" id="chat_name" required></td>
+            </tr>
+
+            <tr>
+                <th><p>E-mail:</p></th>
+                <td><input type="text" placeholder="E-mail" maxlength="50" id="chat_surname" required></td>
+            </tr>
+
+            <tr>
+                <th><p>Mensagem:</p></th>
+                <td><textarea placeholder="Escreva a sua mensagem." maxlength="500" id="chat_message" required></textarea></td>
+            </tr>
+
+        </table>
+
+        <button id="chat_send" onclick="sendChatMsg()">Enviar</button>
+        <br><br>
+
+        </div>
+
+    </div>
+    !-->
+
+    <div class="download_app">
+        <ul>
+        <li><h1>Baixe o Software!</h1></li>
+        <li><p>Transparência Robot<br>Consulta a Auxílio Emergencial<br>Licitação e Convênios<br>Bolsa Família<br>Servidores Públicos<br>Acordos de Leniência</p></li>
+        <li><a href="soft/TransparenciaRobotGUI.jar"><img src="img/java.png"></a></img></li>
+        </ul>
+    </div>
+
+    <h1>Consulta de Auxílio Emergencial</h1>
+
+    <div class="consult_params">
+
+        <ul>
+            <li><p>CPF do Beneficiário:</p></li>
+            <li><input type="text" maxlength="14" size="18" placeholder="CPF sem pontos e traços" id="editCpf" onkeyup="enableButton()"></li>
+            <li><button disabled id="btnConsult" onclick="doConsult()">Consultar</button></li>
+            <li class="loader" id="loader"></li>
+        </ul>
+
+    </div>
+
+    <div class="consult_results" id="consult_results">
+
+        <table id="table_results">
+            <tr>
+                <th>CPF</th>
+                <th>Nome</th>
+                <th>Cidade</th>
+                <th>Estado</th>
+                <th>Mês de Referência</th>
+                <th>Parcela</th>
+                <th>Valor</th>
+            </tr>
+
+            <tr>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+    <button onclick="printIt()">Imprimir</button>
+
+    <script>
+
+        if(location.protocol === 'http:') {
+            window.location.replace("https://eduardoprogramador.com/auxilio_emergencial.html");
+        }
+        
+       
+        function enableButton() {
+            
+            var now = document.getElementById("editCpf").value;
+            if(now.length > 0) {
+                document.getElementById("btnConsult").disabled = false;
+
+            } else {
+                document.getElementById("btnConsult").disabled = true;
+            }
+        };
+
+        
+
+        function printIt() {
+            window.print();
+            
+        };
+
+
+
+
+        function doConsult() {
+            var curTime= new Date();
+            var cpf = document.getElementById("editCpf").value;
+            var loader = document.getElementById("loader");
+            loader.style.visibility = "visible";
+
+            $.ajax({
+                    url : "php/services.php",
+                    method : "POST",
+                    data : {
+                        'service' : "Auxilio Emergencial",
+                        'date' : curTime.getDate() + "/" + curTime.getMonth() + "/" + curTime.getFullYear(),
+                        'time' : curTime.getHours() + ":" + curTime.getMinutes() + ":" + curTime.getSeconds(),
+                        'param' : cpf
+                    }
+                });
+
+            $.ajaxSetup({
+            headers : {
+                 'Accept' : atob("Ki8q"),
+                'chave-api-dados' : atob("YWJiZDM0YTIwYjhhMmEyYWQwMWI2YmE2NjMyZTUxMWQ=")
+            }
+        });
+
+        
+
+        $.getJSON(atob("aHR0cDovL2FwaS5wb3J0YWxkYXRyYW5zcGFyZW5jaWEuZ292LmJyL2FwaS1kZS1kYWRvcy9hdXhpbGlvLWVtZXJnZW5jaWFsLXBvci1jcGYtb3UtbmlzP2NvZGlnb0JlbmVmaWNpYXJpbz0=") + cpf + atob("JnBhZ2luYT0x"), function (data) {
+
+            if(data.length == 0) {
+                document.getElementById("table_results").innerHTML = "Nenhum beneficiário encontrado";
+                loader.style.visibility = "hidden";
+                
+                
+            } else {
+
+                var construction = "<tr><th>CPF</th><th>Nome</th><th>Cidade</th><th>Estado</th><th>Mês de Referência</th><th>Parcela</th><th>Valor</th></tr>";
+
+                $(data).each(function (i, item) {
+
+                var month = item.mesDisponibilizacao;
+                var cpf = item.beneficiario.cpfFormatado;
+                var name = item.beneficiario.nome;
+                var city = item.municipio.nomeIBGE;
+                var uf = item.municipio.uf.sigla;
+                var price = item.valor;
+                var parcel = item.numeroParcela;
+                var common = month + " and " + cpf + " and " + name + " and " + city + " and " + uf + " and " + price + " and " + parcel;
+
+                construction += "<tr><td>" + cpf + "</td>" + "<td>" + name + "</td>" + "<td>" + city + "</td>" + "<td>" + uf + "</td>" + "<td>" + month + "</td>" + "<td>" + parcel + "</td>" + "<td>" + price + "</td></tr>";
+
+            });
+
+            document.getElementById("table_results").innerHTML = construction;
+            loader.style.visibility = "hidden";
+
+                
+
+            }
+
+            
+
+        });
+
+        }
+        
+    </script>
+  
+</body>
+
+<footer>
+
+    <p>Copyright 2021. Eduardo Programador</p>
+
+</footer>
+

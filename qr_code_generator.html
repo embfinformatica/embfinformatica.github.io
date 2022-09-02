@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width;initial-scale=1.0">
+    <title>Gerador de QR-Code</title>
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="stylesheet" type="text/css" href="css/qr_code.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js" type="text/javascript"></script>
+    <script src="js/functions.js" type="text/javascript"></script>
+</head>
+
+<header>
+
+    <h1>Gerador de QR-Code</h1>
+    <h2>Este módulo permite a criação de códigos QR (QR Code) através de links fornecidos pelo usuário. Com a imagem do código gerado, é possível acessar remotamente o link através de câmeras de SmartPhones.</h2>
+
+    <div class="params">
+
+        <input type="text" size="30" placeholder="Insira a URL de sua preferência" id="editUrl">
+        <button id="btnDo">Gerar</button>
+
+    </div>
+
+    <canvas id="qr-code"></canvas>
+
+    <p class="caption" id="caption">QR-Code Gerado com sucesso para a URL: xxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+
+    <p class="copyright">Copyright 2021. Eduardo Programador. Versão 1.0. Atualizada em 02/08/2021</p>
+
+    <a class="home" href="index.html">Início</a>
+
+</header>
+
+<body>
+
+    
+
+    <script>
+    
+    var theTime = new Date();
+        
+            var day = theTime.getDate();
+            var month = theTime.getMonth() + 1;
+            var year = theTime.getFullYear();
+            var hour = theTime.getHours();
+            var min = theTime.getMinutes();
+            var seconds = theTime.getSeconds();
+        
+        $.ajax({
+                    url : "php/services.php",
+                    method : "POST",
+                    data : {
+                        'service' : "Qr-Code Generator",
+                        'date' : day + "/" + month + "/" + year,
+                        'time' : hour + ":" + min + ":" + seconds,
+                        'param' : $("#editUrl").val()
+                    }
+                });
+
+    var qr;
+
+    qr = new QRious({
+        element : document.getElementById("qr-code"),
+        size : 200,
+        value : "https://eduardoprogramador.com"
+    });
+
+    $("#btnDo").on({
+        "click" : function () {
+            var asked = $("#editUrl").val();
+            
+            qr.set({
+                foreground : "black",
+                size : 200,
+                value : asked
+            })
+
+            $("#caption").css("visibility","visible");
+            $("#caption").text("QR-Code Gerado com sucesso para a URL: " + asked);
+        }
+    })
+
+    </script>
+    
+</body>
+
+<footer>
+
+</footer>
+
+</html>

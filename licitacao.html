@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width;initial-scale=1.0">
+    <title>Licitação e Contratos</title>
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="stylesheet" type="text/css" href="css/licitacao.css">
+    <script type="text/javascript" src="js/functions.js"></script>
+    <script type="text/javascript" src="js/licit_choose.js"></script>
+    <script type="text/javascript" src="js/licit_others.js"></script>
+    <script type="text/javascript" src="js/chat_functions.js"></script>
+
+</head>
+
+<header>
+
+    <!----
+    <div class="chat" id="initChat" onclick="displayChat()">
+
+        <img src="img/logo.png"></img>
+        <p>Fale agora com o Programador</p>
+
+    </div>
+
+    <div class="chat_inside" id="chat_inside">
+
+        <h1 id="insideClose" onclick="closeChat()">[X]</h1>
+
+        <div class="chat_content" id="chat_content">
+        <div class="chat_me">
+            <br>
+            <ul>
+            <li><img src="img/ico_dev.png"></img></li>
+            <li><h2>Eduardo Programador</h2></li>
+            </ul>
+        </div>
+
+        <table>
+            <tr>
+                <th><p>Nome:</p></th>
+                <td><input type="text" placeholder="Nome" maxlength="50" id="chat_name" required></td>
+            </tr>
+
+            <tr>
+                <th><p>E-mail:</p></th>
+                <td><input type="text" placeholder="E-mail" maxlength="50" id="chat_surname" required></td>
+            </tr>
+
+            <tr>
+                <th><p>Mensagem:</p></th>
+                <td><textarea placeholder="Escreva a sua mensagem." maxlength="500" id="chat_message" required></textarea></td>
+            </tr>
+
+        </table>
+
+        <button id="chat_send" onclick="sendChatMsg()">Enviar</button>
+        <br><br>
+
+        </div>
+
+    </div>
+    !-->
+
+    <div class="home">
+        <a href="index.html">Início</a>
+    </div>
+
+
+    <div class="title">
+    <h1>Licitação e Contratos</h1>
+    <h2>Serviço Web</h2>
+    </div>
+
+    <p class="subtitle">Sistema desenvolvido por <strong>Eduardo Programador</strong>, totalmente gratuito, destinado aos profissionais que atuam na área de licitação e contratos, auditores governamentais, licitantes, analistas de dados, enfim, toda a sociedade. Informe um modo de pesquisa, clique em consultar e visualize os resultados. Maiores informações através do contato: consultoria@eduardoprogramador.com</p>
+
+    <div class="mode">
+
+        <h1>Modo:</h1>
+
+        <table>
+
+            <tr>
+                <td><input type="radio" value="fbyname" id="rbFbyname" size="30" checked onclick="beginRadio(1)">&nbsp;&nbsp;<label for="rbFbyname">Fornecedor por Nome</label></td>
+                <td><input type="radio" value="fbycnpj" id="rbFbycnpj" onclick="beginRadio(2)">&nbsp;&nbsp;<label for="rbFbycnpj">Fornecedor por CNPJ</label></td>
+                <td><input type="radio" value="fbyuf" id="rbFbyuf" onclick="beginRadio(3)">&nbsp;&nbsp;<label for="rbFbyuf">Fornecedor por UF</label></td>
+                <td><input type="radio" value="uasgbycep" id="rbUasgbycep" onclick="beginRadio(4)">&nbsp;&nbsp;<label for="rbUasgbycep">UASG por CEP</label></td>
+                <td><input type="radio" value="uasgbyname" id="rbUasgbyname" onclick="beginRadio(5)">&nbsp;&nbsp;<label for="rbUasgbyname">UASG por Nome</label></td>
+            </tr>
+
+            <tr>
+                <td><input type="radio" value="licitbyf" id="rbLicitbyf" onclick="beginRadio(6)">&nbsp;&nbsp;<label for="rbLicitbyf">Licitação por Fornecedor</label></td>
+                <td><input type="radio" value="licitbyuasg" id="rbLicitbyuasg" onclick="beginRadio(7)">&nbsp;&nbsp;<label for="rbLicitbyuasg">Licitação por UASG</label></td>
+                <td><input type="radio" value="licitbyservidor" id="rbLicitbyservidor" onclick="beginRadio(8)">&nbsp;&nbsp;<label for="rbLicitbyservidor">Licitação por Servidor</label></td>
+                <td><input type="radio" value="licitbyobjeto" id="rbLicitbyobjeto" onclick="beginRadio(9)">&nbsp;&nbsp;<label for="rbLicitbyobjeto">Licitação por Objeto</label></td>
+                <td><input type="radio" value="licitbyuf" id="rbLicitbyuf" onclick="beginRadio(10)">&nbsp;&nbsp;<label for="rbLicitbyuf">Licitação por UF</label></td>
+            </tr>
+
+        </table>
+
+        <div class="params">
+
+            <ul>
+                <li><p id="param">Parâmetro:</p></li>
+                <li><input type="text" placeholder="Pesquisa com ou sem espaços" size="25" maxlength="50" id="editHolder"></li>
+                <li><button onclick="doConsult()">Consultar</button></li>
+
+                <div class="loader_dialog" id="loader_dialog">
+
+                    <div class="loader">
+
+                    </div>
+
+                    <p>Aguarde... A pesquisa pode durar até 1 minuto...</p>
+
+                </div>
+
+                <p class="copyright">Copyright 2021. Eduardo Programador</p>
+
+
+            </ul>
+
+        </div>
+
+    </div>
+
+    <div class="download_app">
+        <ul>
+        <li><h1>Baixe o App!</h1></li>
+        <li><p>Caçador ComprasNET<br>Consulta de Fornecedores<br>Cadastrados no SICAF</p></li>
+        <li><img src="img/qr_cacador.png"></img></li>
+        <li><a href="https://play.google.com/store/apps/details?id=com.eduardoprogramador.cacadorfornecedorescomprasnet"><img src="img/play_store.png"></a></img></li>
+        </ul>
+    </div>
+
+    <div class="more">
+
+        <p>Versão 1.3</p>
+        <p>Atualizado em 02/08/2021</p>
+        <p>Pesquisa com espaços, sem necessidade do "+"</p>
+
+    </div>
+
+    <div class="more_cnpj">
+        <p>Quer consulta de CNPJ rápida e sem captcha?</p>
+        <p>Acesse o <a href="consulta_cnpj.html">Serviço</a> agora!</p>
+
+    </div>
+
+
+</header>
+
+<body>
+
+    <div class="results" id="results">
+
+        <h1 id="result_count">Resultados: 0</h1>
+
+        <table id="result_table">
+
+            <tr>
+                <th>Param</th>
+                <td>Value</td>
+            </tr>
+
+            <tr>
+                <th>Param</th>
+                <td>Value</td>
+            </tr>
+
+            <tr>
+                <th>Param</th>
+                <td>Value</td>
+            </tr>
+
+            <tr>
+                <th>Param</th>
+                <td>Value</td>
+            </tr>
+
+            <tr>
+                <th>Param</th>
+                <td>Value</td>
+            </tr>
+
+            <tr>
+                <th>Param</th>
+                <td>Value</td>
+            </tr>
+
+            <tr>
+                <th>Param</th>
+                <td>Value</td>
+            </tr>
+
+            <tr>
+                <th>Param</th>
+                <td>Value</td>
+            </tr>
+
+            <tr>
+                <th>Param</th>
+                <td>Value</td>
+            </tr>
+
+            <tr>
+                <th>Param</th>
+                <td>Value</td>
+            </tr>
+
+
+        </table>
+
+    </div>
+
+    <p id="content"></p>
+
+    <script>
+
+        if(window.location.protocol === 'http:') {
+            window.location.replace("https://eduardoprogramador.com/licitacao.html");
+        }
+
+        var param, mode, offset, consultMethod;
+        
+        offset = "0";
+
+        var result_table = document.getElementById("result_table");
+        var res = "";
+        var dialog = document.getElementById("loader_dialog");
+
+        unsetResults();
+
+        function doConsult() {
+
+            unsetResults();
+
+            var theTime = new Date();
+        
+            var day = theTime.getDate();
+            var month = theTime.getMonth() + 1;
+            var year = theTime.getFullYear();
+            var hour = theTime.getHours();
+            var min = theTime.getMinutes();
+            var seconds = theTime.getSeconds();
+
+            var target = document.getElementById("editHolder").value;
+            target = target.replace(" ","");       
+            target = target.replace(".","");
+            target = target.replace("/","");
+            target = target.replace("-","");
+            target = target.replace(".","");
+
+
+            $.ajax({
+                    url : "php/services.php",
+                    method : "POST",
+                    data : {
+                        'service' : "Licitação",
+                        'date' : day + "/" + month + "/" + year,
+                        'time' : hour + ":" + min + ":" + seconds,
+                        'param' : target
+                    }
+                });
+
+            showWaitDialog();
+            param = document.getElementById("editHolder").value;
+            
+            switch (consultMethod) {
+                case 1:
+                    try {
+                        getByF();
+                    } catch (error) {
+                        result_table.innerHTML = res;
+                        hideWaitDialog();
+                        showResults(); 
+                    }
+                    break;
+
+                case 2:
+                    try {
+                        getByUasg();
+                    } catch (error) {
+                        result_table.innerHTML = res;
+                        hideWaitDialog();
+                        showResults();
+                    }
+                    break;
+
+                case 3:
+                    try {
+                        getByLicitacao();
+                    } catch (error) {
+                        result_table.innerHTML = res;
+                        hideWaitDialog();
+                        showResults();
+                    }
+                    break;
+            
+                default:
+                    mode = "fbyname";
+                    try {
+                        getByF();
+                    } catch (error) {
+                        result_table.innerHTML = res;
+                        hideWaitDialog();
+                        showResults();
+                    }
+                    break;
+            }
+
+        };
+
+
+        function getByLicitacao() {
+
+            $.ajax({
+
+                url : "php/licitacao.php",
+                method : "POST",
+                data : {
+                    "param" : param,
+                    "mode" : mode,
+                    "offset" : offset
+                }
+
+            }).done(function (response) {
+
+                if(response) {
+
+                    var jObj = JSON.parse(response);
+
+                var count = jObj.count;
+                var offset = jObj.offset;
+
+                var licitacoes = jObj._embedded.licitacoes;
+
+                document.getElementById("result_count").innerHTML = "Resultados: " + count;
+
+                for(var i = 0; i < count; i++) {
+
+               
+                    var uasg =   (licitacoes[i] != undefined) ? licitacoes[i]._links.uasg.title : "Não Computado";
+                    var numero_aviso =  (licitacoes[i] != undefined) ? licitacoes[i].numero_aviso : "Não Computado";
+                    var situacao_aviso = (licitacoes[i] != undefined) ? licitacoes[i].situacao_aviso : "Não Computado";
+                    var objeto = (licitacoes[i] != undefined) ? licitacoes[i].objeto : "Não Computado";
+                    var informacoes_gerais = (licitacoes[i] != undefined) ? licitacoes[i].informacoes_gerais : "Não Computado";
+                    var numero_processo = (licitacoes[i] != undefined) ? licitacoes[i].numero_processo : "Não Computado";
+                    var tipo_recurso = (licitacoes[i] != undefined) ? licitacoes[i].tipo_recurso : "Não Computado";
+                    var numero_itens = (licitacoes[i] != undefined) ? licitacoes[i].numero_itens : "Não Computado";
+                    var nome_responsavel = (licitacoes[i] != undefined) ? licitacoes[i].nome_responsavel : "Não Computado";
+                    var funcao_responsavel = (licitacoes[i] != undefined) ? licitacoes[i].funcao_responsavel : "Não Computado";
+                    var data_entrega_edital = (licitacoes[i] != undefined) ? licitacoes[i].data_entrega_edital : "Não Computado";
+                    var endereco_entrega_edital = (licitacoes[i] != undefined) ? licitacoes[i].endereco_entrega_edital : "Não Computado";
+                    var data_abertura_proposta = (licitacoes[i] != undefined) ? licitacoes[i].data_abertura_proposta : "Não Computado";
+                    var data_entrega_proposta = (licitacoes[i] != undefined) ? licitacoes[i].data_entrega_proposta : "Não Computado";
+                    var data_publicacao = (licitacoes[i] != undefined) ? licitacoes[i].data_publicacao : "Não Computado";
+                    var link_edital = (licitacoes[i] != undefined) ? licitacoes[i]._links.link_edital.href : "Não Computado";
+                    var modalidade_licitacao = (licitacoes[i] != undefined) ? licitacoes[i]._links.modalidade_licitacao.title : "Não Computado";
+
+                    res += "<tr><th>UASG</th><td>" + uasg + "</td></tr>";
+                    res += "<tr><th>Número do Aviso</th><td>" + numero_aviso + "</td></tr>";
+                    res += "<tr><th>Situação do Aviso</th><td>" + situacao_aviso + "</td></tr>";
+                    res += "<tr><th>Objeto</th><td>" + objeto  + "</td></tr>";
+                    res += "<tr><th>Informações Gerais</th><td>" + "</td></tr>";
+                    res += "<tr><th>Número do Processo</th><td>" + numero_processo + "</td></tr>";
+                    res += "<tr><th>Tipo de Recurso</th><td>" + "</td></tr>";
+                    res += "<tr><th>Número de Itens</th><td>" + numero_itens  + "</td></tr>";
+                    res += "<tr><th>Nome do Responsável</th><td>" + nome_responsavel  + "</td></tr>";
+                    res += "<tr><th>Função do Responsável</th><td>" + funcao_responsavel + "</td></tr>";
+                    res += "<tr><th>Data de Entrega do Edital</th><td>" + data_entrega_edital + "</td></tr>";
+                    res += "<tr><th>Endereço de Entrega do Edital</th><td>" + endereco_entrega_edital + "</td></tr>";
+                    res += "<tr><th>Data de Abertura da Proposta</th><td>" + data_abertura_proposta + "</td></tr>";
+                    res += "<tr><th>Data de Entrega da Proposta</th><td>" + data_entrega_proposta + "</td></tr>";
+                    res += "<tr><th>Data de Publicação</th><td>" + data_publicacao + "</td></tr>";
+                    res += "<tr><th>Link do Edital</th><td><a href=\"" + link_edital + "\">Download</a></td></tr>";
+                    res += "<tr><th>Modalidade de Licitação</th><td>" + modalidade_licitacao + "</td></tr>";
+                    res += "<tr><td colspan=\"2\"></td></tr>";
+                    res += "<tr><td colspan=\"2\"></td></tr>";
+                    res += "<tr><td colspan=\"2\"></td></tr>";
+                                        
+
+                }
+
+                result_table.innerHTML = res;
+                hideWaitDialog();
+                showResults();
+
+                alert("Resultados Encontrados. Role a tela para baixo para visualizar a pesquisa");
+                window.location.hash = "result_count";
+
+                } else {
+
+                    result_table.innerHTML = "";
+                    hideWaitDialog();
+                    unsetResults();
+                    alert("Nenhum Resultado Encontrado");
+
+                }
+            })
+            .fail(function(error) {
+                
+                result_table.innerHTML = "";
+                hideWaitDialog();
+                unsetResults();
+
+            });
+            
+        };
+
+        function getByUasg() {
+
+            $.ajax({
+
+            url : "php/licitacao.php",
+            method : "POST",
+            data : {
+                "param" : param,
+                "mode" : mode,
+                "offset" : offset
+            }
+
+            }).done(function (response) {
+
+                if(response) {
+                    var jObj = JSON.parse(response);
+                
+                var uasgs = jObj._embedded.uasgs;
+                var count = jObj.count;
+
+                document.getElementById("result_count").innerHTML = "Resultados: " + count;
+
+
+                for(var i = 0; i < count; i++) {
+
+                    var id = (uasgs[i] != undefined) ? uasgs[i].id : "Não Computado";
+                    var nome = (uasgs[i] != undefined) ? uasgs[i].nome : "Não Computado";
+                    var cnpj = (uasgs[i] != undefined) ? uasgs[i].cnpj : "Não Computado";
+                    var cep = (uasgs[i] != undefined) ? uasgs[i].cep : "Não Computado";
+                    var municipio = (uasgs[i] != undefined && uasgs[i]._links.municipio != undefined) ? uasgs[i]._links.municipio.title : "Não Especificado";
+
+                    res += "<tr><th>Código da UASG</th><td>" + id + "</td></tr>";
+                    res += "<tr><th>Nome do Órgão</th><td>" + nome + "</td></tr>";
+                    res += "<tr><th>CNPJ</th><td>" + cnpj + "</td></tr>";
+                    res += "<tr><th>CEP</th><td>" + cep + "</td></tr>";
+                    res += "<tr><th>Município</th><td>" + municipio + "</td></tr>";
+                    res += "<tr><td colspan=\"2\"></td></tr>";
+                    res += "<tr><td colspan=\"2\"></td></tr>";
+                    res += "<tr><td colspan=\"2\"></td></tr>";
+
+
+                }
+
+                result_table.innerHTML = res;
+                hideWaitDialog();
+                showResults();
+
+                
+                alert("Resultados Encontrados. Role a tela para baixo para visualizar a pesquisa");
+                window.location.hash = "result_count";
+
+                
+
+
+                } else {
+
+                    result_table.innerHTML = "";
+                    hideWaitDialog();
+                    unsetResults();
+                    alert("Nenhum Resultado Encontrado");
+
+
+                }
+            })
+            .fail(function () {
+
+                result_table.innerHTML = "";
+                hideWaitDialog();
+                unsetResults();
+                
+
+            });
+
+            };
+            
+            function getByF() {
+
+
+            $.ajax({
+
+                url : "php/licitacao.php",
+                method : "POST",
+                data : {
+                        "param" : param,
+                        "mode" : mode,
+                        "offset" : offset
+                }
+
+            }).done(function (response) {
+
+                if(response) {
+                    
+                    var jObj = JSON.parse(response);
+    
+                var offset = jObj.offset;
+                var count = jObj.count;
+
+                var fornecedores = jObj._embedded.fornecedores;
+
+                document.getElementById("result_count").innerHTML = "Resultados: " + count;
+                
+
+                for(var i = 0; i < count; i++) {
+                    
+                    var cnpj = (fornecedores[i] != undefined) ? fornecedores[i].cnpj : "Não Computado";
+                    var nome = (fornecedores[i] != undefined) ? fornecedores[i].nome : "Não Computado";
+                    var uf = (fornecedores[i] != undefined) ? fornecedores[i].uf : "Não Computado";
+                    var cnae = (fornecedores[i] != undefined) ? fornecedores[i]._links.cnae.title : "Não Computado";
+                    var municipio = (fornecedores[i] != undefined) ? fornecedores[i]._links.municipio.title : "Não Computado";
+                    var natureza_juridica = (fornecedores[i] != undefined) ? fornecedores[i]._links.natureza_juridica.title : "Não Computado";
+                    
+
+                    res += "<tr><th>CNPJ</th><td>" + cnpj + "</td></tr>";
+                    res += "<tr><th>Razão Social</th><td>" + nome + "</td></tr>";
+                    res += "<tr><th>UF</th><td>" + uf + "</td></tr>";
+                    res += "<tr><th>Cnae</th><td>" + cnae + "</td></tr>";
+                    res += "<tr><th>Município</th><td>" + municipio + "</td></tr>";
+                    res += "<tr><th>Natureza Jurídica</th><td>" + natureza_juridica + "</td></tr>";
+                    res += "<tr><td colspan=\"2\"></td></tr>";
+                    res += "<tr><td colspan=\"2\"></td></tr>";
+                    res += "<tr><td colspan=\"2\"></td></tr>";
+
+                }
+
+                result_table.innerHTML = res;
+                hideWaitDialog();
+                showResults();
+
+                alert("Resultados Encontrados. Role a tela para baixo para visualizar a pesquisa");
+                
+                window.location.hash = "result_count";
+
+                
+
+
+                } else {
+                    
+                    result_table.innerHTML = "";
+                    hideWaitDialog();
+                    unsetResults();
+                    alert("Nenhum Resultado Encontrado");
+
+                }
+
+            })
+            .fail(function () {
+                
+                result_table.innerHTML = "";
+                hideWaitDialog();
+                unsetResults();
+                
+            });
+
+            };
+
+
+    </script>
+
+</body>
+
+</html>

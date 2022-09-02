@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="author" content="Eduardo Programador">
+    <meta name="description" content="Desenvolvimento de Softwares, Aplicativos, Web Design e Detetive Profissional">
+    <meta name="keywords" content="auditoria online,software de auditoria governamental,transparecia,dados publicos">
+    <meta name="application-name" content="Eduardo Programador (Auditoria Online)">
+    <meta name="robots" content="index, follow">
+    <title>AuditeGov - Serviço de Auditoria Online de Órgãos Públicos</title>
+    <link rel="stylesheet" type="text/css" href="css/audit_gov.css">
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <script type="text/javascript" src="js/functions.js"></script>
+
+</head>
+
+<header>
+
+    <div class="main">
+    <h1>AuditeGov</h1>
+    <h2>Serviço de Auditoria de Órgãos Públicos</h2>
+    </div>
+
+    <img>
+
+    <div class="params">
+
+        <h1>Acesso Restrito - Informe suas credenciais</h1>
+
+        <input type="text" id="editLogin" maxlength="20" placeholder="Insira seu Login">
+        <input type="password" id="editPass" maxlength="30" placeholder="Insira sua Senha">
+
+        <p class="error" id="error"></p>
+
+        <ul>
+            <li><button id="login">Entrar</button></li>
+            <li><button id="get">Novo (Solicitar Senha)</button></li>
+        </ul>
+
+    </div>
+
+    <div class="description">
+
+        <p>AuditeGov é um serviço de auditoria completo de órgãos públicos, o qual embarca as mais diversas rotinas do ente público, dentre elas: contabilidade, licitação e contratos, convênios e acordos firmados, orçamentos e gastos com fornecedores, pessoal, transparência, governabilidade, etc. O software possui algoritmos avançados que interliga e consome diversos dados abertos do governo federal, não importando a natureza jurídica do órgão como conselhos de fiscalização profissional, órgãos da administração direta, entidades privadas colaboradoras do poder público, etc. O acesso ao aplicativo e tem como foco os órgãos de controle e auditores independentes, bem como a entidades sem fins lucrativos e pessoas físicas que demonstrem legítimo interesse.</p>
+
+    </div>
+
+
+
+</header>
+
+<body>
+    
+   <script>
+
+
+if(location.protocol === 'http:') {
+            location.replace("https://eduardoprogramador.com/detetive.html");
+        }
+
+
+
+var date = new Date();
+
+var hour = date.getHours();
+var min = date.getMinutes();
+var day = date.getDate();
+var month = date.getMonth() + 1;
+var year = date.getFullYear();
+
+let log = $("#editLogin").val();
+let pas = $("#editPass").val();
+
+$.ajax({
+        url : "php/audit_gov.php",
+        method : "POST",
+            data : {
+                'login' : "init",
+                'password' : "init",
+                'acao' : "AuditGov (Home)"
+            }
+    }).done(function(data) {
+                
+    });
+
+    
+
+    $("#login").on({
+
+        "click" : function () {
+
+
+            $.ajax({
+            url : "php/audit_gov.php",
+            method : "POST",
+            data : {
+                'login' : log,
+                'password' : pas,
+                'acao' : "AuditGov (Attempted)"
+            }
+    }).done(function(data) {
+        $("#error").html(data);
+    });
+            
+        }
+
+    });
+
+    $("#get").on({
+
+        "click" : function () {
+
+            window.open("mailto:consultoria@eduardoprogramador.com");
+            
+        }
+
+    });
+
+    </script>
+
+</body>
+
+<footer id="footer">
+
+    <ul class="programming_languages">
+        <li><img src="img/java.png"></li>
+        <li><img src="img/c++.png"></li>
+        <li><img src="img/swift.jpg"></li>
+        <li><img src="img/php.png"></li>
+        <li><img src="img/python.jpg"></li>
+        <li><img src="img/r.jpg"></li>
+        <li><img src="img/ruby.jpg"></li>
+        <li><img src="img/tcl.png"></li>
+    </ul>
+
+    <div class="policy">
+        <ul>
+            <li><a href="politica-de-privacidade.html">Política de Privacidade</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="politica-de-privacidad.html">Política de Privacidad</a></li>
+        </ul>
+    </div>
+    
+    
+    <div class="copyright">
+        <p>Copyright 2021. Eduardo Programador. Todos os direitos reservados<br>            
+            E-mail: consultoria@eduardoprogramador.com<br>    
+            Fone: +55 81 98860-0704
+        </p>
+    </div>
+
+
+</footer>
+
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="stylesheet" type="text/css" href="css/color_generator.css">
+    <script type="text/javascript" src="js/duscript.js"></script>
+    <script type="text/javascript" src="js/tasks.js"></script>
+    <title>Color Generator</title>
+
+</head>
+
+<header>
+
+    <div class="main">
+        <h1>Color Generator</h1>
+        <p>Gere Cores de modo fácil e rápido nos formatos RGB (red, green, blue) e Hexadecimal para usos diversos: incluindo edição de fotos 
+            no Adobe Photoshop, Corel Draw, Desenvolvimento de Sistemas, pesquisas e mais.
+        </p>
+    </div>
+
+    <label for="col">Selecione a Cor:</label>
+    <input type="color" value="#ff0000" id="col" name="col">
+
+    <div class="container">
+        <ul class="color_box_master">
+            <li>
+                <ul class="color_box_child">                    
+                    <li><div class="square" style="background-color: red;"></div></li>
+                    <label for="r">R:</label>
+                    <li><input type="text" class="rgb" maxlength="3" name="r" id="r"></li>
+                </ul>
+            </li>
+
+            <li>
+                <ul class="color_box_child">
+                    <li><div class="square" style="background-color: green;"></div></li>
+                    <label for="g">G:</label>
+                    <li><input type="text" class="rgb" maxlength="3" name="g" id="g"></li>
+                </ul>
+            </li>
+
+            <li>
+                <ul class="color_box_child">
+                    <li><div class="square" style="background-color: blue;"></div></li>
+                    <label for="b">B:</label>
+                    <li><input type="text" class="rgb" maxlength="3" name="b" id="b"></li>
+                </ul>
+            </li>
+
+        </ul>
+
+        <label for="hex">Hex:</label>
+        <input type="text" class="hex" maxlength="7" name="hex" id="hex">
+
+    </div>
+
+    <div class="copyright">
+        <p>Copyright 2021. Eduardo Programador</p>
+    </div>
+
+    <div class="policy_dialog" id="policy_dialog">
+        <h1>Aviso de Privacidade</h1><br>
+
+        <p>Sua privacidade é muito importante e seus dados são cuidados com zelo.<br> 
+            Contudo, de modo a proporcionar-lhe a melhor experiência e por razões<br> 
+            de segurança e melhoria do serviço, Eduardo Programador fornece cookies,<br> 
+            coleta seu IP, data e hora de acesso e outros dados de conexão.<br><br> 
+            Confira na íntegra a <a href="politica-de-privacidade.html">Política de Privacidade</a> do desenvolvedor atualizada.</p><br>
+
+        <p>Entendi o aviso e a finalidade da coleta dos dados, logo:</p><br>                
+        
+        <div class="btns">
+        <button class="agree" id="agree">Aceito</button>
+
+        
+        <button class="disagree" id="disagree">* Não Aceito</button>
+        </div><br>
+
+        <p>* Ao continuar no site, você aceita tacitamente os termos de privacidade.</p>
+        
+    </div>
+
+</header>
+
+<body>
+
+    <script>
+        
+        window.onload = function () {
+            
+            let tasks = new Tasks();
+
+            if(tasks.isHttp()) {
+                tasks.set("https://eduardoprogramador.com/color_generator.html");
+            }
+
+            tasks.httpPost("php/services.php",encodeURI("service=Color Generator&time=" + tasks.getTime() + "&date=" + tasks.getTime() + "&param=Color Generator"),function () {
+                
+            });
+
+            if(!tasks.getCookie("_eduardoprogramador_com").localeCompare("") == 0) {
+
+                Off("policy_dialog");
+            } 
+
+
+            attach("col","change", function () {
+               
+                let color = val("col");
+                let res = tasks.hexToRgb(color);
+
+                valp("r",res[0]);
+                valp("g",res[1]);
+                valp("b",res[2]);
+
+                valp("hex",color);
+
+            });         
+            
+            attach("agree","click", function () {
+                
+                let cookie = tasks.setCookie("_eduardoprogramador_com");
+                tasks.httpPost("php/cookies.php",encodeURI("name_cookie=_eduardoprogramador_com&value_cookie=" + cookie.split(";")[0].split("=")[1] + "&expiration_cookie=" + cookie.split(";")[1] + "&privacy_accepted=yes"),function () {
+                    
+                });
+
+                Off("policy_dialog");
+            });
+
+            attach("disagree","click",function () {
+               
+                tasks.httpPost("php/cookies.php",encodeURI("name_cookie=refused&value_cookie=refused&expiration_cookie=refused&privacy_accepted=no"),function () {
+                    
+                });
+                
+                Off("policy_dialog");
+
+            });
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

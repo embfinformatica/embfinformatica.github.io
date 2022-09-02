@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="stylesheet" type="text/css" href="css/whois.css">
+    <title>WhoIS</title>
+    <script type="text/javascript" src="js/functions.js"></script>
+    <script type="text/javascript" src="js/whois.js"></script>
+
+</head>
+
+<header>
+
+
+    <h1>WhoIS</h1>
+
+    <h2>O serviço WhoIS permite a consulta de endereços IP's pertencentes a uma organização / pessoa física, revelando dados importantes vinculados ao endereço IP</h2>
+
+    <div class="your_ip">
+        <h3 id="ip_reveal">Seu IP: 192.168.1.100</h3>
+    </div>
+
+    <div class="list_whois">
+
+        <p>Os dados retornados pela consulta são:</p><br>
+
+        <ol>
+            <li>Rede de IP's associados</li>
+            <li>Intervalos de IP's alocados</li>
+            <li>Tipo de IP</li>
+            <li>País de Origem</li>
+            <li>Dados do Provedor de Internet</li>
+            <li>Dados da Organização Responsável</li>
+            <li>Dados da Pessoa Física Responsável</li>
+
+        </ol>
+
+    </div>
+
+    <div class="params">
+
+        <ul>
+        <li><input type="text" size="20" placeholder="IP. Ex: 192.168.1.100" id="editIp"></li>
+        <li><button id="btnConsult">Consultar</button></li>
+        </ul>
+
+    </div>
+
+    <div class="important">
+
+        <p>É expressamente vedado o uso desta ferramenta para fins não lícitos, estando o uso desta ferramenta regulado pela <a href="politica-de-privacidade.html">Política de Privacidade</a>, sendo monitorado e controlado o seu uso.</p>
+
+    </div>
+
+    <div class="copyright">
+
+        <p>Copyright 2021. Eduardo Programador. Versão 1.0. Atualizada em 05/08/2021</p>
+
+    </div>
+
+    <div class="pc">
+
+        <img src="img/pc.png"></img>
+
+    </div>
+
+    <div class="tablet">
+        <img src="img/tablet.png">
+    </div>
+
+    <div class="loading" id="loading">
+        <progress></progress>
+        <p>Aguarde...</p>
+
+    </div>
+
+    <div class="res_data" id="res_data">
+
+        <table>
+
+            <tr>
+                <th>Objeto:</th>
+                <td id="object">xxxxxxxxxx</td>
+            </tr>
+
+            <tr>
+                <th>Endereço Inicial:</th>
+                <td id="start">192.168.1.0</td>
+            </tr>
+
+            <tr>
+                <th>Endereço Final:</th>
+                <td id="end">192.168.1.100</td>
+            </tr>
+
+            <tr>
+                <th>Versão do IP:</th>
+                <td id="version">v4</td>
+            </tr>
+
+            <tr>
+                <th>Tipo:</th>
+                <td id="type">Alocado</td>
+            </tr>
+
+            <tr>
+                <th>País:</th>
+                <td id="c_ip">XX</td>
+            </tr>
+
+            <tr>
+                <th>Status:</th>
+                <td id="status">Ativo</td>
+            </tr>
+
+            <tr>
+                <th>Tipo de Provedor:</th>
+                <td id="fn_type">Org</td>
+            </tr>
+
+            <tr>
+                <th>Nome do Provedor de Internet:</th>
+                <td id="fn_name">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</td>
+            </tr>
+
+            <tr>
+                <th>País do Provedor:</th>
+                <td id="c_fn">xx</td>
+            </tr>
+
+            <tr>
+                <th>Tipo de Dados do Provedor:</th>
+                <td id="fn_data_type">CNPJ</td>
+            </tr>
+
+            <tr>
+                <th>Número dos Dados do Provedor</th>
+                <td id="fn_cnpj">00.000.000/0001-00</td>
+            </tr>
+
+            <tr>
+                <th>Tipo de Responsável:</th>
+                <td id="pf_type">individual</td>                
+            </tr>
+
+            <tr>
+                <th>Nome do Responsável:</th>
+                <td id="pf_name">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</td>
+            </tr>
+
+            <tr>
+                <th>E-mail do Responsável:</th>
+                <td id="pf_email">example@example.com</td>
+            </tr>
+
+            <tr>
+                <th>País do Responsável:</th>
+                <td id="c_pf">xx</td>
+            </tr>
+
+            <tr>
+                <th>Função do Responsável:</th>
+                <td id="pf_role">xxxxxxxxxxxxxxxxxxxxxx</td>
+            </tr>
+
+            <tr>
+                <th>Data do Registro:</th>
+                <td id="reg_date">xxxxxxxxxxxxxxxxxxxxxxxxxxxx</td>
+            </tr>
+
+            <tr>
+                <th>Data da Última Alteração:</th>
+                <td id="change_date">xxxxxxxxxxxxxxxxxxxxxxxxxxxx</td>
+            </tr>
+
+
+        </table>
+
+    </div>
+
+    <a class="home" href="index.html">Início</a>
+
+</header>
+
+<body>
+
+    <p id="res"></p>
+
+    <script>
+
+	if(location.protocol === 'http:') {
+                window.location.replace("https://eduardoprogramador.com/whois.html");
+            }
+
+            $.ajax({
+
+url : "php/ip.php",
+method : "POST",
+data : {
+    'ip' : 'ip'
+}
+
+}).done(function(data) {
+
+    $("#ip_reveal").html("Seu IP: " + data);
+});
+
+        $("#btnConsult").on({
+
+            "click" : function () {
+
+                $("#res_data").css("visibility","hidden");                
+                $("#loading").css("visibility","visible");
+
+    
+                let ip = $("#editIp").val();
+
+                var theTime = new Date();
+        
+            var day = theTime.getDate();
+            var month = theTime.getMonth() + 1;
+            var year = theTime.getFullYear();
+            var hour = theTime.getHours();
+            var min = theTime.getMinutes();
+            var seconds = theTime.getSeconds();
+            
+
+            $.ajax({
+                    url : "php/services.php",
+                    method : "POST",
+                    data : {
+                        'service' : "WhoIS",
+                        'date' : day + "/" + month + "/" + year,
+                        'time' : hour + ":" + min + ":" + seconds,
+                        'param' : "WhoIS"
+                    }
+                });
+
+                
+                
+                
+        var xml = new XMLHttpRequest();
+        xml.open("GET",atob("aHR0cHM6Ly9yZGFwLWJvb3RzdHJhcC5hcmluLm5ldC9ib290c3RyYXAvaXAv") + ip);
+        xml.onload = function () {
+          
+            if(xml.status == 200) {
+
+                var res = xml.responseText;                
+                var obj = JSON.parse(res);
+
+                var objectClassName = obj.objectClassName;
+                $("#object").html(objectClassName);                
+                var startAddress = obj.startAddress;
+                $("#start").html(startAddress);
+                var endAddress = obj.endAddress;
+                $("#end").html(endAddress);
+                var ipVersion = obj.ipVersion;
+                $("#version").html(ipVersion);                
+                var type = obj.type;
+                $("#type").html(type);
+                var country = obj.country;
+                $("#c_ip").html(country);
+                var status = (obj.status != undefined) ? obj.status[0] : "Não Retornado";
+                $("#status").html(status);
+                
+                var events = obj.events;
+                var ev = [];
+                events.forEach(function (e) {
+                   
+                    var eventAction = e.eventAction;
+                    var eventDate = e.eventDate;
+                    ev.push(eventDate);
+                
+                });
+
+                $("#reg_date").html(ev[0]);
+                $("#change_date").html(ev[1]);
+
+                var vcardArrayPj = obj.entities[0].vcardArray;
+                var one = (vcardArrayPj != undefined) ? JSON.stringify(vcardArrayPj,null,0).replaceAll("]","") : "";
+                var bb = one.replaceAll("[","");
+                
+                var bruteVcardPj = bb.split(",");
+                var v1Version = bruteVcardPj[4];
+                var v1Kind = bruteVcardPj[8];
+                $("#fn_type").html(v1Kind);
+                var v1Fn = bruteVcardPj[12];
+                $("#fn_name").html(v1Fn);
+                var v1Country = bruteVcardPj[bruteVcardPj.length - 1];
+                $("#c_fn").html(v1Country);
+
+                var publicIds = obj.entities[0].publicIds;
+
+                if(publicIds != undefined) {
+
+                    publicIds.forEach(function (e) {
+                   
+                   var type = e.type;
+                   $("#fn_data_type").html(type);
+                   var identifier = e.identifier;
+                   $("#fn_cnpj").html(identifier);
+
+
+               });
+
+                } else {
+                    $("#fn_data_type").html("");
+                    $("#fn_cnpj").html("");
+                }
+                
+                
+
+                var vcardArrayPf = (obj.entities.entities != undefined) ? obj.entities[0].entities[0].vcardArray : "";
+                var two = JSON.stringify(vcardArrayPf,null,0).replaceAll("]","");
+                var bbb = two.replaceAll("[","");                
+                
+                var bruteVcardPf = bbb.split(",");
+
+                var v2Version = bruteVcardPf[4];
+                var v2Kind = bruteVcardPf[8];
+                $("#pf_type").html(v2Kind);
+                var v2Fn = bruteVcardPf[12];
+                $("#pf_name").html(v2Fn);
+                var v2Email = bruteVcardPf[16];
+                $("#pf_email").html(v2Email);
+                var v2Country = bruteVcardPf[bruteVcardPf.length - 1];
+                $("#c_pf").html(v2Country);
+
+                var pf_role = (obj.entities.entities != null) ? obj.entities[0].entities[0].roles[0] : "";
+                $("#pf_role").html(pf_role);
+
+                $("#loading").css("visibility","hidden");
+                $("#res_data").css("visibility","visible");
+                
+            } 
+
+        };
+
+        xml.send();
+
+            }
+        });
+
+        
+
+    </script>
+
+</body>
+
+</footer>

@@ -1,0 +1,243 @@
+* {
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0;
+}
+
+header {
+    background-color: aqua;
+    background-size: cover;
+    height: 100vh;
+}
+
+.credits {
+    position: absolute;
+    bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    color: rgba(27, 25, 105, 0.904);
+    text-shadow: 1px 2px blueviolet;
+    
+}
+
+
+footer {
+    height: 50vh;
+    background-image: url("../img/footer.png");
+    background-size: cover;
+    background-position: 0px -90px;
+    background-color: white;
+}
+
+.programming_languages {
+    list-style: none;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.programming_languages li {
+    display: inline-block;
+    padding-right: 10px;
+}
+
+.programming_languages img {
+    width: 60px;
+    height: 60px;
+    border-radius: 15%;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in;
+}
+
+.programming_languages img:hover {
+    width: 100px;
+    height: 80px;
+    border-radius: 10%;
+}
+
+.policy {
+    text-align: right;
+    margin-top: 10px;
+}
+
+.policy ul {
+    list-style: none;
+}
+
+.policy ul li {
+    padding-right: 25px;
+    display: inline-block;
+}
+
+.policy ul li a {
+    text-decoration: none;
+    font-size: 20px;
+    color:teal
+}
+
+.policy ul li a:hover {
+    color:chocolate;
+    border-bottom: 2px solid chocolate;
+}
+
+.access {
+    display: block;
+}
+.access, .copyright {
+    margin-left: 50px;
+    text-align: left;
+}
+
+.access:hover, .copyright:hover {
+    color:chocolate;
+}
+
+.copyright {
+    margin-top: 10px;
+}
+
+.up_arrow {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    width: 50px;        
+}
+
+.up_arrow:hover {
+    filter: sepia(1);
+    cursor: pointer;
+}
+
+
+
+.up_arrow:hover {
+    filter: sepia(1);
+    cursor: pointer;
+}
+
+
+.policy_dialog {    
+    background-image: url("../img/cookies.jpg");
+    background-size: cover;    
+    width: fit-content;
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+    padding: 10px;
+    border-radius: 10%;
+    padding: 20px;
+    z-index: 10;
+    height: unset;
+    animation-name: policy_anim;
+    animation-duration: 3s;
+    display: block;
+}
+
+.policy_dialog h1 {
+    text-align: center;
+}
+
+.btns {
+    text-align: center;
+}
+
+.policy_dialog button {
+    border-radius: 10%;
+    padding: 10px;
+}
+
+.policy_dialog button:hover {
+    cursor: pointer;
+    background-color: goldenrod;
+}
+
+.agree {
+    background-color: chartreuse;
+}
+
+.disagree {
+    background-color: firebrick;
+}
+
+
+@keyframes policy_anim {
+    from{right: -2000px;}
+    to{right: 10px;}
+}
+
+.home a {
+    position: absolute;
+    top: 100px;
+    right: 200px;
+    padding: 10px;
+    text-decoration: none;
+    color:black;
+    background-color: coral;
+    border-radius: 10%;
+}
+
+.home a:hover {
+    background-color: yellow;
+}
+
+.intro {
+    background-image: url("../img/demo_fundo.jpg");
+    background-size: cover;
+    padding-top: 50px;
+    width: 1000px;
+    height: 550px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 100;    
+}
+
+.intro h1 {
+    font-size: 50px;
+    color: chartreuse;
+    font-weight: bold;
+    text-shadow: slateblue 2px 4px;
+    text-decoration: underline;
+}
+
+.intro p {
+    position: absolute;
+    bottom: 150px;    
+    font-size: 17px;
+    width: 400px;
+    background-color: rgba(28, 25, 105, 0.4);
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    color: aqua;
+    padding: 5px;
+
+}
+
+.params {
+    margin-top: 50px;
+}
+
+input[type='file'] {
+    border-radius: 10%;
+    padding: 10px;
+    font-size: 17px;
+}
+
+input[type='file']:hover {
+    background-color: greenyellow;
+}
+
+input[type='submit'] {
+    border-radius: 10%;
+    padding: 20px;
+    font-size: 17px;
+}
+
+input[type='submit']:hover {
+    background-color: greenyellow;
+    cursor: pointer;
+}
+

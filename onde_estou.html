@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Onde Eu Estou</title>
+    <link rel="stylesheet" type="text/css" href="css/du_map.css">
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <script type="text/javascript" src="js/functions.js"></script>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEf6wb5A9Cq7MHJkG74P04u0aMxnSV6CQ" type="text/javascript"></script>        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js" type="text/javascript"></script>
+
+</head>
+
+<header>
+
+    <div class="title">
+        <h1>Onde Eu Estou (Web)</h1>        
+    </div>
+
+    <div class="manually">
+        <ul>
+            <li><input type="text" maxlength="30" placeholder="Inserir Latitude" id="editLat"></li>
+            <li><input type="text" maxlength="30" placeholder="Inserir Longitude" id="editLon"></li>
+            <li><button id="btnManually" disabled>Inserir</button></li>
+        </ul>
+    </div>
+
+    <div class="main" id="main">
+
+        <div class="statistics" id="statistics">
+
+            <h2 id="latitude">Latitude: 0.0</h2>
+            <h2 id="longitude">Longitude: 0.0</h2>
+            <h2 id="altitude">Altitude: 0.0</h2>            
+
+        </div>
+
+        <div class="icons">
+            <ul>
+            <li><img src="img/onde_estou/location.png" title="Adicionar Localização" id="imgLocation"></li>
+            <li><img src="img/onde_estou/marker_tab.png" title="Fixar Mapa" id="imgFix"></li>
+            <li><img src="img/onde_estou/satellite.png" title="Modo Satélite" id="imgSatellite"></li>
+            <li><img src="img/onde_estou/global.png" title="Modo Global" id="imgGlobal"></li>        
+            <li><img src="img/onde_estou/car.png" title="Modo Terreno" id="imgTerrain"></li>
+            <li><img src="img/onde_estou/key.png" title="Ver Chave" id="imgKey" style="filter: grayscale(1);"></li>
+            <li><img src="img/onde_estou/add.png" title="Espelhar Usuário" id="imgAdd" style="filter: grayscale(1);"></li>            
+            </ul>
+        </div>
+
+        <div id="map" class="map">
+
+            <h1 style="padding-top: 10px;">1. Abra o aplicativo Onde Eu Estou</h1>
+            <h1 style="padding-bottom: 10px;">2. Escaneie o código abaixo:</h1>
+            <canvas id="qr-code"></canvas>
+
+            <h1 style="padding-top: 10px;">3. Pronto, compartilhe sua rota e rastreie usuários no GPS.</h1>
+
+            <div class="loader"></div>
+            <p class="loader_text">Aguardando Conexão...</p>            
+
+            <p style="margin-left: 20px; font-size: 17px;">Ainda não tem o app? Baixe-o agora ou utilize a versão simples <a href="#" onclick="goSimpleApp()">Clicando Aqui.</a></p>
+            <a style="margin-left: 20px;" href="https://play.google.com/store/apps/details?id=com.eduardoprogramador.ondeeuestou"><img src="img/play_store.png"></a>
+
+
+        </div>
+        
+
+        <div class="main_footer" id="main_footer">
+            <h2>Copyright 2021. Eduardo Programador</h2>
+            <h2>www.eduardoprogramador.com</h2>
+            <h2>consultoria@eduardoprogramador.com</h2>
+        </div>
+
+    </div>
+
+</header>
+
+<body>
+
+    <script>        
+
+    $(document).ready(function () {
+
+        var lat, lon, alt;
+        var count = 0;
+        var map, userCode, foreinCode;        
+        var template = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","0","1","2","3","4","5","6","7","8","9","!","@","#","$","%","&","*","(",")","-","_","+","=","?"];
+        var hash = "";
+        var handler, followHandler, meHandler, tiktokHandler;
+        var keyToShow;
+        var tiktok = false;
+
+        var theTime = new Date();
+        
+            var day = theTime.getDate();
+            var month = theTime.getMonth() + 1;
+            var year = theTime.getFullYear();
+            var hour = theTime.getHours();
+            var min = theTime.getMinutes();
+            var seconds = theTime.getSeconds();                        
+            
+            $.ajax({
+                    url : "php/services.php",
+                    method : "POST",
+                    data : {
+                        'service' : "Onde Eu Estou (Web)",
+                        'date' : day + "/" + month + "/" + year,
+                        'time' : hour + ":" + min + ":" + seconds,
+                        'param' : "Onde Eu Estou (Web)"
+                    }
+                });
+
+        init();
+
+        function tiktokStart() {
+          
+            tiktok = !tiktok;
+
+                            if(tiktok == true) {
+                                $("#statistics").css("background-color","red");
+                                $("#main_footer").css("background-color","red");
+                            } else {
+                                $("#statistics").css("background-color","yellow");
+                                $("#main_footer").css("background-color","yellow");
+                            }                            
+
+        };
+        
+        function goSimpleApp() {
+            
+            if(navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (data) {
+                
+                lat = data.coords.latitude;
+                lon = data.coords.longitude;
+                alt = data.coords.altitude;
+
+                duMap();
+                                
+
+            }, function (er) {
+
+                if(er.code == er.PERMISSION_DENIED) {
+                    
+                    alert("Você precisa ativar a localização para usar a versão web do aplicativo.");
+                }
+                
+            })
+        } else {
+            alert("Seu browser não suporta localização");
+            
+        }
+
+        };
+
+        function queryStatus() {      
+            
+            count++;
+
+            if(count == 5) {
+                clearInterval(handler);
+
+                alert("Tempo limite excedido. Atualize a página para gerar um novo Código QR e tente novamente.");
+                $(".map").css("visibility","hidden");
+                count = 0;                
+            }
+            
+            $.ajax({                
+
+                url : "php/onde_estou/query.php",
+                method : "POST",
+                data : {                            
+                            "qr_code" : hash
+                        }                        
+                }).done(function (data) {                                        
+
+                    if(data.localeCompare("yes") == 0) {   
+
+                        $("#btnManually").removeAttr("disabled");                        
+                        $("#imgAdd,#imgKey").each(function () {
+                           
+                            $(this).css("filter","grayscale(0)");
+
+                        });
+
+                        $("#btnManually").on({
+
+                            "click" : function () {
+
+                            let nowLat = $("#editLat").val();
+                            let nowLon = $("#editLon").val();
+
+                    
+
+                            let pos = new google.maps.LatLng(nowLat,nowLon);
+    
+                            let manMarker = new google.maps.Marker({
+
+                            position : pos
+
+                            }); 
+
+                            manMarker.setMap(map);
+                            //map.panTo(pos);
+
+                            $("#latitude").html("Latidude: " + nowLat);
+                            $("#longitude").html("Longitude: " + nowLon);
+
+                                    }
+
+                        });
+
+                        $("#imgKey").on({
+
+                            "click" : function () {
+    
+                            alert("Sua Chave É:\n\n" + keyToShow);
+                                    }
+
+                        });
+
+                        $("#imgAdd").on({
+
+                            "click" : function () {
+    
+                            foreinCode = prompt("Informe a chave fornecida do usuário para iniciar o rastreamento");
+
+                            if(foreinCode.length < 50) {
+
+                                alert("Chave Inválida");
+
+                            } else {
+
+                            $.ajax({
+
+                                url : "php/onde_estou/check_other.php",
+                                method : "POST",
+                                data : {
+                                    "other_key" : foreinCode
+                                }
+
+                            }).done(function (data) {                                                         
+           
+                                if(data.localeCompare("-1") == 0) {
+
+                                    alert("Chave Inexistente");
+
+                                } else if(data.localeCompare("-2") == 0) {
+
+                                    alert("Permissão Negada. Contate o detentor da chave para liberação do acesso ao mapa e tente novamente.")
+
+                                } else {
+
+                                    clearInterval(handler);
+                                    clearInterval(meHandler);
+
+                                    let prop = {
+                                        center : new google.maps.LatLng(-1,-1),
+                                        zoom : 17,
+                                        disableDefaultUI : true,
+                                        //streetViewControl : true,  
+                                        mapTypeId : google.maps.MapTypeId.ROADMAP              
+                                    }
+
+                                    map = new google.maps.Map(document.getElementById("map"),prop);
+
+                                    followHandler = setInterval(followOther,2000);
+                                    tiktokHandler = setInterval(tiktokStart,1000);
+
+
+                                }
+
+
+                            });                    
+
+    }                
+                    
+}
+
+});
+
+                                                                    
+                        clearInterval(handler);                        
+                        liveMap();
+
+                    } 
+
+                });      
+            
+        };
+
+        function init() {
+
+            if(location.protocol === 'http:') {
+            location.replace("https://eduardoprogramador.com/onde_estou.html");
+        }
+
+          for (var i = 0; i < 100; i++) {
+              var index = Math.floor(Math.random() * (template.length + 1));
+              hash += template[index]; 
+          }
+
+        
+        let qr = new QRious({
+
+            element : document.getElementById("qr-code"),
+            size : 150,
+            value : hash
+        });
+
+        $.ajax({
+
+            url : "php/onde_estou/create.php",
+            method : "POST",
+            data : {
+                "qr_code" : hash,
+                "status" : "no"               
+            }
+        });
+          
+        
+        if(navigator.geolocation) {
+
+            navigator.geolocation.getCurrentPosition(function (data) {
+                
+                lat = data.coords.latitude;
+                lon = data.coords.longitude;
+                alt = data.coords.altitude;                                       
+
+                handler = setInterval(queryStatus,2000);
+                
+
+            }, function (er) {
+
+                if(er.code == er.PERMISSION_DENIED) {
+                    
+                    alert("Você precisa ativar a localização para usar a versão web do aplicativo.");
+                }
+                
+            });
+
+        }
+      
+
+        };
+
+        
+
+        function duMap() {
+          
+       
+            $("#latitude").html("Latitude: " + lat);
+            $("#longitude").html("Longitude: " + lon);
+            $("#altitude").html("Altitude: " + alt);
+            
+            
+            let prop = {
+                center : new google.maps.LatLng(lat,lon),
+                zoom : 17,
+                disableDefaultUI : true,
+                //streetViewControl : true,  
+                mapTypeId : google.maps.MapTypeId.ROADMAP              
+            }
+
+            map = new google.maps.Map(document.getElementById("map"),prop);
+
+            
+
+            let now = new google.maps.Marker({
+
+                position : new google.maps.LatLng(lat,lon),
+                animation : google.maps.Animation.BOUNCE
+
+            });
+
+            now.setMap(map);
+            
+        };
+
+        function liveMap() {     
+                                              
+          let prop = {
+              center : new google.maps.LatLng(lat,lon),
+              zoom : 17,
+              disableDefaultUI : true,
+              //streetViewControl : true,  
+              mapTypeId : google.maps.MapTypeId.ROADMAP              
+          }
+
+          map = new google.maps.Map(document.getElementById("map"),prop);
+
+          meHandler = setInterval(followMe,2000);                                                            
+
+      };
+
+      function followMe() {        
+        
+          
+        $.ajax({
+
+            url : "php/onde_estou/follow_me_frontend.php",
+            method : "POST",
+            data : {
+                "qr_code" : hash,                
+            }
+
+        }).done(function (data) {
+           
+            let resArray = data.split(",");
+
+            keyToShow = resArray[1];
+            let qr = resArray[2];
+            let device = resArray[3];
+            let ip = resArray[4];
+            let time = resArray[5];
+            let lat = resArray[6];
+            let lon = resArray[7];
+            let alt = resArray[8];
+            let sta = resArray[9];            
+
+            $("#latitude").html("Latitude: " + lat);
+            $("#longitude").html("Longitude: " + lon);
+            $("#altitude").html("Altitude: " + alt);
+
+            let follow = new google.maps.Marker({
+
+                position : new google.maps.LatLng(lat,lon),
+                animation : google.maps.Animation.BOUNCE
+            });
+
+            follow.setMap(map);
+            map.panTo(new google.maps.LatLng(lat,lon));            
+        
+        });
+
+      };
+
+      function followOther() {        
+        
+            $.ajax({
+
+                url : "php/onde_estou/check_other_update.php",
+                method : "POST",
+                data : {                    
+                    "key_secret" : foreinCode
+                        }               
+
+                    }).done(function (data) {                           
+                        
+                            if(data.localeCompare("-1") == 0) {
+                                clearInterval(followHandler);
+                                clearInterval(tiktokHandler);
+                                alert("Chave Inexistente");
+                            } else if(data.localeCompare("-2") == 0) {
+                                clearInterval(followHandler);
+                                clearInterval(tiktokHandler);
+                                alert("Permissão Negada. O dono da chave desabilitou o rastramento no mapa. Contate-o para nova liberação");
+                            }
+
+                            let resArray = data.split(",");
+
+                            keyToShow = resArray[1];
+                            let qr = resArray[2];
+                            let device = resArray[3];
+                            let ip = resArray[4];
+                            let time = resArray[5];
+                            let lat = resArray[6];
+                            let lon = resArray[7];
+                            let alt = resArray[8];
+                            let sta = resArray[9];            
+
+                            $("#latitude").html("Latitude: " + lat);
+                            $("#longitude").html("Longitude: " + lon);
+                            $("#altitude").html("Altitude: " + alt);
+
+                            let follow = new google.maps.Marker({
+
+                            position : new google.maps.LatLng(lat,lon),
+                            animation : google.maps.Animation.BOUNCE
+                            
+                            });
+
+                            follow.setMap(map);
+                            map.panTo(new google.maps.LatLng(lat,lon));                                                           
+
+                    });
+
+        };
+                
+        $("#imgLocation").on({
+
+            "click" : function () {
+                                
+                let marker = new google.maps.Marker({
+                    position : new google.maps.LatLng(lat,lon),                    
+                    animation : google.maps.Animation.BOUNCE,                    
+                });
+
+                marker.setMap(map);
+
+            }
+
+        });
+
+        $("#imgGlobal").on({
+
+            "click" : function () {
+                
+                map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
+
+            }
+
+        });
+
+        $("#imgSatellite").on({
+
+            "click" : function () {
+                
+                map.setMapTypeId(google.maps.MapTypeId.HYBRID);
+
+            }
+
+        });
+
+        $("#imgTerrain").on({
+
+            "click" : function () {
+                
+                map.setMapTypeId(google.maps.MapTypeId.TERRAIN);
+
+            }
+
+
+        });        
+
+    });                        
+
+    </script>
+
+</body>
+
+<footer>
+
+</footer>
+
+</html>

@@ -1,0 +1,358 @@
+* {
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+}
+
+header {
+    height: 100vh;
+    background-size: cover;
+    background-image: url("../img/money_euro.jpg");
+}
+
+.main img {
+    margin-top: 40px;
+}
+
+.main h2 {
+    font-size: 20px;
+    color: rgba(27, 25, 105, 0.904);
+    text-shadow: 1px 2px blueviolet;
+}
+
+.main p {
+    font-size: 15px;
+    margin-top: 10px;
+    background-color: rgba(90, 245, 245, 0.726);
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    animation: ent 5s ease-in-out;
+}
+
+.fill_data {
+    width: 300px;
+    height: 50px;
+}
+
+.calc {
+    text-align: center;
+    animation: cc 4s ease-out;
+}
+
+.calc table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.calc table td {
+    font-weight: bold;
+    color: rgba(27, 25, 105, 0.904);
+    text-shadow: 1px 2px blueviolet;
+}
+
+td {
+    padding: 5px;
+}
+
+.calc input[type="number"] {
+    width: 200px;
+    border-radius: 10%;    
+    padding: 3px;
+    border: 1px solid blueviolet;    
+    color: blueviolet;
+}
+
+.calc input[type="number"]:focus {
+    background-color: rgba(90, 245, 245, 0.726);
+}
+
+.calc button {
+    border-radius: 50%;
+    padding: 20px;
+    font-size: 16px;
+    outline-style: none;
+    background-color: rgba(90, 245, 245, 0.726);
+    color: blueviolet;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.calc button:hover {
+    cursor: pointer;    
+    background-color: rgb(210, 255, 87);
+}
+
+.credits {
+    position: absolute;
+    bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    color: rgba(27, 25, 105, 0.904);
+    text-shadow: 1px 2px blueviolet;
+    
+}
+
+
+footer {
+    height: 50vh;
+    background-image: url("../img/footer.png");
+    background-size: cover;
+    background-position: 0px -90px;
+    background-color: white;
+}
+
+.programming_languages {
+    list-style: none;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.programming_languages li {
+    display: inline-block;
+    padding-right: 10px;
+}
+
+.programming_languages img {
+    width: 60px;
+    height: 60px;
+    border-radius: 15%;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in;
+}
+
+.programming_languages img:hover {
+    width: 100px;
+    height: 80px;
+    border-radius: 10%;
+}
+
+.policy {
+    text-align: right;
+    margin-top: 10px;
+}
+
+.policy ul {
+    list-style: none;
+}
+
+.policy ul li {
+    padding-right: 25px;
+    display: inline-block;
+}
+
+.policy ul li a {
+    text-decoration: none;
+    font-size: 20px;
+    color:teal
+}
+
+.policy ul li a:hover {
+    color:chocolate;
+    border-bottom: 2px solid chocolate;
+}
+
+.access {
+    display: block;
+}
+.access, .copyright {
+    margin-left: 50px;
+    text-align: left;
+}
+
+.access:hover, .copyright:hover {
+    color:chocolate;
+}
+
+.copyright {
+    margin-top: 10px;
+}
+
+.up_arrow {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    width: 50px;        
+}
+
+.up_arrow:hover {
+    filter: sepia(1);
+    cursor: pointer;
+}
+
+
+
+.up_arrow:hover {
+    filter: sepia(1);
+    cursor: pointer;
+}
+
+
+.policy_dialog {    
+    background-image: url("../img/cookies.jpg");
+    background-size: cover;    
+    width: fit-content;
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+    padding: 10px;
+    border-radius: 10%;
+    padding: 20px;
+    z-index: 10;
+    height: unset;
+    animation-name: policy_anim;
+    animation-duration: 3s;
+    display: block;
+}
+
+.policy_dialog h1 {
+    text-align: center;
+}
+
+.btns {
+    text-align: center;
+}
+
+.policy_dialog button {
+    border-radius: 10%;
+    padding: 10px;
+}
+
+.policy_dialog button:hover {
+    cursor: pointer;
+    background-color: goldenrod;
+}
+
+.agree {
+    background-color: chartreuse;
+}
+
+.disagree {
+    background-color: firebrick;
+}
+
+
+@keyframes policy_anim {
+    from{right: -2000px;}
+    to{right: 10px;}
+}
+
+.home a {
+    position: absolute;
+    top: 100px;
+    right: 200px;
+    padding: 10px;
+    text-decoration: none;
+    color:black;
+    background-color: coral;
+    border-radius: 10%;
+}
+
+.home a:hover {
+    background-color: yellow;
+}
+
+.result {
+    text-align: center;    
+    background-image: url("../img/money_euro.jpg");
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.result table {
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;    
+    
+}
+
+td {
+    border: 1px solid black;
+    padding: 5px;
+    font-weight: bold;
+}
+
+td {
+    max-width: 400px;
+}
+
+.theme {
+    background-color:rgba(253, 249, 22, 0.849);
+}
+
+.black {
+    background-color: black;
+}
+
+.special {
+    background-color: rgba(54, 250, 240, 0.904);
+}
+
+.google_play {
+    position: absolute;
+    right: 50px;
+    bottom: 150px;
+}
+
+.google_play:hover {
+    cursor: pointer;
+}
+
+.qr {
+    width: 100px;
+    height: 100px;
+}
+
+.play {
+    width: 100px;
+    height: 50px;
+}
+
+.marketing {
+    position: absolute;
+    top: 25em;
+    left: 2em;
+}
+
+.marketing ul {
+    list-style: none;
+    margin-top: 0.5em;
+}
+
+.marketing ul li {
+    display: inline-block;
+    padding-right: 0.5em;
+}
+
+.marketing ul li img {
+    width: 5em;
+    height: 5em;
+    border-radius: 50%;
+}
+
+.marketing ul li img:hover {
+    cursor: pointer;
+    filter: grayscale(1);
+}
+
+.effect {
+    animation: ef 2s linear;
+}
+
+@keyframes ef {
+    from{transform: rotate(0deg);}
+    to{transform: rotate(360deg);}
+}
+
+@keyframes cc {
+    from{filter: opacity(0);}
+    to{filter: opacity(1);}
+}
+
+@keyframes ent {
+    from{color: red; padding-left: -500px;}
+    to{color: black; padding-left: 50px;}
+}

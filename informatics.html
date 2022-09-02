@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Informatics</title>
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="stylesheet" type="text/css" href="css/informatics.css">
+    <script type="text/javascript" src="js/tasks.js"></script>
+    <script type="text/javascript" src="js/duscript.js"></script>
+    <script type="text/javascript" src="js/informatics.js"></script>
+
+</head>
+
+<header>
+
+    <div class="main">
+        <h1>Informatics</h1>
+        <p>Conversor On-Line de Sistemas de Numeração, contemplando os sistemas 
+            decimal (base 10), octal (base 8), hexadecimal (base 16) e binário (base 2). 
+        Os sistemas alternativos ao decimal possuem várias finalidades práticas, principalmente 
+    em diversas áreas da informática, engenharia de componentes e peças tecnológicas, física e matemática avançada.</p>
+    </div>
+
+    <ul class="scope">
+        <li><p>Número de Entrada:</p></li>
+        <li><input type="text" class="entry" id="entry" maxlength="15"></li>
+
+        <li>
+            <input type="radio" value="2" name="in" id="in2"><label>Binário</label>
+            <input type="radio" value="8" name="in" id="in8"><label>Octal</label>
+            <input type="radio" value="10" name="in" checked id="in10"><label>Decimal</label>
+            <input type="radio" value="16" name="in" id="in16"><label>Hexadecimal</label>
+        </li>
+
+        <li>
+            <label for="options">Opção de Conversão:</label>
+        <select name="options" id="options">
+            <option value="2">Converter para Binário (Base 2)</option>
+            <option value="8">Converter para Octal (Base 8)</option>
+            <option value="10">Converter para Decimal (Base 10)</option>
+            <option value="16">Converter para hexadecimal (Base 16)</option>
+        </select>
+        </li>
+
+        <li><button class="btn" id="start">Converter</button></li>
+
+    </ul>
+
+    <div class="res">
+        <p>O Número Convertido É...</p>
+        <h1 id="result">0.0</h1>
+    </div>
+
+    <p class="copyright">Copyright 2021. Eduardo Prograamdor</p>
+
+    <div class="policy_dialog" id="policy_dialog">
+        <h1>Aviso de Privacidade</h1><br>
+
+        <p>Sua privacidade é muito importante e seus dados são cuidados com zelo.<br> 
+            Contudo, de modo a proporcionar-lhe a melhor experiência e por razões<br> 
+            de segurança e melhoria do serviço, Eduardo Programador fornece cookies,<br> 
+            coleta seu IP, data e hora de acesso e outros dados de conexão.<br><br> 
+            Confira na íntegra a <a href="politica-de-privacidade.html">Política de Privacidade</a> do desenvolvedor atualizada.</p><br>
+
+        <p>Entendi o aviso e a finalidade da coleta dos dados, logo:</p><br>                
+        
+        <div class="btns">
+        <button class="agree" id="agree">Aceito</button>
+
+        
+        <button class="disagree" id="disagree">* Não Aceito</button>
+        </div><br>
+
+        <p>* Ao continuar no site, você aceita tacitamente os termos de privacidade.</p>
+        
+    </div>
+
+</header>
+
+<body>    
+
+    <script>
+
+        window.onload = main();
+
+    </script>
+
+</body>
+
+<footer>
+
+</footer>
+
+</html>

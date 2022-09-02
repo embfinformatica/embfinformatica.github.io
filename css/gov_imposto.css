@@ -1,0 +1,232 @@
+* {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    margin: 0;
+}
+
+header {
+    height: 100vh;
+    background-image: url("../img/plant.jpg");
+    background-size: cover;
+}
+
+.details {
+    padding-top: 20px;
+}
+
+.details h1 {
+    font-size: 40px;
+    color: brown;
+}
+
+.details p {
+    background-color: aquamarine;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 100px;
+    padding-right: 100px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.f_p {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.params {
+    max-height: 350px;
+    overflow-y: auto;
+    background-color: burlywood;
+}
+
+.params h1 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-decoration: underline;
+    color: blue;
+}
+
+.s_p {
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;   
+    background-color: seashell; 
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.s_p td {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.calc {
+    padding: 15px;
+    font-size: 20px;
+    background-color: aqua;
+    border-radius: 50%;
+    margin-top: 30px;
+}
+
+.calc:hover {
+    background-color: darkorange;
+    cursor: pointer;
+}
+
+.credits {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bold;
+}
+
+.f_p td {
+    font-size: 20px;
+}
+
+input[type="number"] {
+    font-size: 20px;
+    background-color: seashell;
+    width: 200px;
+}
+
+.result {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+footer {
+    height: 50vh;
+    background-image: url("../img/footer.png");
+    background-size: cover;
+    background-position: 0px -90px;
+    background-color: white;
+}
+
+.programming_languages {
+    list-style: none;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.programming_languages li {
+    display: inline-block;
+    padding-right: 10px;
+}
+
+.programming_languages img {
+    width: 60px;
+    height: 60px;
+    border-radius: 15%;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in;
+}
+
+.programming_languages img:hover {
+    width: 100px;
+    height: 80px;
+    border-radius: 10%;
+}
+
+.policy {
+    text-align: right;
+    margin-top: 10px;
+}
+
+.policy ul {
+    list-style: none;
+}
+
+.policy ul li {
+    padding-right: 25px;
+    display: inline-block;
+}
+
+.policy ul li a {
+    text-decoration: none;
+    font-size: 20px;
+    color:teal
+}
+
+.policy ul li a:hover {
+    color:chocolate;
+    border-bottom: 2px solid chocolate;
+}
+
+.copyright {
+    margin-top: 10px;
+}
+
+.up_arrow {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    width: 50px;        
+}
+
+.up_arrow:hover {
+    filter: sepia(1);
+    cursor: pointer;
+}
+
+
+
+.up_arrow:hover {
+    filter: sepia(1);
+    cursor: pointer;
+}
+
+.policy_dialog {    
+    background-image: url("../img/cookies.jpg");
+    background-size: cover;    
+    width: fit-content;
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+    padding: 10px;
+    border-radius: 10%;
+    padding: 20px;
+    z-index: 10;
+    height: unset;
+    animation-name: policy_anim;
+    animation-duration: 3s;
+    display: block;
+}
+
+.policy_dialog h1 {
+    text-align: center;
+}
+
+.btns {
+    text-align: center;
+}
+
+.policy_dialog button {
+    border-radius: 10%;
+    padding: 10px;
+}
+
+.policy_dialog button:hover {
+    cursor: pointer;
+    background-color: goldenrod;
+}
+
+.agree {
+    background-color: chartreuse;
+}
+
+.disagree {
+    background-color: firebrick;
+}
+
+
+@keyframes policy_anim {
+    from{right: -2000px;}
+    to{right: 10px;}
+}

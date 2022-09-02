@@ -1,0 +1,125 @@
+/*
+    Copyright 2021. Eduardo Programador
+
+    Site: www.eduardoprogramador.com
+    Instagram: @eduardo_programador
+    Email: consultoria@eduardoprogramador.com
+
+    All rights reserved
+*/
+
+* {
+    margin: 0;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+header {
+    background-image: linear-gradient(to bottom right, rgba(214, 30, 30, 0.856),rgba(24, 161, 139, 0.432),rgba(0, 110, 255, 0.822));    
+    background-size: cover;
+    height: 100vh;
+}
+
+.main h1 {
+    padding-top: 20px;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.main img {
+    width: 150px;
+    height: 150px;
+}
+
+
+.loading {
+    text-align: center;
+}
+
+.bar {
+    border-top: 2px solid red;
+    border-radius: 50%;
+    animation-name: spin;
+    animation-timing-function: linear;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;    
+    width: 50px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.loading p {
+    font-weight: bold;
+    font-size: 20px;
+    animation-name: tiktok;
+    animation-timing-function: linear;
+    animation-duration: 0.3s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes spin {
+    from{transform: rotate(0deg);}
+    to{transform: rotate(360deg);}
+}
+
+@keyframes tiktok {
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+
+.res_container {
+    margin-top: 20px;
+}
+
+.subResult {
+    font-size: 35px;
+}
+
+.result {
+    font-size: 50px;
+    font-weight: bold;
+    animation: tiktok 1s linear infinite;    
+}
+
+.languages {
+    list-style: none;
+    text-align: center;
+}
+
+.languages li {
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.subLang {
+    list-style: none;
+}
+
+.subLang li {
+    display: block;    
+}
+
+.subLang img {
+    width: 80px;
+    height: 80px;
+}
+
+.subLang img:hover {
+    cursor: pointer;
+}
+
+.subLang p {
+    font-size: 20px;        
+}
+
+.notes {
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
+    bottom: 5px;
+}

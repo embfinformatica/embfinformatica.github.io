@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="author" content="Eduardo Programador">
+    <meta name="description" content="consulta cnpj online,consulta cnpj,cnpj facil,ver cnpj">
+    <meta name="keywords" content="consulta cnpj online,consulta cnpj,cnpj facil,ver cnpj">
+    <meta name="application-name" content="Eduardo Programador (Consulta CNPJ)">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" type="text/css" href="css/cnpj.css">
+    <script type="text/javascript" src="js/functions.js"></script>
+    <script type="text/javascript" src="js/chat_functions.js"></script>
+    <script type="text/javascript" src="js/tasks.js"></script>
+    <script type="text/javascript" src="js/duscript.js"></script>
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <title>Consulta CNPJ Online</title>
+</head>
+
+<header id="header">
+
+    <div class="home">
+        <a href="index.html">Início</a>
+    </div>    
+
+    <div class="theme">
+        <p style="text-align: left; margin-left: 20px;">Personalize o CNPJ Finder (Novo)</p>
+        <table>
+            <tr>
+                <td>Cor da Imagem Principal</td>
+                <td><input type="color" id="main_img_color"></td>                                
+            </tr>
+
+            <tr>
+                <td>Botões (Fundo)</td>
+                <td><input type="color" id="button_color"></td>
+            </tr>
+
+            <tr>
+                <td>Botões (Letra)</td>
+                <td><input type="color" id="button_letter"></td>
+            </tr>
+
+            <tr>
+                <td>Plano de Fundo do Resultado</td>
+                <td><input type="color" id="result_back"></td>
+            </tr>
+
+            <tr>
+                <td>Cor das Letras (Parte de Cima)</td>
+                <td><input type="color" id="letter_color"></td>
+            </tr>
+            <tr>
+                <td>Cor das Letras (Resultado)</td>
+                <td><input type="color" id="letter_result"></td>
+            </tr>
+
+
+            <tr>
+                <td colspan="2" style="text-align: center;"><button id="theme_refresh">Atualizar</button></td>
+            </tr>
+
+        </table>
+    </div>
+
+    <div class="download_app">
+        <ul>
+        <li><h1>Baixe o App!</h1></li>
+        <li><p>CNPJ Finder<br>Consulta de CNPJ<br>sem captcha</p></li>
+        <li><img src="img/qr_cnpj_finder.png"></img></li>
+        <li><a href="https://play.google.com/store/apps/details?id=com.eduardoprogramador.cnpjfinder"><img src="img/play_store.png"></a></img></li>
+        </ul>
+    </div>
+    
+
+    <h1>Consulta CNPJ (Versão 3.1)</h1>
+
+    <div class="cnpj_params">
+
+        <ul>
+            <li><p>CNPJ:</p></li>
+            <li><input type="text" maxlength="18" placeholder="CNPJ. Ex: 00.000.000/0000-00" onkeyup="processCnpjInput()" id="editCnpj"></li>
+            <li><button disabled onclick="startSearch()" id="buttonConsult">Consultar</button></li>
+            <li class="loader" id="loader"></li>
+        </ul>
+
+    </div>    
+
+    
+
+    <div class="see">
+        <ul>
+        <li><button disabled onclick="seeResult()" id="buttonSee">Visualizar Resultado</button></li>
+        <li><button disabled onclick="seeMap()" id="buttonMap" style="display: none;">Ver no Mapa</button></li>
+        <li><button disabled onclick="mail()" id="buttonMail">Enviar E-mail</button></li>        
+        </ul>
+    </div>
+
+    <p>Copyright 2021. Eduardo Programador. Versão do Serviço Web: 3.1. Atualizado em 16/01/2022</p>    
+
+    <iframe id="plot" src="https://maps.google.com/?ie=UTF8&t=m&ll=13.2164639,74.995161&spn=0.003381,0.017231&z=16&output=embed"
+    style="width: 500px; height: 300px; border-radius: 50%; margin-left: auto; margin-right: auto; display: block; margin-top: 30px; filter: opacity(0.7);">
+
+    </iframe>    
+
+</header>
+
+<div class="policy_dialog" id="policy_dialog">
+    <h1>Aviso de Privacidade</h1><br>
+
+    <p>Sua privacidade é muito importante e seus dados são cuidados com zelo.<br> 
+        Contudo, de modo a proporcionar-lhe a melhor experiência e por razões<br> 
+        de segurança e melhoria do serviço, Eduardo Programador fornece cookies,<br> 
+        coleta seu IP, data e hora de acesso e outros dados de conexão.<br><br> 
+        Confira na íntegra a <a href="politica-de-privacidade.html">Política de Privacidade</a> do desenvolvedor atualizada.</p><br>
+
+    <p>Entendi o aviso e a finalidade da coleta dos dados, logo:</p><br>                
+    
+    <div class="btns">
+    <button class="agree" id="agree">Aceito</button>
+
+    
+    <button class="disagree" id="disagree">* Não Aceito</button>
+    </div><br>
+
+    <p>* Ao continuar no site, você aceita tacitamente os termos de privacidade.</p>
+    
+</div>
+
+<body>
+
+    
+
+    <div class="cnpj_result" id="cnpj_result">
+
+        <table>
+
+        <div class="table_header" id="table_header">
+        <h2>EDUARDO PROGRAMADOR</h2>
+        <img src="img/logo.png">
+        <h3>CADASTRO NACIONAL DA PESSOA JURÍDICA</h3>
+        </div>
+
+            <tr>
+                    <td>
+                        <div class="numero_inscricao">
+                            <ul>
+                                <li>NÚMERO DE INSCRIÇÃO</li>
+                                <li class="bold" id="cnpj">00.000.000/0000-00</li>
+                                <li class="bold" id="tipo">MATRIZ</li>
+                            </ul>
+
+                        </div>
+                    </td>
+                    
+                    <td colspan="2">
+                        <div class="comprovante"><ul><li class="bold">COMPROVANTE DE INSCRIÇÃO E DE SITUAÇÃO CADASTRAL</li></ul></div>
+                        
+                    </td>
+                    <td>
+                        <div class="abertura_box">
+                            <ul>
+                                <li>DATA DE ABERTURA</li>
+                                <li class="bold" id="data_de_abertura">00/00/0000</li>
+                                <li></li>
+                            </ul>
+                        </div>
+                    </td>
+                
+            </tr>
+
+            <tr>
+            <td colspan="4"><div class="second_line">
+                <ul>
+                    <li>NOME EMPRESARIAL</li>
+                    <li class="bold" id="nome_empresarial">RAZÃO SOCIAL</li>
+                </ul>
+            </div>
+            </td>
+            </tr>
+
+            <tr>
+
+                
+                    <td colspan="3">
+                        <div class="fantasia_box">
+                            <ul>
+                                <li>TÍTULO DO ESTABELECIMENTO (NOME DE FANTASIA)</li>
+                                <li class="bold" id="nome_fantasia">xxxxxxxxxxxxxxxxxxxx</li>
+                            </ul>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="porte_box">
+                            <ul>
+                                <li>PORTE</li>
+                                <li class="bold" id="porte">DEMAIS</li>
+                            </ul>
+
+                        </div>
+                    </td>
+                
+
+            </tr>
+
+            <tr>
+            <td colspan="4"><div class="fourth_line">
+                <ul>
+                    <li>CÓDIGO E DESCRIÇÃO DA ATIVIDADE ECONÔMICA PRINCIPAL</li>
+                    <li class="bold" id="principal">00.00-0-00</li>
+                </ul>
+
+            </div>
+            </td>
+            </tr>
+
+            <tr>
+            <td colspan="4"><div class="fifth_line">
+                <ul id="secundarias">
+                    <li>CÓDIGO E DESCRIÇÃO DAS ATIVIDADES ECONÔMICAS SECUNDÁRIAS</li>
+                    <li class="bold">00.00-0-00 - xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</li>
+                    <li class="bold">00.00-0-00 - xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</li>
+                </ul>
+
+            </div>
+            </td>
+            </tr>
+
+            <tr>
+            <td colspan="4"><div class="sixth_line">
+                <ul>
+                    <li>CÓDIGO E DESCRIÇÃO DA NATUREZA JURÍDICA</li>
+                    <li class="bold" id="natureza_juridica">000-0 - xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</li>
+                </ul>
+            </div>
+            </td>
+            </tr>
+
+            <tr>
+                    <td colspan="2">
+                        <div class="logradouro_box">
+                            <ul>
+                                <li>LOGRADOURO</li>
+                                <li class="bold" id="logradouro">xxxxxxxxxxxxxxxxxxxx</li>
+                            </ul>
+
+                        </div>
+                    </td>
+                    <td>
+                        <div class="numero_box">
+                            <ul>
+                                <li>NÚMERO</li>
+                                <li class="bold" id="numero">xxx</li>
+                            </ul>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="complemento_box">
+                            <ul>
+                                <li>COMPLEMENTO</li>
+                                <li class="bold" id="complemento">xxxxxxxxxxxxxxxxxxxx</li>
+                            </ul>
+                        </div>
+                    </td>
+
+            </tr>
+
+            <tr>
+                    <td>
+                        <div class="cep_box">
+                            <ul>
+                                <li>CEP</li>
+                                <li class="bold" id="cep">00000-000</li>
+                            </ul>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="bairro_box">
+                            <ul>
+                                <li>BAIRRO/DISTRITO</li>
+                                <li class="bold" id="bairro">xxxxxxxxxxxxxxxxxxxx</li>
+                            </ul>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="municipio_box">
+                            <ul>
+                                <li>MUNICÍPIO</li>
+                                <li class="bold" id="municipio">xxxxxxxxxxxxxxxxxxxx</li>
+                            </ul>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="uf_box">
+                            <ul>
+                                <li>UF</li>
+                                <li class="bold" id="uf">xx</li>
+                            </ul>
+                        </div>
+                    </td>
+
+            </tr>
+
+            <tr>
+                    <td colspan="2">
+                        <div class="email_box">
+                            <ul>
+                                <li>ENDEREÇO ELETRÔNICO</li>
+                                <li class="bold" id="email">xxx@xxx.xxx</li>
+                            </ul>
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        <div class="telefone_box">
+                            <ul>
+                                <li>TELEFONE</li>
+                                <li class="bold" id="telefone">(00) 0000-0000</li>
+                            </ul>
+                        </div>
+                    </td>
+
+            </tr>
+
+            <tr>
+            <td colspan="4"><div class="tenth_line">
+                <ul>
+                    <li>ENTE FEDERATIVO RESPONSÁVEL (EFR)</li>
+                    <li class="bold" id="efr">xxxxxxxxxxxxxxxxxxxx</li>
+                </ul>
+            </div>
+            </td>
+            </tr>
+
+            <tr>
+
+                    <td colspan="2">
+                        <div class="situacao_box">
+                            <ul>
+                                <li>SITUAÇÃO CADASTRAL</li>
+                                <li class="bold" id="situacao_cadastral">xxxxxxxxxxxxxxxxxxxx</li>
+                            </ul>
+
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        <div class="data_situacao_box">
+                            <ul>
+                                <li>DATA DA SITUAÇÃO CADASTRAL</li>
+                                <li class="bold" id="data_situacao_cadastral">00/00/0000</li>
+                            </ul>
+                        </div>
+                    </td>
+
+            </tr>
+
+            <tr>
+            <td colspan="4"><div class="twelfth_line">
+                <ul>
+                    <li>MOTIVO DE SITUAÇÃO CADASTRAL</li>
+                    <li class="bold" id="motivo_situacao_cadastral">xxxxxxxxxxxxxxxxxxxx</li>
+                </ul>
+
+            </div>
+            </td>
+            </tr>
+
+            <tr>
+                    <td colspan="2">
+                        <div class="situacao_especial_box">
+                            <ul>
+                                <li>SITUAÇÃO ESPECIAL</li>
+                                <li class="bold" id="situacao_especial">****************</li>
+                            </ul>
+
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        <div class="data_especial_box">
+                            <ul>
+                                <li>DATA DA SITUAÇÃO ESPECIAL</li>
+                                <li class="bold" id="data_situacao_especial">***************</li>
+                            </ul>
+                        </div>
+                    </td>
+
+            </tr>
+
+            </table>
+
+    
+    </div>
+
+    <p class="ultimate">Desenvolvido por Eduardo Programador</p>
+    <p class="ultimate" id="consultTime">Emitido no dia <strong>00/00/0000</strong> às <strong>00:00:00</strong> (data e hora de Brasília)</p>
+    <p class="ultimate" id="capital_social_res">Capital Social: <strong>R$ 0,00</strong></p>
+    
+    <div class="qsa">
+        <table id="qsa">
+            <tr>
+                <th colspan="2">Quadro de Sócios e Administradores (QSA)</th>
+            </tr>
+
+            <tr>
+                <th>Nome</th>
+                <th>Função</th>
+            </tr>
+
+            <tr>
+                <td>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</td>
+                <td>xxxxxxxxxxxxxxxxxxxx</td>
+            </tr>
+
+            <tr>
+                <td>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</td>
+                <td>xxxxxxxxxxxxxxxxxxxx</td>
+            </tr>
+
+        </table>
+    </div>
+    
+    <button class="print" id="buttonPrint" onclick="printIt()">Imprimir</button>
+    
+
+    <script>
+
+        _in("editCnpj");
+
+        var mapSearch;
+        var mailSearch;
+
+        if(location.protocol === 'http:') {
+            window.location.replace("https://eduardoprogramador.com/consulta_cnpj.html");
+        }        
+
+            valp("main_img_color","#936262");
+            valp("button_color","#e90189");
+            valp("button_letter","#8101e9");
+            valp("result_back","##023ded");
+            valp("letter_color","#02ed74");
+            valp("letter_result","#60ed02");
+            
+
+            
+
+        attach("theme_refresh","click", function () {
+           
+            let colMainImg = val("main_img_color");
+            let colBtn = val("button_color");
+            let colBtnLetter = val("button_letter");
+            let colResult = val("result_back");
+            let colLetter = val("letter_color");                                                                    
+            let liColor = val("letter_result");
+
+            S("header").backgroundColor = colMainImg;
+            
+            let btnList = document.getElementsByTagName('button');
+            for(let i = 0; i < btnList.length; i++) {
+
+                let btn = btnList[i];
+                btn.style.backgroundColor = colBtn;
+                btn.style.color = colBtnLetter;
+            }
+
+            const letterList = document.getElementsByTagName('p');
+            for(const letter of letterList) {
+                letter.style.color = colLetter;
+            }
+
+            const letRes = document.getElementsByTagName('li');
+            for(let res_let of letRes) {
+                res_let.style.color = liColor;
+            }
+
+
+
+            S("cnpj_result").backgroundColor = colResult;
+
+            alert("CNPJ Finder Atualizado com sucesso!");
+            
+            
+
+        });
+        
+
+        
+        if(getOldCookie().localeCompare("") == 0) {
+                    $("#policy_dialog").show();
+                } else {
+                    $("#policy_dialog").hide();
+                }
+
+                $("#agree").click(function () {
+                       
+                       setNewCookie();
+                       $("#policy_dialog").hide();
+
+                   });
+
+                   $("#disagree").click(function () {
+                      
+                       $.ajax({
+
+                           url : "php/cookies.php",
+                           method : "POST",
+                           data : {
+                               "name_cookie" : "refused",
+                               "value_cookie" : "refused",
+                               "expiration_cookie" : "refused",
+                               "privacy_accepted" : "no"
+                           }
+
+                       });
+                       $("#policy_dialog").hide();
+
+                       alert("Você recusou a política de privacidade de Eduardo Programador.\nGentilmente, você será reconduzido à página anterior do seu navegador.\nCaso deseje voltar, é necessário concordar com os termos de uso.\n\nObrigado!");
+                       window.history.go(-1);
+
+                   });
+
+                   function setNewCookie() {            
+
+let chars = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','0','1','2','3','4','5','6','7','8','9'];
+let nums = ['0','1','2','3','4','5','6','7','8','9'];
+let len = chars.length;
+
+var cName = "_eduardoprogramador_com", cValue = "", cTime = "", cookie = "";
+
+for(var i = 0; i < 15; i++) {
+
+    let index = Math.floor(Math.random() * (len - 1));
+    cValue += chars[index];
+}
+
+for(var i = 0; i < 10; i++) {
+    let nIndex = nums.length;
+    let index = Math.floor(Math.random() * (nIndex-1));
+    cValue += nums[index];
+}
+
+let d = new Date();
+d.setTime(d.getTime() + 365 * 24 * 60 * 60 * 1000);
+
+cookie = cName + "=" + cValue + ";expires=" + d.toUTCString() + ";path=/";            
+document.cookie = cookie;            
+
+$.ajax({
+
+    url : "php/cookies.php",
+    method : "POST",
+    data : {
+
+        "name_cookie" : cName,
+        "value_cookie" : cValue,
+        "expiration_cookie" : d.toUTCString(),
+        "privacy_accepted" : "yes"
+    }
+
+});
+
+
+};
+
+function getOldCookie() {
+        
+let name = "_eduardoprogramador_com=";
+let decodedCookie = decodeURIComponent(document.cookie);
+let ca = decodedCookie.split(';');
+for(let i = 0; i <ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+    }
+if (c.indexOf(name) == 0) {
+return c.substring(name.length, c.length);
+}
+}
+
+return "";          
+
+};
+
+
+        function processCnpjInput() {
+            var current = document.getElementById("editCnpj").value;
+            var buttonCnpj = document.getElementById("buttonConsult");
+
+            buttonCnpj.disabled = (current.length > 0) ? false : true;
+        };
+
+        function seeResult() {
+            window.location.hash = "table_header";
+        };
+
+        function seeMap() {
+            window.open(mapSearch);
+        };
+
+        function mail() {
+          window.open("mailto:" + email);  
+        };
+
+
+
+        function printIt() {
+          
+            window.print();
+
+        };
+
+        function startSearch() {
+
+            var theTime = new Date();
+        
+            var day = theTime.getDate();
+            var month = theTime.getMonth() + 1;
+            var year = theTime.getFullYear();
+            var hour = theTime.getHours();
+            var min = theTime.getMinutes();
+            var seconds = theTime.getSeconds();
+
+            var loader = document.getElementById("loader");
+            loader.style.visibility = "visible";
+
+            var target = document.getElementById("editCnpj").value;
+            target = target.replace(" ","");       
+            target = target.replace(".","");
+            target = target.replace("/","");
+            target = target.replace("-","");
+            target = target.replace(".","");
+            var base = atob("aHR0cHM6Ly93d3cucmVjZWl0YXdzLmNvbS5ici92MS9jbnBqLw==");
+            base += target;
+
+            $.ajax({
+                    url : "php/services.php",
+                    method : "POST",
+                    data : {
+                        'service' : "Consulta CNPJ",
+                        'date' : day + "/" + month + "/" + year,
+                        'time' : hour + ":" + min + ":" + seconds,
+                        'param' : target
+                    }
+                });
+
+
+            $.ajax({                
+   type: atob("R0VU"),
+   crossDomain: true,
+   dataType: atob("anNvbnA="),
+   url: base,
+   success: function(data){
+
+
+        var buttonSee = document.getElementById("buttonSee");
+
+        var jStr = JSON.stringify(data, null, 2);
+        
+        var jObj = JSON.parse(jStr);
+
+        if(jObj.status.localeCompare("ERROR") == 0) {
+            alert(jObj.message);
+            buttonSee.disabled = true;
+            loader.style.visibility = "hidden";
+
+        } else if(jObj.status.localeCompare("OK") == 0) {
+
+        buttonSee.disabled = false;
+        $("#buttonMap").removeAttr("disabled");
+        $("#buttonMail").removeAttr("disabled");
+    
+        loader.style.visibility = "hidden";
+
+        
+        var atividade_principal = jObj.atividade_principal[0].code + " - " + jObj.atividade_principal[0].text;
+        var code = jObj.atividade_principal[0].code;
+        var data_situacao = jObj.data_situacao;
+        var tipo = jObj.tipo;
+        var nome = jObj.nome;
+        var uf = jObj.uf;
+        var telefone = jObj.telefone;
+        var situacao = jObj.situacao;
+        var bairro = jObj.bairro;
+        var logradouro = jObj.logradouro;
+        var numero = jObj.numero;
+        var cep = jObj.cep;
+        var municipio = jObj.municipio;
+        var porte = jObj.porte;
+        var abertura = jObj.abertura;
+        var natureza_juridica = jObj.natureza_juridica;
+        var fantasia = jObj.fantasia;
+        var cnpj = jObj.cnpj;
+        var ultima_atualizacao = jObj.ultima_atualizacao;
+        var status = jObj.status;
+
+        var complemento = jObj.complemento;
+        var email = jObj.email;
+        var efr = jObj.efr;
+        var motivo_situacao = jObj.motivo_situacao;
+        var situacao_especial = jObj.situacao_especial;
+        var data_situacao_especial = jObj.data_situacao_especial;
+
+        var capital_social = jObj.capital_social;
+
+        var atividades_secundarias = jObj.atividades_secundarias;
+        var secBuilder = "<li>CÓDIGO E DESCRIÇÃO DAS ATIVIDADES ECONÔMICAS SECUNDÁRIAS</li>";
+
+        var qsaBuilder = "<tr><th colspan=\"2\">Quadro de Sócios e Administradores (QSA)</th></tr><tr><th>Nome</th><th>Função</th></tr>";
+
+        document.getElementById("cnpj").innerHTML = cnpj;
+        document.getElementById("tipo").innerHTML = tipo;
+        document.getElementById("data_de_abertura").innerHTML = abertura;
+        document.getElementById("nome_empresarial").innerHTML = nome;
+        document.getElementById("nome_fantasia").innerHTML = fantasia;
+        document.getElementById("porte").innerHTML = porte;
+        document.getElementById("principal").innerHTML = atividade_principal;
+        document.getElementById("natureza_juridica").innerHTML = natureza_juridica;
+        document.getElementById("logradouro").innerHTML = logradouro;
+        document.getElementById("numero").innerHTML = numero;
+        document.getElementById("complemento").innerHTML = complemento;
+        document.getElementById("cep").innerHTML = cep;
+        document.getElementById("bairro").innerHTML = bairro;
+        document.getElementById("municipio").innerHTML = municipio;
+        document.getElementById("uf").innerHTML = uf;
+        document.getElementById("email").innerHTML = email;
+        document.getElementById("telefone").innerHTML = telefone;
+        document.getElementById("efr").innerHTML = efr;
+        document.getElementById("situacao_cadastral").innerHTML = situacao;
+        document.getElementById("data_situacao_cadastral").innerHTML = data_situacao;
+        document.getElementById("motivo_situacao_cadastral").innerHTML = motivo_situacao;
+        document.getElementById("situacao_especial").innerHTML = situacao_especial;
+        document.getElementById("data_situacao_especial").innerHTML = data_situacao_especial;
+
+        $(atividades_secundarias).each(function(i, item) {
+
+            var sec_code = item.code;
+            var sec_text = item.text;
+
+            secBuilder += "<li class = \"bold\">" + sec_code + "&nbsp;-&nbsp;" + sec_text + "</li>";
+
+        });
+
+        var qsa = jObj.qsa;
+
+        $(qsa).each(function(i, item) {
+
+            var qsa_qual = item.qual;
+            var qsa_nome = item.nome;
+
+            qsaBuilder += "<tr><td>" + qsa_qual + "</td><td>" + qsa_nome + "</td></tr>";
+
+        });
+
+        document.getElementById("secundarias").innerHTML = secBuilder;
+        document.getElementById("capital_social_res").innerHTML = "Capital Social: <strong>R$ " + capital_social + "</strong>";
+        document.getElementById("qsa").innerHTML = qsaBuilder;
+
+        
+
+        document.getElementById("consultTime").innerHTML = "Emitido no dia <strong>" + day + "/" + month + "/" + year + "</strong> às <strong>" + hour + ":" + min + ":" + seconds + "</strong> (data e hora de Brasília)."        
+
+        //mapSearch = "https://google.maps.com/place/" + logradouro.replace(" ","+") + ",+" + numero + ",+" + bairro.replace(" ","+") + ",+" + municipio.replace(" ","+") + ",+" + uf + ",+embed";
+        mapSearch = "https://www.google.com/maps?q=" + logradouro.replace(" ","+") + "+" + numero.replace(" ","+") + "+" + bairro.replace(" ","+") + "+" + municipio.replace(" ","+") + "+" + uf + "&rlz=1C1SQJL_pt-BRBR806BR806&um=1&ie=UTF-8&output=embed";
+
+        mailSearch = email;
+
+        ob("plot").src = mapSearch;
+
+
+        
+        }
+
+   }
+});
+
+
+        };
+
+    </script>
+    
+   
+
+</body>
+
+<footer>
+
+</footer>
+
+</html>

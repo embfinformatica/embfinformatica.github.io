@@ -1,0 +1,157 @@
+* {    
+    box-sizing: border-box;
+    margin: 0;
+}
+
+header {
+    height: 100vh;
+    background-image: url("../img/onde_eu_estou_t.png");
+    background-size: cover;
+    background-position: 0px -100px;
+}
+
+.title h1 {
+    font-size: 40px;
+    text-align: center;        
+    padding-top: 40px;
+}
+
+.statistics {
+    text-align: center;
+    margin-top: 10px;
+    background-color: red;
+    color:whitesmoke;
+    font-size: 12px;
+}
+
+#map {
+    width: 100%;
+    height: 64vh;        
+}
+
+#qr-code {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border: 2px solid red;    
+}
+
+.map h1 {
+    text-align: center;
+    font-size: 25px;
+}
+
+.loader {
+    border: 6px solid blueviolet;
+    border-radius: 50%;
+    border-top: 6px solid cyan;
+    width: 50px;
+    height: 50px;
+    animation-name: spin;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: 2s;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.loader_text {
+    text-align: center;
+    animation-name: showAndHide;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: 0.3s;
+}
+
+.map img {
+    width: 100px;
+}
+
+@keyframes spin {
+    0%{transform: rotate(0deg);}
+    100%{transform: rotate(360deg);}
+}
+
+@keyframes showAndHide {
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+
+
+
+.main_footer {
+    text-align: center;
+    background-color: red;
+    color: whitesmoke;
+    font-size: 12px;
+}
+
+.icons {
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 20px;
+    display: block;
+    z-index: 1;
+}
+
+.icons ul {
+    list-style: none;
+}
+
+.icons ul li {
+    display: block;
+}
+
+.icons img {
+    width: 35px;
+    height: 35px;
+}
+
+.icons img:hover {
+    cursor: pointer;
+    filter: sepia(1);
+}
+
+.manually {
+    position: absolute;
+    margin-top: 30px;
+}
+
+.manually ul {
+    list-style: none;
+}
+
+.manually ul li {
+    display: inline-block;
+    padding-right: 10px;
+}
+
+.manually input[type="text"] {
+    border-radius: 25%;
+    background-color: rgba(255, 235, 124, 0.781);
+    text-align: center;
+    padding: 5px;
+}
+
+.manually input[type="text"]::placeholder {
+    color:cornsilk;
+}
+
+.manually input[type="text"]:focus {
+    background-color: darkorange;
+    color:darkslategrey;    
+}
+
+.manually button {
+    border-radius: 10%;
+    background-color: lightblue;
+    color:mediumblue;
+    padding: 5px;
+}
+
+.manually button:hover {
+    background-color: darkorange;
+    cursor: pointer;
+}

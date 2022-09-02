@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<head>    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="author" content="Eduardo Programador">
+    <meta name="description" content="Desenvolvimento de Softwares, Aplicativos, Web Design e Detetive Profissional">
+    <meta name="keywords" content="numeros aleatorios online,numeros randomicos,aleatorio,online">
+    <meta name="application-name" content="Eduardo Programador (Gerador de Números Aleatórios Online)">
+    <meta name="robots" content="index, follow">
+    <title>Números Aleatórios Online</title>
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="stylesheet" type="text/css" href="css/aleatorio.css">
+    <script type="text/javascript" src="js/tasks.js"></script>
+    <script type="text/javascript" src="js/duscript.js"></script>
+    <script type="text/javascript" src="js/random.js"></script>
+    <script type="text/javascript" src="js/aleatorio.js"></script>
+</head>
+
+<header>
+    <div class="init">
+        <h1>Gerador de Números Aleatórios Online</h1>
+
+        <p>Gerador de Números Aleatórios gratuito para você, prático na realização de sorteios caseiros ou profissionais, 
+            análise de escolhas impessoais, etc. Escolha um dos três módulos abaixo e colete os números.
+        </p>
+    </div>  
+    
+    <ul class="list_main">
+        <li>
+            <div class="single">
+                <h1>Número Único</h1>
+                <table>
+                    <tr>
+                        <td>De: </td>
+                        <td><input type="number" value="1" max="1000000000" min="0" id="single_from"></td>
+                        <td> Até: </td>
+                        <td><input type="number" value="50" max="1000000000" min="0" id="single_to"></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="4"><button id="single_start">Gerar</button></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2">Resultado: </td>
+                        <td colspan="2"><textarea id="single_res"></textarea></td>
+                    </tr>
+
+                </table>
+            </div>
+        </li>
+        <li>
+            <div class="range">
+                <h1>Lista de Números</h1>
+                <table>
+                    <tr>
+                        <td colspan="2">Total de Números: </td>
+                        <td colspan="2"><input type="number" value="20" min="1" max="100000" id="range_total"></td>
+                    </tr>
+
+                    <tr>
+                        <td>De: </td>
+                        <td><input type="number" value="1" max="1000000000" min="0" id="range_from"></td>
+                        <td> Até: </td>
+                        <td><input type="number" value="50" max="1000000000" min="0" id="range_to"></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="4"><button id="range_start">Gerar</button></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2">Resultado: </td>
+                        <td colspan="2"><textarea id="range_res"></textarea></td>
+                    </tr>
+                </table>
+            </div>
+        </li>
+        <li>
+            <div class="special">
+                <h1>Caracteres Aleatórios</h1>
+                <table>
+                    <tr>
+                        <td>Total de Caracteres: </td>
+                        <td><input type="number" min="1" max="100000" value="20" id="special_total"></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2"><button id="special_start">Gerar</button></td>
+                    </tr>
+
+                    <tr>
+                        <td>Resultado: </td>
+                        <td><textarea id="special_res"></textarea></td>
+                    </tr>
+                    
+                </table>
+            </div>
+        </li>
+    </ul>
+
+    <p class="credits">Copyright 2022. Eduardo Programador</p>
+
+    <img src="img/wolf.png" class="wolf">
+
+    <div class="policy_dialog" id="policy_dialog">
+        <h1>Ei, quer um Cookie?</h1><br>                
+
+        <p> Usamos cookies e outras tecnologias de rastramento para gerar estatísticas,<br>
+             insights e para a melhoria das soluções prestadas.<br>
+            Confira na íntegra a <a href="politica-de-privacidade.html">Política de Privacidade</a> do desenvolvedor atualizada.</p><br>                
+        
+        <div class="btns">
+        <button class="agree" id="agree">Aceito</button>
+
+        
+        <button class="disagree" id="disagree">* Não Aceito</button>
+        </div><br>
+
+        <p>* Ao continuar, você aceita tacitamente os termos de privacidade.</p>
+        
+    </div>
+
+    <img class="up_arrow" src="img/up_arrow.png" id="up_arrow">  
+
+</header>
+
+<body>
+
+</body>
+
+<footer>
+
+    <script>
+        document.onload = main();
+    </script>
+
+</footer>
+
+</html>

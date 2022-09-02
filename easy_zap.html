@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>WhatsApp Fácil</title>
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="stylesheet" type="text/css" href="css/easy_zap.css">
+    <script type="text/javascript" src="js/tasks.js"></script>
+    <script type="text/javascript" src="js/duscript.js"></script>
+    <script type="text/javascript" src="js/easy_zap.js"></script>
+
+</head>
+
+<header>
+
+    <div class="home">
+        <a href="index.html">Início</a>
+    </div>  
+
+    <div class="container">
+        <h1>WhatsApp Fácil</h1>
+
+        <p class="first">
+            Já sentiu necessidade de falar com alguém novo no WhatsApp Web e ficou com tédio de ir atrás do celular e depois 
+            adicionar a pessoa à sua lista de contatos e só 
+            então poder conversar com ele ou ela? Já pensou nos segundos preciosos que você perde?
+        </p>
+
+        <p class="second">
+            Agora faça isso de forma automatizada! Preencha apenas o número da pessoa no campo abaixo e clique em "enviar mensagem". Simples assim, e 
+            não precisa adicionar a pessoa aos seus contatos no celular. Você só precisa estar logado no WhatsApp Web. Vamos lá?
+        </p>
+
+    </div>
+
+    <img class="phone" src="img/icon_mobile.png">
+
+    <ul class="params">
+        <li><input type="text" maxlength="2" placeholder="DDD" class="ddd" id="ddd"></li>
+        <li><input type="tel" maxlength="9" placeholder="Número Sem Traços" class="number" id="number"></li>
+        <li><button id="send">Enviar Mensagem</button></li>
+        <li></li>
+    </ul>
+
+    <div class="policy_dialog" id="policy_dialog">
+        <h1>Ei, quer um Cookie?</h1><br>                
+
+        <p> Usamos cookies e outras tecnologias de rastramento para gerar estatísticas,<br>
+             insights e para a melhoria das soluções prestadas.<br>
+            Confira na íntegra a <a href="politica-de-privacidade.html">Política de Privacidade</a> do desenvolvedor atualizada.</p><br>                
+        
+        <div class="btns">
+        <button class="agree" id="agree">Aceito</button>
+
+        
+        <button class="disagree" id="disagree">* Não Aceito</button>
+        </div><br>
+
+        <p>* Ao continuar, você aceita tacitamente os termos de privacidade.</p>
+        
+    </div>
+
+    <img class="up_arrow" src="img/up_arrow.png" id="up_arrow">
+
+    <p class="credits">Copyright 2021. Eduardo Programador</p>
+
+</header>
+
+<body>
+
+</body>
+
+<footer>
+
+    <ul class="programming_languages" onclick="let tasks = new Tasks(); tasks.httpPost('php/links.php',encodeURI('link=languages_footer&time=' + tasks.getTime()),function () {});">
+        <li><img src="img/c++.png" title="C++"></li>
+        <li><img src="img/java.png" title="Java"></li>
+        <li><img src="img/html_logo.png" title="HTML"></li>
+        <li><img src="img/css_logo.png" title="CSS"></li>
+        <li><img src="img/js_logo.png" title="Javascript"></li>
+        <li><img src="img/php.png" title="PHP"></li>                        
+        <li><img src="img/swift.jpg" title="Swift"></li>            
+        <li><img src="img/python.jpg" title="Python"></li>
+        <li><img src="img/r.jpg" title="R"></li>
+        <li><img src="img/ruby.jpg" title="Ruby"></li>            
+    </ul>
+
+    <div class="policy">
+        <ul>
+            <li><a href="politica-de-privacidade.html" onclick="let tasks = new Tasks(); tasks.httpPost('php/links.php',encodeURI('link=privacy_pt&time=' + tasks.getTime()),function () {});">Política de Privacidade</a></li>
+            <li><a href="privacy-policy.html" onclick="let tasks = new Tasks(); tasks.httpPost('php/links.php',encodeURI('link=privacy_en&time=' + tasks.getTime()),function () {});">Privacy Policy</a></li>
+            <li><a href="politica-de-privacidad.html" onclick="let tasks = new Tasks(); tasks.httpPost('php/links.php',encodeURI('link=privacy_es&time=' + tasks.getTime()),function () {});">Política de Privacidad</a></li>
+            <li><a href="privacy-policy-corean.html" onclick="let tasks = new Tasks(); tasks.httpPost('php/links.php',encodeURI('link=privacy_kr&time=' + tasks.getTime()),function () {});">개인 정보 정책</a></li>
+        </ul>
+    </div>
+
+
+    
+    <div class="copyright">
+        <p>Copyright 2021. Eduardo Programador. Todos os direitos reservados<br>            
+            E-mail: consultoria@eduardoprogramador.com<br>    
+            Fone: +55 81 98860-0704
+        </p>
+    </div>    
+
+
+    <script>
+        window.onload = main();
+    </script>
+
+</footer>
+
+</html>

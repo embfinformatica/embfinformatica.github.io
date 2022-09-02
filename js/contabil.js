@@ -1,36 +1,36 @@
 /*
-    Copyright 202. EMBF Softwares e Investigação
-    www.embfinformatica.github.io
+    Copyright 2021. Eduardo Programador
+    www.eduardoprogramador.com
     consultoria@eduardoprogramador.com
     
     Todos os direitos reservados.                
 
-    Classe que contÃ©m funÃ§Ãµes de Contabilidade 
-    para utilizaÃ§Ã£o em cÃ³digos Javascript.
-    Ã€ medida em que novas funÃ§Ãµes forem criadas,
-    o script seguirÃ¡ sendo atualizado.
+    Classe que contém funções de Contabilidade 
+    para utilização em códigos Javascript.
+    À medida em que novas funções forem criadas,
+    o script seguirá sendo atualizado.
 
-    Confira a lista de funÃ§Ãµes atualizada em 10/01/2021
+    Confira a lista de funções atualizada em 10/01/2021
     
 
-    1) rpaCalculator: Calcula o valor lÃ­quido e as retenÃ§Ãµes tributÃ¡rias 
-        no RPA (Recibo de Pagamento de AutÃ´nomo), que Ã© o documento tributÃ¡rio 
-        para registro dos serviÃ§os prestados por pessoa fÃ­sica.
+    1) rpaCalculator: Calcula o valor líquido e as retenções tributárias 
+        no RPA (Recibo de Pagamento de Autônomo), que é o documento tributário 
+        para registro dos serviços prestados por pessoa física.
 
-    2) in1234: Calcula todas as retenÃ§Ãµes tributÃ¡rias de acordo 
+    2) in1234: Calcula todas as retenções tributárias de acordo 
                 com a IN 1.234/2012 da RFB.
 
               
 
     Tutorial:
 
-        a) Inclua o seguinte cÃ³digo HTML na sua pÃ¡gina web entre as tags <head> e </head>:             
+        a) Inclua o seguinte código HTML na sua página web entre as tags <head> e </head>:             
             <script type="text/javascript" src="js/contabil.js"></script>
 
-        b) No seu cÃ³digo javascript da pÃ¡gina, inicie a classe:
+        b) No seu código javascript da página, inicie a classe:
             Ex.: const contabilidade = new Contabil();
 
-        c) Pronto, basta agora invocar as funÃ§Ãµes.
+        c) Pronto, basta agora invocar as funções.
             Ex.: contabilidade.rpaCalculator();
 
         2) in1234: 
@@ -49,10 +49,10 @@ class Contabil {
     }
     
     /*
-        FunÃ§Ã£o que calcula o RPA.
-        Exemplo no cabeÃ§alho do cÃ³digo.
+        Função que calcula o RPA.
+        Exemplo no cabeçalho do código.
 
-         ParÃ¢metros:
+         Parâmetros:
 
             a) rpaData: as propriedas do RPA em formato JSON.
                 Ex.: let pattern = {
@@ -63,8 +63,8 @@ class Contabil {
                         rpa_received : 0
                     }
 
-            b) resultCallback: Uma funÃ§Ã£o que serÃ¡ executada ao tÃ©rmino no cÃ¡lculo,
-                    tendo como parÃ¢metro o cÃ¡lculos retornados em JSON.
+            b) resultCallback: Uma função que será executada ao término no cálculo,
+                    tendo como parâmetro o cálculos retornados em JSON.
     */
     rpaCalculator(rpaData, resultCallBack) {
 
@@ -98,16 +98,16 @@ class Contabil {
             iss_base = "Art. 1, 'caput'; 8,II; 8-A, 'caput' da Lei 116/2003";
         } else if(pref.localeCompare("yes") == 0){
             iss_res = parseInt(0,10);
-            iss_base = "NÃ£o hÃ¡ retenÃ§Ã£o do ISSQN, pois o prestador tem cadastro na prefeitura e efetua seu recolhimento anualmente.";
+            iss_base = "Não há retenção do ISSQN, pois o prestador tem cadastro na prefeitura e efetua seu recolhimento anualmente.";
         }
 
         if(price < 1212) {
             p_inss = 11;
-            inss_base = "Tabela de 2022 do INSS para contribuinte individual e facultativo. AlÃ­quota de 11% valores abaixo de R$ 1.212,00";
+            inss_base = "Tabela de 2022 do INSS para contribuinte individual e facultativo. Alíquota de 11% valores abaixo de R$ 1.212,00";
             
         } else {
             p_inss = 20;
-            inss_base = "Tabela de 2022 do INSS para contribuinte individual e facultativo. AlÃ­quota de 20% de R$ 1.212,00 atÃ© R$ 7.087,22";
+            inss_base = "Tabela de 2022 do INSS para contribuinte individual e facultativo. Alíquota de 20% de R$ 1.212,00 até R$ 7.087,22";
         }
 
         if(price > 7087.22) {
@@ -115,19 +115,19 @@ class Contabil {
         }
 
         inss_res = (price <= 7087.22) ? parseFloat(((p_inss * price) / 100).toFixed(2)) : parseFloat(((p_inss * 7087.22) / 100).toFixed(2));
-        inss_base = (price <= 7087.22) ? inss_base : "Quando o valor do serviÃ§o estÃ¡ acima do teto do INSS (R$ 7087.22), o percentual de 20% aplica-se sobre o teto e nÃ£o sobre o valor do serviÃ§o.";
+        inss_base = (price <= 7087.22) ? inss_base : "Quando o valor do serviço está acima do teto do INSS (R$ 7087.22), o percentual de 20% aplica-se sobre o teto e não sobre o valor do serviço.";
 
         if(money > 0) {
             total_in_month = money + price;            
             if(total_in_month > 7087.22) {
                 p_inss = 20;
                 inss_res = parseFloat(((p_inss * 7087.22) / 100).toFixed(2));
-                inss_base = "O valor do serviÃ§o somado aos valores que o autÃ´nomo recebeu estÃ¡ acima do teto do INSS (R$ 7.087,22), o percentual de 20% aplica-se sobre o teto e nÃ£o sobre o valor do serviÃ§o."
+                inss_base = "O valor do serviço somado aos valores que o autônomo recebeu está acima do teto do INSS (R$ 7.087,22), o percentual de 20% aplica-se sobre o teto e não sobre o valor do serviço."
             } else {
                 difference = parseFloat(7087.22) - parseFloat(money);                                
                 p_inss = 20;
                 inss_res = parseFloat(((p_inss * difference) / 100).toFixed(2));
-                inss_base = "Como o autÃ´nomo jÃ¡ recebeu valores no mÃªs, a base de cÃ¡lculo do INSS serÃ¡ a diferenÃ§a do teto (R$ 7.087,22) pelo somatÃ³rio dos valores jÃ¡ recebidos pelo profissional, com vistas Ã  aplicaÃ§Ã£o da alÃ­quota de 20%";
+                inss_base = "Como o autônomo já recebeu valores no mês, a base de cálculo do INSS será a diferença do teto (R$ 7.087,22) pelo somatório dos valores já recebidos pelo profissional, com vistas à aplicação da alíquota de 20%";
             }
         }
 
@@ -198,20 +198,20 @@ class Contabil {
     }
 
     /*
-        FunÃ§Ã£o que calcula as retenÃ§Ãµes de acordo com a IN 1.234/2021.
+        Função que calcula as retenções de acordo com a IN 1.234/2021.
 
-        ParÃ¢metros:
+        Parâmetros:
 
         a) inData: Objeto no formato JSON com as seguintes propriedas.
             Ex.:
                 let in = {
                     "nota_fiscal" : 2343.34, << Valor da Nota 
-                    "tipo" : 1, << 0 - Material | 1 - ServiÃ§o
+                    "tipo" : 1, << 0 - Material | 1 - Serviço
                     "iss" : 5, << - Porcentagem ISS
-                    "codigo_receita" : 6147 << CÃ³digo Anexo I - IN 1.234/2012
+                    "codigo_receita" : 6147 << Código Anexo I - IN 1.234/2012
                 };
 
-        b) resultCallBack: FunÃ§Ã£o que executarÃ¡ a saÃ­da dos dados. 
+        b) resultCallBack: Função que executará a saída dos dados. 
                 Ex.:
                     const contabil = new Contabil();
                     contabil.in1234(in,function(data){

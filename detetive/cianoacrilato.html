@@ -1,0 +1,636 @@
+<!--
+
+    Desenvolvido por Eduardo Programador.
+    Copyright 2022. Todos os Direitos Reservados.
+
+    Contato: consultoria@eduardoprogramador.com
+
+-->
+
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="author" content="Eduardo Programador">
+    <meta name="description" content="Desenvolvimento de Softwares, Aplicativos, Web Design e Detetive Profissional">
+    <meta name="keywords" content="desenvolvimento de software,aplicativos,apps,web design,detetive profissional,noticias,news,informacoes,noticias de informatica,ti">
+    <meta name="application-name" content="Eduardo Programador (Notícias)">
+    <meta name="robots" content="index, follow">
+    <title>Eduardo Programador - Notícias</title>
+    <link rel="icon" type="image/png" href="../img_/logos/logo.png">    
+    <script type="text/javascript" src="../js/tasks.js"></script>
+    <script type="text/javaxcript" src="../js/regexwarrior.js"></script>
+    <script type="text/javascript" src="../js/duscript.js"></script>
+    <script type="text/javascript" src="../js/chat.js"></script>        
+    <script type="text/javascript" src="../js/noticias_template.js"></script>        
+
+    <style>
+        * {
+    font-family: 'Courier New', Courier, monospace;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+header {    
+    height: 100vh;
+    background-size: cover;
+}
+
+.links_up ul {
+    list-style: none;
+}
+
+.links_up ul li {
+    display: inline-block;
+    font-size: 0.9em;
+}
+
+.links_up ul li img {
+    width: 1.5em;
+    height: 1.5em;    
+}
+
+.links_up ul li img:hover {
+    cursor: pointer;            
+}
+
+.part_up {
+    background-color: aliceblue;    
+}
+
+.part_up ul {
+    list-style: none;    
+    padding: 1em;    
+    padding-left: 1.9em;
+}
+
+.part_up ul li {
+    display: inline-block;   
+    color: black;     
+    font-weight: bold;    
+}
+
+.part_up ul li a {
+    text-decoration: none;
+    color: black;
+    transition-timing-function: ease-out;
+    transition-delay: 0.1s;
+    transition-duration: 0.3s;    
+}
+
+.part_up ul li a:hover {
+    background-color: black;
+    color: seashell;
+    border-radius: 10%;
+    padding: 0.5em;    
+}
+
+.main_logo {
+    width: 2.5em;
+    height: 2.5em;
+    position: absolute;
+    left: 0.5em;
+}
+
+.main_logo:hover {
+    cursor: pointer;
+}
+
+.top_link {
+    padding-right: 2.5em;    
+}
+
+.cookie {
+    background-color: aliceblue;
+    position: fixed;
+    width: 100%;
+    bottom: 0;           
+    display: block;
+    z-index: 100;
+}
+
+.cookie ul {
+    list-style: none;
+}
+
+.cookie ul li {
+    display: inline-block;
+}
+
+.c_instruction {
+    padding: 1em;
+    margin-right: 0.5em;
+}
+
+.c_instruction p {
+    font-size: 0.9em;    
+    margin-top: 0.5em;
+}
+
+.manage {
+    text-decoration: underline;
+    font-size: 1.5em;
+    text-transform: uppercase;
+}
+
+.manage:hover {
+    cursor: pointer;
+}
+
+.cookie_manage {
+    position: absolute;
+    z-index: 200;
+    background-color: aqua;
+    width: 50em;
+    height: 70vh;
+    margin-left: auto;
+    margin-right: auto;
+    right: 0;
+    left: 0;
+    top: 7em;
+    display: block;
+    border-radius: 2%;
+    text-align: center;
+    background-image: url("../img_/assets/cookies.jpg");
+    background-size: cover;
+    display: none;
+}
+
+.cookie_manage img {
+    width: 2.5em;
+    float: right;    
+}
+
+.cookie_manage img:hover {
+    cursor: pointer;
+}
+
+.cookie_manage h1 {
+    margin-top: 1em;
+}
+
+.cookie_manage table {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.cookie_manage button {
+    padding: 1em;
+    background-color: brown;
+    color: aliceblue;
+    border-radius: 50%;
+}
+
+.cookie_manage button:hover {
+    background-color: chocolate;
+    cursor: pointer;
+}
+
+.cookie_manage button:focus {
+    outline: none;
+}
+
+.go_on {
+    font-size: 1.5em;
+    text-transform: uppercase;
+    background-color: darkblue;
+    color: aliceblue;
+    border-radius: 20%;
+    padding: 0.2em;
+}
+
+.go_on:hover {
+    cursor: pointer;
+}
+
+.chat {
+    width: 4em;
+    position: fixed;    
+    border-radius: 50%;    
+    right: 5em;
+    bottom: 6.4em;
+    display: block;
+    z-index: 101;
+}
+
+.chat:hover {
+    cursor: pointer;    
+}
+
+.chat_close {
+    width: 1em;
+    position: fixed;
+    right: 5.3em;
+    bottom: 11em;
+    display: block;        
+    z-index: 102;
+}
+
+.chat_main {
+    position: fixed;
+    z-index: 300;
+    width: 25em;        
+    right: 1em;
+    top: 8em;
+    display: none;
+}
+
+.toolbar {
+    background-color: black;
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+}
+
+.toolbar h1 {
+    color: white;
+    font-size: 1.5em;
+}
+
+.toolbar img {
+    float: right;
+    width: 2em;
+}
+
+.tb_bar {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.messages {
+    background-color: white;
+    text-align: center;        
+    height: 22em;
+    overflow-y: auto;
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
+}
+
+.messages p {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.day_week {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.kelly_msg img {
+    width: 2em;    
+}
+
+.kelly_msg p {
+    background-color: bisque;
+    border-radius: 10%;
+    padding: 0.5em;
+}
+
+.user_msg {    
+    width: 20em;    
+    margin-top: 1em;    
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-bottom: 1em;
+    display: none;
+}
+
+.user_msg p {
+    background-color: bisque;
+    border-radius: 10%;
+    padding: 0.5em;
+    margin-top: 1em;
+}
+
+.tb_input {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tb_input input {
+    border-radius: 5%;
+    outline: none;
+    width: 20em;
+    height: 2em;
+    padding: 0.5em;
+}
+
+.tb_input img {
+    width: 2em;
+    border-radius: 50%;    
+}
+
+.tb_input img:hover {
+    cursor: pointer;
+    filter: sepia(1);
+}
+
+.chat_close:hover {
+    cursor: pointer;
+}
+
+#chat_main_close {
+    cursor: pointer;
+}
+
+body {
+    background-color: aliceblue;
+}
+
+.credits {
+    border-top: 0.2em solid darkgray;
+    border-bottom: 0.2em solid darkgray;
+    padding: 1em;
+    font-size: 0.8em;
+}
+
+.useful {
+    list-style: none;
+    text-align: right;
+}
+
+.useful li {
+    padding-right: 0.5em;
+    display: inline-block;
+    margin-top: 0.5em;
+    margin-right: 1em;
+    margin-bottom: 2em;
+}
+
+.useful img {
+    width: 6em;
+    height: 2.5em;    
+}
+
+.useful img:hover {
+    cursor: pointer;
+}
+
+
+header {
+    height: unset;
+}
+
+.active {
+    background-color: black;
+    color: seashell;
+    border-radius: 10%;
+    padding: 0.5em;
+}
+
+.btn_sof {
+    background-color: black;
+    color: white;
+    padding: 0.5em;
+    margin-left: 1em;
+}
+
+.news_principal {
+    text-align: center;
+    width: 70em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.news_author {
+    color: gray;
+    font-size: 1em;
+    margin-top: 0.2em;
+}
+
+.news_paragraph {
+    margin-top: 0.5em;
+    font-size: 1em;
+    text-align: justify;
+}
+
+.news_img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 35em;
+    height: 20em;
+    margin-top: 1em;
+    transition: ease-out 0.5s;
+}
+
+.news_img:hover {
+    width: 50em;
+    height: 35em;
+    cursor: crosshair;
+}
+
+    </style>
+
+</head>
+
+<header>
+
+    <div class="part_up">
+        <ul>        
+        <img alt="Logotipo" src="../img_/logos/logo.png" class="main_logo" title="Eduardo Programador" onclick="const tasks = new Tasks(); tasks.set('https://eduardoprogramador.com');"></li>
+        
+
+        <li class="top_link"><nav class="links_up">
+            <ul>
+                <li><a href="../softwares.html">Softwares</a></li>
+                <li><a href="../aplicativos.html">Aplicativos</a></li>
+                <li><a href="../jogos.html">Jogos</a></li>                
+                <li><a href="../web_design.html">Web Design</a></li>
+                <li><a href="../consultoria.html">Consultoria</a></li>
+                <li><a href="../detetive.html">Detetive</a></li>                
+                <li><a href="../analise_dados.html">Estatística</a></li>                
+            </ul>
+        </nav>
+        </li>
+
+        <li class="top_link"><nav class="links_up">
+            <ul>
+                <li><a href="../contrate.html">Contrate</a></li>
+                <li><a href="../noticias.html" class="active" style="color: seashell;">Notícias</a></li>
+                <li><a href="../services.html">Serviços</a></li>
+                <li><a href="../lgpd.html">LGPD</a></li>
+                <li><a href="../suporte.html">Suporte</a></li>
+            </ul>
+        </nav>
+        </li>
+
+        <li><nav class="links_up">
+            <ul>
+                <li><img alt="Pesquisar" src="../img_/assets/search.png" title="Pesquisar" onclick="alert('Em Desenvolvimento');"></li>
+                <li><img alt="Comprar" src="../img_/assets/buy.png" title="Comprar"></li>
+            </ul>
+        </nav>
+        </li>
+        </ul>
+    </div>   
+
+    <div class="news_principal">
+        
+        
+        <h1></h1>
+        <p class="news_author">
+            
+        </p>
+
+        <p class="news_paragraph">
+            
+                <br><br>
+                
+                <br><br>
+                <video autoplay muted>
+                    <source src="cianoacrilato.mp4">
+
+                </video>
+                <br><br>
+                
+                <br><br>
+                
+                <br><br>
+        </p>
+
+    </div>
+
+    <div class="cookie" id="cookie">
+        <ul>
+            <li>
+                <div class="c_instruction">
+                    <h5>Cookies e Lei Geral de Proteção de Dados (LGPD)</h5>
+                        <p>
+                            Este site usa cookies e oferece a você oportunidade de customizá-los, ativando ou desativando<br> cookies opcionais, 
+                            de maneira a oferecer ao usuário a melhor experiência e mostrar-lhe anúncios <br>relevantes, tudo de acordo com a Lei 
+                            de Dados. Para mais informações, consulte nossa <a href="../politica-de-privacidade.html">Política de Privacidade</a>.
+                        </p>
+                </div>
+            </li>
+
+
+            <li class="manage" id="manage">Gerenciar</li>
+            <li class="go_on" id="go_on">Ok, Prosseguir</li>
+        </ul>
+    </div>
+
+    <div class="cookie_manage" id="cookie_manage">
+        <img src="../img_/assets/close_button.png" id="btn_close_manage">
+        <h1>Gerenciar Cookies</h1>
+        <h5>Ative ou Desative os Seguintes Tipos de Cookies</h5>
+        <table>
+            <tr>
+                <td><input type="checkbox" id="cookie_follow" value="cookie_follow"></td>
+                <td>Cookies de Rastreamento</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" checked id="cookie_statistics" value="cookie_statistics"></td>
+                <td>Cookies de Estatística</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="cookie_security" value="cookie_security"></td>
+                <td>Cookies de Segurança</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="cookie_marketing" value="cookie_marketing"></td>
+                <td>Cookies de Marketing</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="cookie_better" value="cookie_better"></td>
+                <td>Cookies de Melhorias</td>
+            </tr>
+        </table>
+        <button id="btn_save_manage">Salvar</button>
+    </div>
+    
+
+    <img class="chat" alt="chat" src="../img_/assets/chat.jpg" id="chat">
+    <img class="chat_close" alt="close_chat" src="../img_/assets/close_button.png" id="chat_close">
+
+    <div style="display: none;">
+        <p id="secret">123</p>
+        <p id="secret_msg">123</p>
+    </div>
+
+    <div class="chat_main" id="chat_main">
+        <div class="toolbar">
+            <table class="tb_bar">
+                <tr>
+                    <td><h1>Fale com a Kelly</h1></td>
+                    <td><img alt="down_arrow" src="../img_/assets/down_arrow_circle.png" id="chat_main_close"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="messages" id="messages">
+            <p class="day_week" id="day_week">qua., 6 de abr.</p>
+            <div class="kelly_msg" id="kelly_msg">
+                <table>
+                    <tr>
+                        <td><img alt="kelly_logo" src="../img_/assets/chat.jpg"></td>
+                        <td>
+                            <p id="kelly_init_msg">
+                                Olá! Eu sou a Kelly, programadora e detetive. 
+                                Estou aqui para auxiliar você no que precisa. 
+                                Como posso ajudar?
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="user_msg" id="user_msg">
+                
+            </div>
+
+            <div class="user_input">
+                <table class="tb_input">
+                    <tr>
+                        <td><input type="text" maxlength="300" placeholder="Digitar Mensagem" id="chat_main_input"></td>
+                        <td><img alt="button_send" src="../img_/assets/send.png" id="chat_main_send"></td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>        
+    </div>
+
+</header>
+
+<body>                                  
+                    
+<footer>
+
+    <div class="credits">
+        <p>Copyright© 2019-2022 EDUARDO PROGRAMADOR. Todos os direitos reservados.<br>
+            EDUARDO FARIA., analista de sistemas de formação, servidor público federal e autônomo, residente e situado em Recife/PE.
+            <br><br>
+            EDUARDO PROGRAMADOR, marca operada por EDUARDO FARIA nas áreas de desenvolvimento de sistemas e investigação privada.
+            <br>
+            <a>WhatsApp</a> para contato com o desenvolvedor.<br><br>
+            Este website é mais bem visualizado em computadores e notebooks.
+        </p>
+    </div>
+
+    <ul class="useful">
+        <li><img alt="Playtore" src="../img_/logos/play_store.png" onclick="const tasks = new Tasks(); tasks.go('https://play.google.com/store/apps/details?id=com.eduardoprogramador.ondeeuestou');"></li>
+        <li><img alt="Microsoft Store" src="../img_/logos/store_microsoft.jpg" onclick="const tasks = new Tasks(); tasks.go('https://www.microsoft.com/pt-br/p/mysql-client-go/9pmcw63w4g3b?activetab=pivot:overviewtab');"></li>
+        <li><img alt="Amazon Store" src="../img_/logos/amazon.png" onclick="const tasks = new Tasks(); tasks.go('https://www.amazon.com.br/eduprogramacao-Wifi-Analyzer/dp/B087D5WBCP/ref=sr_1_3?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=1DWI7JNLPAVUH&keywords=wifi+analyzer&qid=1648824044&sprefix=wifi+analyze%2Caps%2C194&sr=8-3');"></li>
+        <li><img alt="Github" src="../img_/logos/github.png" onclick="const tasks = new Tasks(); tasks.go('https://github.com/eduprogrammer');"></li>
+    </ul>
+
+    <script>        
+        /*
+        const tasks = new Tasks();
+        if(!tasks.isHttps()) {
+            tasks.set('https://eduardoprogramador.com/noticias/28_05_2022_games.html');
+        } else {
+        */
+            document.onload = main();
+        //}        
+    </script>
+
+
+</footer>
+
+</html>

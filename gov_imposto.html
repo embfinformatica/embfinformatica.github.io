@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>GOV Imposto</title>
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="stylesheet" type="text/css" href="css/gov_imposto.css">
+    <script type="text/javascript" src="js/tasks.js"></script>
+    <script type="text/javascript" src="js/duscript.js"></script>
+    <script type="text/javascript" src="js/gov_imposto.js"></script>
+</head>
+
+<header>
+    <div class="details">
+        <h1>GOV Imposto</h1>
+
+        <p>
+            Calculadora de retenção de impostos para órgãos públicos federais, de acordo com a Instrução Normativa n° 1.234, de 11 de janeiro de 2012 
+            da Receita Federal, incluindo autarquias e empresas públicas, com a respectiva base legal.
+        </p>
+
+    </div>
+
+        <div class="params">
+                        
+            <table class="f_p">
+                <tr>
+                    <td>Valor Total da Nota Fiscal (R$): </td>
+                    <td><input type="number" placeholder="Valor (R$)" id="nf_value" maxlength="20" value="2247.45"></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="radio" value="material" checked id="material">&nbsp Material &nbsp<input type="radio" value="service" id="service">&nbsp Serviço
+                </tr>
+                <tr>
+                    <td>Valor do ISS (%): </td>
+                    <td><input type="number" placeholder="Valor (%)" max="5" min="2" id="iss_value" value="5"></td>
+                </tr>
+            </table>
+
+            <h1>Natureza do Bem / Serviço</h1>
+
+            <table class="s_p">                
+                                  
+                <tr>
+                    <td><input type="radio" value="6147" id="6147" checked></td>
+                    <td>● Alimentação;
+                        ● Energia elétrica;
+                        ● Serviços prestados com emprego de materiais;
+                        ● Construção Civil por empreitada com emprego de materiais;
+                        ● Serviços hospitalares de que trata o art. 30;
+                        ● Serviços de auxílio diagnóstico e terapia, patologia clínica, imagenologia,
+                        anatomia patológica e citopatológia, medicina nuclear e análises e
+                        patologias clínicas de que trata o art. 31.
+                        ● Transporte de cargas, exceto os relacionados no código 8767;
+                        ● Produtos farmacêuticos, de perfumaria, de toucador ou de higiene
+                        pessoal adquiridos de produtor, importador, distribuidor ou varejista, exceto
+                        os relacionados no código 8767; e
+                        ● Mercadorias e bens em geral.
+                </tr>
+
+                <tr>                                               
+                    <td><input type="radio" value="9060" id="9060"></td>
+                    <td>
+                        ● Gasolina, inclusive de aviação, óleo diesel, gás liquefeito de petróleo
+                        (GLP), combustíveis derivados de petróleo ou de gás natural, querosene de
+                        aviação (QAV), e demais produtos derivados de petróleo, adquiridos de
+                        refinarias de petróleo, de demais produtores, de importadores, de
+                        distribuidor ou varejista, pelos órgãos da administração pública de que trata
+                        o caput do art. 19;
+                        ● Álcool etílico hidratado, inclusive para fins carburantes, adquirido
+                        diretamente de produtor, importador ou distribuidor de que trata o art. 20;
+                        ● Biodiesel adquirido de produtor ou importador, de que trata o art. 21.
+                    </td>
+                </tr>
+
+                <tr>                                               
+                    <td><input type="radio" value="8739" id="8739"></td>
+                    <td>
+                        ● Gasolina, exceto gasolina de aviação, óleo diesel, gás liquefeito de
+                        petróleo (GLP), derivados de petróleo ou de gás natural e querosene de
+                        aviação adquiridos de dis- tribuidores e comerciantes varejistas;
+                        ● Álcool etílico hidratado nacional, inclusive para fins carburantes adquirido
+                        de comerciante varejista;
+                        ● Biodiesel adquirido de distribuidores e comerciantes varejistas;
+                        ● Biodiesel adquirido de produtor detentor regular do selo "Combustível
+                        Social", fabricado a partir de mamona ou fruto, caroço ou amêndoa de
+                        palma produzidos nas regiões norte e nordeste e no semiárido, por
+                        agricultor familiar enquadrado no Programa Nacional de Fortalecimento da
+                        Agricultura Familiar (Pronaf).
+                    </td>
+                </tr>
+
+                <tr>                                               
+                    <td><input type="radio" value="8767" id="8767"></td>
+                    <td>
+                        ● Transporte internacional de cargas efetuado por empresas nacionais;
+                        ● Estaleiros navais brasileiros nas atividades de construção, conservação,
+                        modernização, conversão e reparo de embarcações pré-registradas ou
+                        registradas no Registro Especial Brasileiro (REB), instituído pela Lei nº
+                        9.432, de 8 de janeiro de 1997;
+                        ● Produtos farmacêuticos, de perfumaria, de toucador e de higiene pessoal
+                        a que se refere o § 1º do art. 22 , adquiridos de distribuidores e de
+                        comerciantes varejistas;
+                        ● Produtos a que se refere o § 2º do art. 22;
+                        ● Produtos de que tratam as alíneas "c" a "k"do inciso I do art. 5º;
+                        ● Outros produtos ou serviços beneficiados com isenção, não incidência ou
+                        alíquotas zero da Cofins e da Contribuição para o PIS/Pasep, observado o
+                        disposto no § 5º do art. 2º.
+                    </td>
+                </tr>
+
+                <tr>                                               
+                    <td><input type="radio" value="6175" id="6175"></td>
+                    <td>
+                        Passagens aéreas, rodoviárias e demais serviços de transporte de
+                        passageiros, inclusive, tarifa de embarque, exceto as relacionadas no
+                        código 8850.
+                    </td>
+                </tr>
+
+                <tr>                                               
+                    <td><input type="radio" value="8850" id="8850"></td>
+                    <td>
+                        ● Transporte internacional de passageiros efetuado por empresas
+                        nacionais.
+                    </td>
+                </tr>
+
+                <tr>                                               
+                    <td><input type="radio" value="8863" id="8863"></td>
+                    <td>
+                        ● Serviços prestados por associações profissionais ou assemelhadas e
+                        cooperativas.
+                    </td>
+                </tr>
+
+                <tr>                                               
+                    <td><input type="radio" value="6188" id="6188"></td>
+                    <td>
+                        ● Serviços prestados por bancos comerciais, bancos de investimento,
+                        bancos de desenvolvimento, caixas econômicas, sociedades de crédito,
+                        financiamento e investimento, sociedades de crédito imobiliário, e câmbio,
+                        distribuidoras de títulos e valores mobiliários, empresas de arrendamento
+                        mercantil, cooperativas de crédito, empresas de seguros privados e de
+                        capitalização e entidades abertas de previdência complementar;
+                        ● Seguro saúde.
+                    </td>
+                </tr>
+
+                <tr>                                               
+                    <td><input type="radio" value="6190" id="6190"></td>
+                    <td>
+                        ● Serviços de abastecimento de água;
+                        ● Telefone;
+                        ● Correio e telégrafos;
+                        ● Vigilância;
+                        ● Limpeza;
+                        ● Locação de mão de obra;
+                        ● Intermediação de negócios;
+                        ● Administração, locação ou cessão de bens imóveis, móveis e direitos de
+                        qualquer natureza;
+                        ● Factoring;
+                        ● Plano de saúde humano, veterinário ou odontológico com valores fixos
+                        por servidor, por empregado ou por animal;
+                        ● Demais serviços.
+                    </td>
+                </tr>
+             
+            </table>
+            
+        </div>
+
+        <button class="calc" id="calc">Calcular</button>
+
+        <p class="credits">Copyright 2022. Eduardo Programador</p>
+
+        <img class="up_arrow" src="img/up_arrow.png" id="up_arrow">
+
+        <div class="policy_dialog" id="policy_dialog">
+            <h1>Ei, quer um Cookie?</h1><br>                
+
+            <p> Usamos cookies e outras tecnologias de rastramento para gerar estatísticas,<br>
+                 insights e para a melhoria das soluções prestadas.<br>
+                Confira na íntegra a <a href="politica-de-privacidade.html">Política de Privacidade</a> do desenvolvedor atualizada.</p><br>                
+            
+            <div class="btns">
+            <button class="agree" id="agree">Aceito</button>
+
+            
+            <button class="disagree" id="disagree">* Não Aceito</button>
+            </div><br>
+
+            <p>* Ao continuar, você aceita tacitamente os termos de privacidade.</p>
+            
+        </div>
+
+</header>
+
+<body>
+
+    <table class="result" id="result">
+        <tr>
+            <th>Valor da Nota Fiscal</th>
+            <td id="v_nf">R$ 0,00</td>
+        </tr>
+        <tr>
+            <th>Valor do ISS</th>
+            <td id="v_iss">R$ 0,00</td>
+        </tr>
+        <tr>
+            <th>Valor do IR</th>
+            <td id="v_ir">R$ 0,00</td>
+        </tr>
+        <tr>
+            <th>Valor da CSLL</th>
+            <td id="v_csll">R$ 0,00</td>
+        </tr>
+        <tr>
+            <th>Valor da Cofins</th>
+            <td id="v_cofins">R$ 0,00</td>
+        </tr>
+        <tr>
+            <th>Valor do PIS / PASEP</th>
+            <td id="v_pis">R$ 0,00</td>
+        </tr>
+        <tr>
+            <th>Valor Líquido</th>
+            <td id="v_liquido">R$ 0,00</td>
+        </tr>
+        <tr>
+            <th>Alíquota IN 1.234/2012</th>
+            <td id="v_aliquota">0%</td>
+        </tr>
+        <tr>
+            <th>Valor dos Impostos</th>
+            <td id="v_impostos">R$ 0,00</td>
+        </tr>
+        <tr>
+            <th>Base Legal</th>
+            <td id="v_legal">xxxx</td>
+        </tr>
+
+    </table>
+
+</body>
+
+<footer>
+    
+    <ul class="programming_languages" onclick="let tasks = new Tasks(); tasks.httpPost('php/links.php',encodeURI('link=languages_footer&time=' + tasks.getTime()),function () {});">
+        <li><img src="img/c++.png" title="C++"></li>
+        <li><img src="img/java.png" title="Java"></li>
+        <li><img src="img/html_logo.png" title="HTML"></li>
+        <li><img src="img/css_logo.png" title="CSS"></li>
+        <li><img src="img/js_logo.png" title="Javascript"></li>
+        <li><img src="img/php.png" title="PHP"></li>                        
+        <li><img src="img/swift.jpg" title="Swift"></li>            
+        <li><img src="img/python.jpg" title="Python"></li>
+        <li><img src="img/r.jpg" title="R"></li>
+        <li><img src="img/ruby.jpg" title="Ruby"></li>            
+    </ul>
+
+    <div class="policy">
+        <ul>
+            <li><a href="politica-de-privacidade.html" onclick="let tasks = new Tasks(); tasks.httpPost('php/links.php',encodeURI('link=privacy_pt&time=' + tasks.getTime()),function () {});">Política de Privacidade</a></li>
+            <li><a href="privacy-policy.html" onclick="let tasks = new Tasks(); tasks.httpPost('php/links.php',encodeURI('link=privacy_en&time=' + tasks.getTime()),function () {});">Privacy Policy</a></li>
+            <li><a href="politica-de-privacidad.html" onclick="let tasks = new Tasks(); tasks.httpPost('php/links.php',encodeURI('link=privacy_es&time=' + tasks.getTime()),function () {});">Política de Privacidad</a></li>
+            <li><a href="privacy-policy-corean.html" onclick="let tasks = new Tasks(); tasks.httpPost('php/links.php',encodeURI('link=privacy_kr&time=' + tasks.getTime()),function () {});">개인 정보 정책</a></li>
+        </ul>
+    </div>        
+    
+    <div class="copyright">
+        <p>Copyright 2021. Eduardo Programador. Todos os direitos reservados<br>            
+            E-mail: consultoria@eduardoprogramador.com<br>    
+            Fone: +55 81 98860-0704
+        </p>
+    </div>        
+    
+    <script>
+        document.onload = main();
+    </script>
+
+
+
+</footer>
+
+</html>

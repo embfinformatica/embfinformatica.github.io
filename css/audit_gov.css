@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+header {
+    height: 100vh;
+    background-size: cover;
+    background-image: url("../img/audit_back.png");
+}
+
+
+.main h1 {
+    font-size: 100px;    
+    font-weight: bold;
+    color: coral;
+    padding-top: 50px;
+}
+
+.main h2 {
+    font-size: 30px;
+    border-bottom: 2px solid coral;
+}
+
+.params {
+    padding:50px;
+    background-color: darkkhaki;
+    border-radius: 40%;
+}
+
+.params input {
+    border-radius: 15%;
+    background-color: khaki;
+    color:green;
+}
+
+.params input:focus {
+    background-color: darkturquoise;
+}
+
+.params ul {
+    list-style: none;
+}
+
+.params ul li {
+    display: block;
+}
+
+.params button {
+    margin-top: 20px;
+    background-color: khaki;
+    border-radius: 50%;
+}
+
+.description {
+    columns: 5;
+    font-weight: bold;
+    font-size: 16px;
+    padding-top: 10px;
+}
+
+.error {
+    color:red;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+footer {
+    height: 50vh;
+    background-image: url("../img/footer.png");
+    background-size: cover;
+    background-position: 0px -90px;
+    margin-top: 40px;
+    background-color: white;
+    visibility: visible;
+}
+
+.programming_languages {
+    list-style: none;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.programming_languages li {
+    display: inline-block;
+    padding-right: 10px;
+}
+
+.programming_languages img {
+    width: 60px;
+    height: 60px;
+    border-radius: 15%;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in;
+}
+
+.programming_languages img:hover {
+    width: 100px;
+    height: 80px;
+    border-radius: 10%;
+}
+
+.policy {
+    text-align: right;
+    margin-top: 10px;
+}
+
+.policy ul {
+    list-style: none;
+}
+
+.policy ul li {
+    padding-right: 25px;
+    display: inline-block;
+}
+
+.policy ul li a {
+    text-decoration: none;
+    font-size: 20px;
+    color:teal
+}
+
+.policy ul li a:hover {
+    color:chocolate;
+    border-bottom: 2px solid chocolate;
+}
+
+.copyright {
+    margin-left: 50px;
+    text-align: left;
+}
+
+.copyright:hover {
+    color:chocolate;
+}
+
+.copyright {
+    margin-top: 10px;
+}
+
+}

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/ceis.css">
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <script src="js/functions.js" type="text/javascript"></script>
+    <script src="js/chat_functions.js" type="text/javascript"></script>
+    <title>CEIS (Empresas Inidôneas)</title>
+
+</head>
+
+
+
+
+<header>
+
+    <!----
+    <div class="chat" id="initChat" onclick="displayChat()">
+
+        <img src="img/logo.png"></img>
+        <p>Fale agora com o Programador</p>
+
+    </div>
+
+    <div class="chat_inside" id="chat_inside">
+
+        <h1 id="insideClose" onclick="closeChat()">[X]</h1>
+
+        <div class="chat_content" id="chat_content">
+        <div class="chat_me">
+            <br>
+            <ul>
+            <li><img src="img/ico_dev.png"></img></li>
+            <li><h2>Eduardo Programador</h2></li>
+            </ul>
+        </div>
+
+        <table>
+            <tr>
+                <th><p>Nome:</p></th>
+                <td><input type="text" placeholder="Nome" maxlength="50" id="chat_name" required></td>
+            </tr>
+
+            <tr>
+                <th><p>E-mail:</p></th>
+                <td><input type="text" placeholder="E-mail" maxlength="50" id="chat_surname" required></td>
+            </tr>
+
+            <tr>
+                <th><p>Mensagem:</p></th>
+                <td><textarea placeholder="Escreva a sua mensagem." maxlength="500" id="chat_message" required></textarea></td>
+            </tr>
+
+        </table>
+
+        <button id="chat_send" onclick="sendChatMsg()">Enviar</button>
+        <br><br>
+
+        </div>
+
+    </div>
+    !-->
+
+    <h1>CEIS (Empresas Inidôneas e Suspensas)</h1>
+
+    
+
+    <div class="description">
+
+        <p>O CEIS (Cadastro Nacional de Empresas Inidôneas e Suspensas) é um cadastro trazido pela Lei 12.846, de 1 de agosto de 2013, descrito no art. 23, 'caput', do citado diploma legal, relativo às empresas sancionadas, de caráter público.</p>
+
+    </div>
+
+    <div class="params">
+
+        <ul>
+            <li>CNPJ:</li>
+            <li><input type="text" maxlength="18" size="24" placeholder="CNPJ sem pontos e traços" onkeyup="processInput()" id="editCnpj"></li>
+            <li><button id="btnConsult" onclick="doConsult()" disabled>Consultar</button></li>
+            <li class="loader" id="loader"></li>
+        </ul>
+
+    </div>
+
+    <div class="ceis_result">
+
+        <table>
+            <tr>
+                <th>Órgão Sancionador</th>
+                <td id="orgao_sancionador">-</td>
+            </tr>
+
+            <tr>
+                <th>Data de Início da Sanção</th>
+                <td id="data_inicio_sancao">-</td>
+            </tr>
+
+            <tr>
+                <th>Data de Término da Sanção</th>
+                <td id="data_termino_sancao">-</td>
+            </tr>
+
+            <tr>
+                <th>Data de Publicação da Sanção</th>
+                <td id="data_publicacao_sancao">-</td>
+            </tr>
+
+            <tr>
+                <th>Data do Trânsito em Julgado</th>
+                <td id="data_transito_julgado">-</td>
+            </tr>
+
+            <tr>
+                <th>Descrição</th>
+                <td id="descricao">-</td>
+            </tr>
+
+            <tr>
+                <th>Fundamentação Legal</th>
+                <td id="fundamentacao_legal">-</td>
+            </tr>
+
+            <tr>
+                <th>Descrição da Fundamentação Legal</th>
+                <td id="descricao_fundamentacao_legal">-</td>
+            </tr>
+
+            <tr>
+                <th>Telefone (Órgão Sancionador)</th>
+                <td id="telefone">-</td>
+            </tr>
+
+            <tr>
+            <th>Endereço (Órgão Sancionador)</th>
+            <td id="endereco">-</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+    <div class="print">
+    <button id="btnPrint" onclick="printNow()">Imprimir</button>
+    </div>
+
+    <div class="credits">
+    <p>Copyright 2021. Eduardo Programador</p>
+    </div>
+
+    
+
+    
+
+</header>
+
+<body>
+
+    
+    <script>
+        
+        if(location.protocol === 'https:') {
+            window.location.replace("http://eduardoprogramador.com/ceis.html");
+        }
+
+
+        function processInput() {
+            var editCnpj = document.getElementById("editCnpj");
+            var btnConsult = document.getElementById("btnConsult");
+
+            var current = editCnpj.value;
+            btnConsult.disabled = (current.length > 0) ? false : true;
+        };
+
+        function doConsult() {
+
+            var curTime = new Date();
+            var loader = document.getElementById("loader");
+            loader.style.visibility = "visible";
+
+            $.ajax({
+                    url : "php/services.php",
+                    method : "POST",
+                    data : {
+                        'service' : "CEIS",
+                        'date' : curTime.getDate() + "/" + curTime.getMonth() + "/" + curTime.getFullYear(),
+                        'time' : curTime.getHours() + ":" + curTime.getMinutes() + ":" + curTime.getSeconds(),
+                        'param' : document.getElementById("editCnpj").value
+                    }
+                });
+
+            $.ajaxSetup({
+
+            headers : {
+                'Accept' : '*/*',
+                'chave-api-dados' : atob("YWJiZDM0YTIwYjhhMmEyYWQwMWI2YmE2NjMyZTUxMWQ=")
+            }
+
+        });
+
+        var search = atob("aHR0cDovL2FwaS5wb3J0YWxkYXRyYW5zcGFyZW5jaWEuZ292LmJyL2FwaS1kZS1kYWRvcy9jZWlzP2NvZGlnb1NhbmNpb25hZG89");
+        search += document.getElementById("editCnpj").value;
+        search += atob("JnBhZ2luYT0x");
+        
+        $.getJSON(search, function(data) {
+            
+            var arr = data[0];
+            var jStr = JSON.stringify(arr, null, 2);
+
+
+            if(jStr === undefined) {
+                alert("Nenhuma sanção encontrada");
+                loader.style.visibility = "hidden";
+            } else {
+
+            var jObj = JSON.parse(jStr);    
+
+            var dataInicioSancao = jObj.dataInicioSancao; 
+            var dataFimSancao = jObj.dataFimSancao; 
+            var dataPublicacaoSancao = jObj.dataPublicacaoSancao; 
+            var dataTransitoJulgado = jObj.dataTransitadoJulgado;
+            var descricaoPortal = jObj.tipoSancao.descricaoPortal;
+            var nomeExibicao = jObj.fonteSancao.nomeExibicao;
+            var telefoneContato = jObj.fonteSancao.telefoneContato;
+            var enderecoContato = jObj.fonteSancao.enderecoContato;
+            var fundamentacaoLegal = jObj.legislacao.fundamentacaoLegal;
+            var descricaoFundamentacaoLegal = jObj.legislacao.descricaoFundamentacaoLegal;
+
+            document.getElementById("data_inicio_sancao").innerHTML = dataInicioSancao;
+            document.getElementById("data_termino_sancao").innerHTML = dataFimSancao;
+            document.getElementById("data_publicacao_sancao").innerHTML = dataPublicacaoSancao;
+            document.getElementById("data_transito_julgado").innerHTML = dataTransitoJulgado;
+            document.getElementById("descricao").innerHTML = descricaoPortal;
+            document.getElementById("orgao_sancionador").innerHTML = nomeExibicao;
+            document.getElementById("telefone").innerHTML = telefoneContato;
+            document.getElementById("endereco").innerHTML = enderecoContato;
+            document.getElementById("fundamentacao_legal").innerHTML = fundamentacaoLegal;
+            document.getElementById("descricao_fundamentacao_legal").innerHTML = descricaoFundamentacaoLegal;
+
+            loader.style.visibility = "hidden";
+
+            }
+
+        
+        });
+        
+            
+        }
+
+        function printNow() {
+            window.print();
+        }
+
+
+    </script>
+
+</body>
+
+<footer>
+
+    <div class="download_app">
+        <ul>
+        <li><h1>Baixe o App!</h1></li>
+        <li><p>CEIS Mobile<br>Consulta ao CEIS<br>no seu SmartPhone</p></li>
+        <li><img src="img/qr_ceis_mobile.png"></img></li>
+        <li><a href="https://play.google.com/store/apps/details?id=com.eduardoprogramador.ceismobile"><img src="img/play_store.png"></a></img></li>
+        </ul>
+    </div>
+
+</footer>
+
+</html>

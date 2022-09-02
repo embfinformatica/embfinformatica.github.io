@@ -1,6 +1,7 @@
 /*
-    Copyright 2022. EMBF Softwares e Investigação
-    www.embfinformatica.github.io        
+    Copyright 2021. Eduardo Programador
+    www.eduardoprogramador.com
+    consultoria@eduardoprogramador.com
     All Rights Reserved
 
     This file contains functions
@@ -171,14 +172,6 @@ function to(hash) {
 */
 function _in(id) {
     document.getElementById(id).focus();
-}
-
-/* 
-    Check if an element is focused    
-*/
-
-function isOn(id) {
-    return document.activeElement === document.getElementById(id);
 }
 
 

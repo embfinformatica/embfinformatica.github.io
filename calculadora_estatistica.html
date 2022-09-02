@@ -1,0 +1,186 @@
+<!--
+    Copyright 2022. Eduardo Programador
+    www.eduardoprogramador.com
+    consultoria@eduardoprogramador.com
+    Todos os direitos reservados
+
+-->
+
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="content-type" content="text/html">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="author" content="EMBF Softwares e Investigação">
+    <meta name="description" content="Calculadora Estatística">
+    <meta name="keywords" content="calculadora,estatistica,desvio,padrao,online,curtose,variancia,calculadora online">
+    <meta name="application-name" content="Calculadora Estatística">
+    <meta name="robots" content="index,follow">
+    <title>Calculadora Estatística</title>
+    <link rel="icon" href="img_/logos/logo.png">
+    <link rel="stylesheet" type="text/css" href="css/calculadora_estatistica.css">
+    <script type="text/javascript" src="js/tasks.js"></script>    
+    <script type="text/javascript" src="js/duscript.js"></script>        
+    <script type="text/javascript" src="js/calculator.js"></script>    
+    <script type="text/javascript" src="js/calculadora_estatistica.js"></script>
+</head>
+
+<header>    
+
+    <div class="upper">
+        <img src="img_/informatics/calc.png">
+        <h1>Calculadora Estatística</h1>
+    </div>
+
+    <div class="container">
+        <nav class="list">
+            <ul>
+                <li class="active_li" id="menu_avg"><a href="#" class="active_a" style="color: yellow;">Média e Mediana</a></li>
+                <li id="menu_sd"><a href="#">Desvio-Padrão</a></li>
+                <li id="menu_var"><a href="#">Variância</a></li>
+                <li id="menu_cv"><a href="#">Coeficiente de Variação</a></li>
+                <li id="menu_cur"><a href="#">Curtose</a></li>
+                <li id="menu_asy"><a href="#">Assimetria</a></li>
+                <li id="menu_jur"><a href="#">Juros Simples</a></li>                                
+                <li id="menu_jurC"><a href="#">Juros Compostos</a></li> 
+            </ul>
+        </nav>
+
+        <div class="avg_median" id="avg_median">
+            <p>Insira os números separados por vírgula</p>
+            <textarea maxlength="5000" placeholder="Ex.: 1,2,4,5,5,9,23" rows="15" cols="70" id="text_avg_median"></textarea><br>
+            <p id="res_avg">Média: </p>
+            <p id="res_median">Mediana: </p>
+            <button id="avg_median_calc">Calcular</button>
+        </div>
+
+        <div class="standard_desviation" id="standard_desviation">
+            <p>Insira os números separados por vírgula</p>
+            <textarea maxlength="5000" placeholder="Ex.: 1,2,4,5,5,9,23" rows="15" cols="70" id="text_std_dv"></textarea><br>
+            <p id="res_std_dv_pop">Desvio-Padrão Populacional: </p>            
+            <p id="res_std_dv_sample">Desvio-Padrão Amostral: </p>            
+            <button id="button_std_dv">Calcular</button>
+        </div>
+
+        <div class="variance" id="variance">
+            <p>Insira os números separados por vírgula</p>
+            <textarea maxlength="5000" placeholder="Ex.: 1,2,4,5,5,9,23" rows="15" cols="70" id="text_variance"></textarea><br>
+            <p id="res_variance_pop">Variância Populacional: </p>            
+            <p id="res_variance_sample">Variância Amostral: </p>            
+            <button id="button_variance">Calcular</button>
+        </div>
+
+        <div class="cv" id="cv">
+            <p>Insira os números separados por vírgula</p>
+            <textarea maxlength="5000" placeholder="Ex.: 1,2,4,5,5,9,23" rows="15" cols="70" id="text_cv"></textarea><br>
+            <p id="res_cv_pop">Coeficiente de Variação Populacional: </p>            
+            <p id="res_cv_sample">Coeficiente de Variação Amostral: </p>            
+            <button id="button_cv">Calcular</button>
+        </div>
+
+        <div class="cur" id="cur">
+            <p>Insira os números separados por vírgula</p>
+            <textarea maxlength="5000" placeholder="Ex.: 1,2,4,5,5,9,23" rows="15" cols="70" id="text_cur"></textarea><br>
+            <p id="res_cur_pop">Curtose Populacional: </p>            
+            <p id="res_cur_sample">Curtose Amostral: </p>            
+            <button id="button_cur">Calcular</button>
+        </div>
+
+        <div class="asy" id="asy">
+            <p>Insira os números separados por vírgula</p>
+            <textarea maxlength="5000" placeholder="Ex.: 1,2,4,5,5,9,23" rows="15" cols="70" id="text_asy"></textarea><br>
+            <p id="res_asy_pop">Assimetria Populacional: </p>            
+            <p id="res_asy_sample">Assimetria Amostral: </p>            
+            <button id="button_asy">Calcular</button>
+        </div>
+
+        <div class="jur" id="jur">
+
+            <p>--- JUROS SIMPLES ---</p><br>
+
+            <table>
+                <tr>
+                    <td><p>Capital (R$): </p></td>
+                    <td><input type="number" max="1000000" min="0" maxlength="7" id="capital"></td>
+                </tr>
+                <tr>
+                    <td><p>Taxa (%) (Ex.: 12.7): </p></td>
+                    <td><input type="number" max="100" min="0" maxlength="3" id="taxa"></td>
+                </tr>
+                <tr>
+                    <td><p>Tempo: </p></td>
+                    <td><input type="number" max="50000" min="0" maxlength="6" id="tempo"></td>
+                </tr>
+                <tr>
+                    <td><p>Juros: </p></td>
+                    <td><input type="number" max="50000" min="0" maxlength="6" id="juros"></td>
+                </tr>                
+            </table>
+
+                <button id="button_jur">Calcular</button><br>
+
+                <p>
+                    Instruções: Você deve preencher os valores individualmente e deixar o valor a ser calculado e o(s) campo(s) desnecessário(s) em branco. 
+                    Por exemplo, para calcular o capital, deixe em branco o campo juros. 
+                </p>
+        </div>  
+
+
+        <div class="jurC" id="jurC">
+
+            <p>--- JUROS COMPOSTOS ---</p><br>
+
+            <table>
+                <tr>
+                    <td><p>Capital (R$): </p></td>
+                    <td><input type="number" max="1000000" min="0" maxlength="7" id="capitalC"></td>
+                </tr>
+                <tr>
+                    <td><p>Taxa (%) (Ex.: 12.7): </p></td>
+                    <td><input type="number" max="100" min="0" maxlength="3" id="taxaC"></td>
+                </tr>
+                <tr>
+                    <td><p>Tempo: </p></td>
+                    <td><input type="number" max="50000" min="0" maxlength="6" id="tempoC"></td>
+                </tr>
+                <tr>
+                    <td><p>Juros: </p></td>
+                    <td><input type="number" max="50000" min="0" maxlength="6" id="jurosC"></td>
+                </tr>
+                <tr>
+                    <td><p>Montante (R$): </p></td>
+                    <td><input type="number" max="1000000" min="0" maxlength="7" id="montante"></td>
+                </tr>                
+            </table>
+
+                <button id="button_jurC">Calcular</button><br>
+
+                <p>
+                    Instruções: Você deve preencher os valores individualmente e deixar o valor a ser calculado e o(s) campo(s) desnecessário(s) em branco. 
+                    Por exemplo, para calcular o capital, deixe em branco os campos taxa e tempo. 
+                </p>
+        </div>
+
+        
+
+    </div>
+
+    <div class="copyright">
+        <ul>
+            <li><img src="img_/logos/logo.png"></li>
+            <li>Copyright 2022. Eduardo Programador</li>
+        </ul>
+    </div>
+
+</header>
+
+<body>
+    
+    <script>
+        document.onload = main();
+    </script>
+
+</body>
+
+</html>

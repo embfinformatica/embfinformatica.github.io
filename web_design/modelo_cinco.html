@@ -1,0 +1,199 @@
+<!--
+    Copyright 2022. Eduardo Programador
+    www.eduardoprogramador.com
+    consultoria@eduardoprogramador.com
+    Todos os direitos reservados
+
+    Template destinado para fins didáticos e demonstrativos no site Eduardo Programador.
+    O código descrito contém direitos autorais. 
+    Você pode utilizá-lo como template em seu site,
+    porém deve incluir a informação do Copyright completa do item acima.
+
+-->
+
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="content-type" content="text/html">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="author" content="Eduardo Programador">
+    <meta name="description" content="Eduardo Programador - Modelo de Web Design Cinco">
+    <meta name="keywords" content="web,design,web design,modelo,site,template,templates para site">
+    <meta name="robots" content="index,follow">
+    
+    <style>
+
+        * {
+            margin: 0;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        header {
+            background-image: url('img/gif02.gif');
+            background-size: cover;
+            height: 100vh;
+            background-position: 0 -50em;
+        }        
+
+        .container {
+            position: relative;
+        }                        
+
+        .hamburguer {            
+            background-image: url('img/10.png');
+            background-size: cover;
+            border-radius: 25%;
+            width: 5em;
+            height: 5em;       
+            position: absolute;            
+            left: 1em;
+            top: 1em;
+        }
+
+        .hamburguer:hover {
+            cursor: pointer;
+            background-image: url('img/11.png');
+            background-size: cover;
+        }
+
+        .menu {
+            position: absolute;
+            background-color: rgba(87, 83, 83, 0.712);
+            width: fit-content;
+            top: 7em;
+            left: 1em;                    
+            border-radius: 5%;
+            visibility: hidden;
+        }
+
+        .menu_tb {            
+            color: seashell;
+            border-spacing: 0;            
+        }
+
+        .menu_tb tr:hover {
+            background-color: rgba(81, 211, 21, 0.507);
+            cursor: pointer;            
+        }        
+
+        .menu_tb td {   
+            padding: 0.7em;                  
+        }
+
+        .home {
+            background-color: rgba(81, 211, 21, 0.507);                             
+        }
+
+        .message {
+            position: absolute;
+            top: 10em;
+            right: 10em;
+            text-align: center;
+        }
+
+        .message img {
+            width: 11em;
+            height: 15em;
+            border-radius: 50%;
+        }
+
+        .message img:hover {
+            cursor: text;
+            filter: grayscale(1);
+        }
+
+        .message p {
+            color: seashell;
+            font-size: 1em;            
+        }
+        
+                
+    </style>    
+
+</head>
+
+<header>        
+
+    <div class="container">      
+        
+        <div class="hamburguer" id="hamburguer"></div>
+        <nav class="menu" id="menu">
+            <table class="menu_tb">
+                <tr class="home">
+                    <td><img src="img/12.png"></td>
+                    <td>Página Inicial&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>                    
+                </tr>
+                <tr>
+                    <td><img src="img/13.png"></td>
+                    <td>Configurações&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                </tr>
+                <tr>
+                    <td><img src="img/14.png"></td>
+                    <td>Jogos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                </tr>
+                <tr>
+                    <td><img src="img/15.png"></td>
+                    <td>Programas para PC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                </tr>
+                <tr>
+                    <td><img src="img/16.png"></td>
+                    <td>Compras&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                </tr>
+                <tr>
+                    <td><img src="img/17.png"></td>
+                    <td>Notícias&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                </tr>
+                <tr>
+                    <td><img src="img/18.png"></td>
+                    <td>Sair&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                </tr>
+            </table>
+        </nav>
+
+        <div class="message">
+            <img src="img/19.jpg">      
+            <p>Copyright 2022. Eduardo Programador</p><br>   
+            <p>
+                Programar é uma arte pessoal<br> 
+                que envolve raciocínio lógico,<br>
+                matemática, técnicas de design,<br> 
+                gerenciamento de projetos<br> 
+                e muita, muita persistência!
+            </p>
+            <br>
+            <p>
+                Faria, Eduardo.
+            </p>   
+        </div>
+
+
+
+    </div>            
+
+</header>
+
+<body>
+
+    <script>
+
+        var vibible = false;
+
+        document.getElementById('hamburguer').onclick = function () {
+            if(!vibible) {
+                document.getElementById('menu').style.visibility = 'visible';
+                vibible = !vibible;
+            } else {
+                document.getElementById('menu').style.visibility = 'hidden';
+                vibible = !vibible;
+            }
+        }
+    </script>
+
+
+    <!--
+        Você pode construir seu código HTML aqui...
+    -->
+</body>
+
+</html>

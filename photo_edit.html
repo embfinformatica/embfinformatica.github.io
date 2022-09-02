@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="stylesheet" type="text/css" href="css/photo_edit.css">
+    <script type="text/javascript" src="js/functions.js"></script>
+
+</head>
+
+<header>
+
+    <h1>Photo Edit</h1>
+
+    <h2>O Photo Edit é um simples e prático manipulador de imagens Web desenvolvido por Eduardo Programador, o qual permite o rápido redimensionamento de imagens.</h2>    
+
+    <div class="params">
+
+        <label for="file">Escolha uma Imagem:</label>
+        <input type="file" name="file" id="file" onchange="loadImg(this)">
+        <br><br>
+
+        <label for="largura">Largura (Imagem):</label>
+        <input type="number" placeholder="Largura" name="largura" value="640" id="editWid">
+        <label for="comprimento">Comprimento (Imagem):</label>
+        <input type="number" placeholder="Comprimento" name="comprimento" value="480" id="editHei">
+        <button id="refresh">Atualizar</button>
+        
+
+    </div>
+
+    <br>
+    <div class="desktop" id="desktop">
+
+        <img id="imgWork" src="img/logo.png">        
+        <br>
+        <button id="generate">Gerar Imagem</button>
+
+    </div>
+
+    <div class="copyright">
+        <p>Copyright 2021. Eduardo Programador</p>
+    </div>
+
+    <a class="home" href="index.html">Início</a>
+
+</header>
+
+<body>
+    
+    <script>
+
+        if(window.location.protocol === 'http:') {
+            window.location.replace("https://eduardoprogramador.com/photo_edit.html");
+        }
+
+        var theTime = new Date();
+        
+            var day = theTime.getDate();
+            var month = theTime.getMonth() + 1;
+            var year = theTime.getFullYear();
+            var hour = theTime.getHours();
+            var min = theTime.getMinutes();
+            var seconds = theTime.getSeconds();
+
+        $.ajax({
+                    url : "php/services.php",
+                    method : "POST",
+                    data : {
+                        'service' : "Photo Edit",
+                        'date' : day + "/" + month + "/" + year,
+                        'time' : hour + ":" + min + ":" + seconds,
+                        'param' : "Photo Edit"
+                    }
+                });
+        
+
+        $("#refresh").on({
+
+            "click" : function () {
+             
+                let width = $("#editWid").val();
+                let height = $("#editHei").val();
+                
+                $("#desktop").css("width",width);
+                $("#desktop").css("height",height);                                                
+                $("#imgWork").css("width",width);
+                $("#imgWork").css("height",height);
+
+            }
+        });
+
+        $("#generate").on({
+
+            "click" : function () {
+                
+                let w = $("#editWid").val();
+                let h = $("#editHei").val();
+
+                var tab = window.open("","","width=" + w + ",heigth=" + h);                
+                tab.document.write("<!DOCTYPE HTML><head></head><body><canvas id=\"imgCanvas\"></canvas></body></html>");
+                
+                let canvas = tab.document.getElementById("imgCanvas");
+                canvas.width = w;
+                canvas.height = h;
+                let ctx = canvas.getContext("2d");                
+                let img = document.getElementById("imgWork");
+                ctx.drawImage(img,0,0,w,h);
+                
+            }
+
+        });
+
+        function loadImg(input) {
+
+            
+            if(input.files && input.files[0]) {
+                
+                var reader = new FileReader();
+
+
+                reader.onload = function (e) {
+                    
+                    $("#imgWork").attr("src",e.target.result);
+
+                };
+
+                reader.readAsDataURL(input.files[0]);
+
+            }
+            
+        };
+
+    </script>
+
+</body>
+
+<footer>
+
+</footer>
+
+</html>

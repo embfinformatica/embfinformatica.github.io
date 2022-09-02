@@ -1,0 +1,517 @@
+* {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;    
+}
+
+header {
+    background-color: rgb(233, 153, 107);
+    height: 100vh;
+}
+
+body {
+    background-color: rgb(233, 153, 107);
+    height: 100vh;    
+}
+
+.title {
+    text-align: center;
+    padding-top: 1em;
+}
+
+.title ul {
+    list-style: none;
+}
+
+.title ul li {
+    display: inline-block;
+    margin-right: 1em;
+}
+
+.title img {
+    width: 10;
+    height: 10em;
+    border-radius: 50%;
+    animation: inRight 2s linear;
+}
+
+.title img:hover {
+    cursor: text;
+    filter: grayscale(1);
+}
+
+.title h1 {
+    color: seashell;
+    border-top: 0.2em solid seashell;
+    border-bottom: 0.2em solid seashell;
+    animation: start 2s linear;
+}
+
+@keyframes start {
+    from{transform: rotate3d(1,1,1,45deg);}
+    to{transform: rotate3d(0,0,0,45deg);}
+}
+
+@keyframes inRight {
+    from{transform: translateX(-10em);}
+    to{transform: translateX(0);}
+}
+
+.prefeitura {
+    text-align: center;
+    margin-top: 5em;
+    color: seashell;    
+}
+
+.prefeitura table {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1em;    
+    border: none;
+}
+
+.prefeitura img {
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+}
+
+#prefeitura_sim:focus {
+    filter: sepia(1);    
+}
+
+.prefeitura table td {
+    font-size: 1.3em;
+    font-weight: bold;
+    padding-right: 2em;
+    padding-left: 2em;
+}
+
+.prefeitura img:hover {
+    filter: sepia(1);
+    cursor: pointer;
+}
+
+.iss {
+    text-align: center;
+    margin-top: 5em;
+    color: seashell;        
+    display: none;
+}
+
+.iss input {
+    font-size: 1.2em;
+    border-radius: 50%;
+    text-align: center;
+    padding: 0.5em;
+    margin-top: 0.5em;
+    border: none;
+    background-color: seashell;    
+}
+
+.iss input:hover {
+    background-color: rgb(247, 214, 214);
+}
+
+.iss input:focus {    
+    outline-style: none;
+}
+
+.iss button {
+    margin-top: 1.5em;
+    border-radius: 10%;
+    background-color: rgb(199, 193, 193);
+    padding: 0.5em;
+    border: none;
+}
+
+.iss button:hover {
+    background-color: rgb(209, 176, 176);
+    cursor: pointer;
+}
+
+.service {
+    text-align: center;
+    margin-top: 5em;
+    color: seashell;        
+    display: none;
+    
+}
+
+.service input {
+    font-size: 1.2em;
+    border-radius: 50%;
+    text-align: center;
+    padding: 0.5em;
+    margin-top: 0.5em;
+    border: none;
+    background-color: seashell;    
+}
+
+.service input:hover {
+    background-color: rgb(247, 214, 214);
+}
+
+.service input:focus {    
+    outline-style: none;
+}
+
+.service button {
+    margin-top: 1.5em;
+    border-radius: 10%;
+    background-color: rgb(199, 193, 193);
+    padding: 0.5em;
+    border: none;
+}
+
+.service button:hover {
+    background-color: rgb(209, 176, 176);
+    cursor: pointer;
+}
+
+.dependentes {
+    text-align: center;
+    margin-top: 5em;
+    color: seashell;            
+    display: none;
+}
+
+.dependentes input {
+    font-size: 1.2em;
+    border-radius: 50%;
+    text-align: center;
+    padding: 0.5em;
+    margin-top: 0.5em;
+    border: none;
+    background-color: seashell;    
+}
+
+.dependentes input:hover {
+    background-color: rgb(247, 214, 214);
+}
+
+.dependentes input:focus {    
+    outline-style: none;
+}
+
+.dependentes button {
+    margin-top: 1.5em;
+    border-radius: 10%;
+    background-color: rgb(199, 193, 193);
+    padding: 0.5em;
+    border: none;
+}
+
+.dependentes button:hover {
+    background-color: rgb(209, 176, 176);
+    cursor: pointer;
+}
+
+.received {
+    text-align: center;
+    margin-top: 5em;
+    color: seashell;   
+    display: none;             
+}
+
+.received input {
+    font-size: 1.2em;
+    border-radius: 50%;
+    text-align: center;
+    padding: 0.5em;
+    margin-top: 0.5em;
+    border: none;
+    background-color: seashell;    
+}
+
+.received input:hover {
+    background-color: rgb(247, 214, 214);
+}
+
+.received input:focus {    
+    outline-style: none;
+}
+
+.received button {
+    margin-top: 1.5em;
+    border-radius: 10%;
+    background-color: rgb(199, 193, 193);
+    padding: 0.5em;
+    border: none;
+}
+
+.received button:hover {
+    background-color: rgb(209, 176, 176);
+    cursor: pointer;
+}
+
+.step {
+    text-align: center;
+}
+
+.step h1 {
+    color: seashell;
+    margin-top: 2em;
+}
+
+.step button {
+    margin-top: 2em;
+    background-color: aquamarine;
+    border: none;
+    border-radius: 50%;
+    padding: 0.5em;
+}
+
+.step button:hover {
+    background-color: aqua;
+    cursor: pointer;
+}
+
+.status {
+    position: absolute;
+    top: 10em;
+    right: 5em;
+    border: 0.5em dotted seashell;
+    padding: 0.5em;
+    text-align: left;
+}
+
+.status p {
+    color: seashell;    
+}
+
+.status button {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: none;
+    animation: bangBang 3s linear;
+}
+
+.step img {
+    width: 6em;
+    height: 6em;
+    display: none;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.status button:hover {
+    cursor: pointer;    
+}
+
+.loading {
+    border: 0.2em solid blueviolet;    
+    border-top: transparent;
+    border-right: transparent;
+    animation: load infinite linear 0.5s;    
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+
+}
+
+@keyframes load {
+    from{transform: rotate(0deg);}
+    from{transform: rotate(360deg);}
+}
+
+.keys {
+    position: absolute;
+    bottom: 0.5em;
+    text-align: center;
+    margin-right: auto;    
+    margin-left: auto;
+    display: block;
+    left: 0;
+    right: 0;
+    font-size: 0.8em;
+    animation: tiktok 0.5s linear infinite;
+}
+
+.logotipo {
+    position: absolute;
+    text-align: center;
+    border-radius: 50%;
+    left: 1em;
+    top: 1em;
+}
+
+.logotipo img {
+    background-color: rgba(243, 89, 89, 0.842);
+    border-radius: 50%;
+    padding: 0.5em;
+    width: 5em;
+    height: 5em;
+}
+
+.logotipo:hover {
+    cursor: pointer;
+    filter: sepia(1);
+}
+
+.logotipo h1 {
+    font-style: italic;
+    font-size: 1.5em;
+}
+
+.result {
+    text-align: center;        
+    padding-left: 50px;
+    padding-right: 50px;
+    display: none;
+}
+
+.result table {
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;    
+    
+}
+
+.result td {
+    border: 1px solid black;
+    padding: 5px;
+    font-weight: bold;
+}
+
+.result td {
+    max-width: 400px;
+}
+
+.theme {
+    background-color:rgba(253, 249, 22, 0.849);
+}
+
+.black {
+    background-color: black;
+}
+
+.special {
+    background-color: rgba(54, 250, 240, 0.904);
+}
+
+footer {
+    background-color: seashell;
+}
+
+.credits {
+    border-top: 0.2em solid darkgray;
+    border-bottom: 0.2em solid darkgray;
+    padding: 1em;
+    font-size: 0.8em;
+}
+
+.useful {
+    list-style: none;
+    text-align: right;
+}
+
+.useful li {
+    padding-right: 0.5em;
+    display: inline-block;
+    margin-top: 0.5em;
+    margin-right: 1em;
+    margin-bottom: 2em;
+}
+
+.useful img {
+    width: 6em;
+    height: 2.5em;    
+}
+
+.useful img:hover {
+    cursor: pointer;
+}
+
+.marketing {
+    position: fixed;    
+    bottom: 2em;
+    background-color: rgba(95, 94, 94, 0.853);
+    z-index: 1;
+    padding: 1em;
+    text-align: center;    
+    left: 5em;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    border-radius: 5%;
+    animation: comeIn 3s ease-in-out;
+    transition: 1s ease-out;
+}
+
+.marketing ul {
+    list-style: none;
+    margin-top: 1em;
+}
+
+.marketing ul li {
+    display: inline-block;
+    margin-right: 1em;
+    margin-left: 1em;    
+}
+
+.marketing p {
+    color: seashell;
+    font-style: italic;
+    text-decoration: underline;
+}
+
+.marketing button {
+    border-radius: 50%;
+    border: none;
+    padding: 0.6em;    
+}
+
+.marketing button:hover {
+    cursor: pointer;
+}
+
+.marketing button:focus {
+    outline-style: none;
+}
+
+#please {
+    background-color: aquamarine;
+}
+
+#not {
+    background-color: aqua;
+}
+
+@keyframes comeIn {
+    from{left: -100em;}
+    to{left: 5em;}
+}
+
+@keyframes goOut {
+    from{left: 5em;}
+    to{left: -100em;}
+}
+
+@keyframes fadeOut {
+    from{filter: opacity(1);}
+    to{filter: opacity(0);}
+}
+
+@keyframes fadeIn {
+    from{filter: opacity(0);}
+    to{filter: opacity(1);}
+}
+
+@keyframes bangBang {
+    0%{transform: rotate3d(0,0,0,0deg);}
+    20%{transform: rotate3d(0,0,-1,25deg);}
+    40%{transform: rotate3d(0,0,0,0deg);}
+    60%{transform: rotate3d(0,0,1,25deg);}
+    80%{transform: rotate3d(0,0,-1,-10deg);}
+    100%{transform: rotate3d(0,0,0,0deg);}
+}
+
+@keyframes tiktok {
+    from{color: yellowgreen;}
+    to{color: black;}
+}
