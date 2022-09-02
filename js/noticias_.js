@@ -1,12 +1,8 @@
 function main() {
-    const tasks = new Tasks();
-    const chat = new Chat();
+    const tasks = new Tasks();    
 
     var isServerReady = false;        
-
-    if(!tasks.isHttps()) {
-        tasks.set('https://eduardoprogramador.com/noticias_.html');
-    }                 
+    
 
     var toCount = 0;
     var categories = ['GAMES','DETETIVE','SOFTWARES','ESTATÍSTICA','GAMES','DETETIVE','SOFTWARES','ESTATÍSTICA','GAMES','SOFTWARES','DETETIVE','DETETIVE','ESTATÍSTICA','SOfTWARES','GAMES','DETETIVE','ESTATÍSTICA','SOFTWARES','GAMES','DETETIVE','ESTATÍSTICA','SOFTWARES','GAMES','DETETIVE','ESTATÍSTICA','SOFTWARES','GAMES','','',''];
