@@ -124,7 +124,7 @@ h2 {
 
     <p class="caption" id="caption">QR-Code Gerado com sucesso para a URL: xxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
 
-    <p class="copyright">Copyright 2021. Eduardo Programador. Versão 1.0. Atualizada em 02/08/2021</p>
+    <p class="copyright">Copyright 2021. EMBF Informática. Versão 1.0. Atualizada em 02/08/2021</p>
 
     
 
@@ -145,23 +145,13 @@ h2 {
             var min = theTime.getMinutes();
             var seconds = theTime.getSeconds();
         
-        $.ajax({
-                    url : "php/services.php",
-                    method : "POST",
-                    data : {
-                        'service' : "Qr-Code Generator (Android)",
-                        'date' : day + "/" + month + "/" + year,
-                        'time' : hour + ":" + min + ":" + seconds,
-                        'param' : $("#editUrl").val()
-                    }
-                });
 
     var qr;
 
     qr = new QRious({
         element : document.getElementById("qr-code"),
         size : 200,
-        value : "https://eduardoprogramador.com"
+        value : "https://embfinformatica.github.io"
     });
 
     $("#btnDo").on({

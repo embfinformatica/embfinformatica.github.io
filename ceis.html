@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/ceis.css">
-    <link rel="icon" type="image/png" href="img/logo.png">
-    <script src="js/functions.js" type="text/javascript"></script>
-    <script src="js/chat_functions.js" type="text/javascript"></script>
+    <link rel="icon" type="image/png" href="img_/logos/logo.png">    
     <title>CEIS (Empresas Inidôneas)</title>
 
 </head>
@@ -13,54 +11,7 @@
 
 
 
-<header>
-
-    <!----
-    <div class="chat" id="initChat" onclick="displayChat()">
-
-        <img src="img/logo.png"></img>
-        <p>Fale agora com o Programador</p>
-
-    </div>
-
-    <div class="chat_inside" id="chat_inside">
-
-        <h1 id="insideClose" onclick="closeChat()">[X]</h1>
-
-        <div class="chat_content" id="chat_content">
-        <div class="chat_me">
-            <br>
-            <ul>
-            <li><img src="img/ico_dev.png"></img></li>
-            <li><h2>Eduardo Programador</h2></li>
-            </ul>
-        </div>
-
-        <table>
-            <tr>
-                <th><p>Nome:</p></th>
-                <td><input type="text" placeholder="Nome" maxlength="50" id="chat_name" required></td>
-            </tr>
-
-            <tr>
-                <th><p>E-mail:</p></th>
-                <td><input type="text" placeholder="E-mail" maxlength="50" id="chat_surname" required></td>
-            </tr>
-
-            <tr>
-                <th><p>Mensagem:</p></th>
-                <td><textarea placeholder="Escreva a sua mensagem." maxlength="500" id="chat_message" required></textarea></td>
-            </tr>
-
-        </table>
-
-        <button id="chat_send" onclick="sendChatMsg()">Enviar</button>
-        <br><br>
-
-        </div>
-
-    </div>
-    !-->
+<header>    
 
     <h1>CEIS (Empresas Inidôneas e Suspensas)</h1>
 
@@ -145,7 +96,7 @@
     </div>
 
     <div class="credits">
-    <p>Copyright 2021. Eduardo Programador</p>
+    <p>Copyright 2021. EMBF Informática</p>
     </div>
 
     
@@ -157,12 +108,7 @@
 <body>
 
     
-    <script>
-        
-        if(location.protocol === 'https:') {
-            window.location.replace("http://eduardoprogramador.com/ceis.html");
-        }
-
+    <script>                
 
         function processInput() {
             var editCnpj = document.getElementById("editCnpj");
@@ -176,18 +122,7 @@
 
             var curTime = new Date();
             var loader = document.getElementById("loader");
-            loader.style.visibility = "visible";
-
-            $.ajax({
-                    url : "php/services.php",
-                    method : "POST",
-                    data : {
-                        'service' : "CEIS",
-                        'date' : curTime.getDate() + "/" + curTime.getMonth() + "/" + curTime.getFullYear(),
-                        'time' : curTime.getHours() + ":" + curTime.getMinutes() + ":" + curTime.getSeconds(),
-                        'param' : document.getElementById("editCnpj").value
-                    }
-                });
+            loader.style.visibility = "visible";            
 
             $.ajaxSetup({
 

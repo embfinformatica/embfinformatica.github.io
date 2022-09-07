@@ -13,7 +13,7 @@
     <script type="text/javascript" src="js/chat_functions.js"></script>
     <script type="text/javascript" src="js/tasks.js"></script>
     <script type="text/javascript" src="js/duscript.js"></script>
-    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="icon" type="image/png" href="img_/logos/logo.png">
     <title>Consulta CNPJ Online</title>
 </head>
 
@@ -96,7 +96,7 @@
         </ul>
     </div>
 
-    <p>Copyright 2021. Eduardo Programador. Versão do Serviço Web: 3.1. Atualizado em 16/01/2022</p>    
+    <p>Copyright 2021. EMBF Informática. Versão do Serviço Web: 3.1. Atualizado em 16/01/2022</p>    
 
     <iframe id="plot" src="https://maps.google.com/?ie=UTF8&t=m&ll=13.2164639,74.995161&spn=0.003381,0.017231&z=16&output=embed"
     style="width: 500px; height: 300px; border-radius: 50%; margin-left: auto; margin-right: auto; display: block; margin-top: 30px; filter: opacity(0.7);">
@@ -104,28 +104,6 @@
     </iframe>    
 
 </header>
-
-<div class="policy_dialog" id="policy_dialog">
-    <h1>Aviso de Privacidade</h1><br>
-
-    <p>Sua privacidade é muito importante e seus dados são cuidados com zelo.<br> 
-        Contudo, de modo a proporcionar-lhe a melhor experiência e por razões<br> 
-        de segurança e melhoria do serviço, Eduardo Programador fornece cookies,<br> 
-        coleta seu IP, data e hora de acesso e outros dados de conexão.<br><br> 
-        Confira na íntegra a <a href="politica-de-privacidade.html">Política de Privacidade</a> do desenvolvedor atualizada.</p><br>
-
-    <p>Entendi o aviso e a finalidade da coleta dos dados, logo:</p><br>                
-    
-    <div class="btns">
-    <button class="agree" id="agree">Aceito</button>
-
-    
-    <button class="disagree" id="disagree">* Não Aceito</button>
-    </div><br>
-
-    <p>* Ao continuar no site, você aceita tacitamente os termos de privacidade.</p>
-    
-</div>
 
 <body>
 
@@ -136,7 +114,7 @@
         <table>
 
         <div class="table_header" id="table_header">
-        <h2>EDUARDO PROGRAMADOR</h2>
+        <h2>EMBF INFORMÁTICA</h2>
         <img src="img/logo.png">
         <h3>CADASTRO NACIONAL DA PESSOA JURÍDICA</h3>
         </div>
@@ -390,7 +368,7 @@
     
     </div>
 
-    <p class="ultimate">Desenvolvido por Eduardo Programador</p>
+    <p class="ultimate">Desenvolvido por EMBF Informática</p>
     <p class="ultimate" id="consultTime">Emitido no dia <strong>00/00/0000</strong> às <strong>00:00:00</strong> (data e hora de Brasília)</p>
     <p class="ultimate" id="capital_social_res">Capital Social: <strong>R$ 0,00</strong></p>
     
@@ -428,9 +406,7 @@
         var mapSearch;
         var mailSearch;
 
-        if(location.protocol === 'http:') {
-            window.location.replace("https://eduardoprogramador.com/consulta_cnpj.html");
-        }        
+         
 
             valp("main_img_color","#936262");
             valp("button_color","#e90189");
@@ -480,104 +456,7 @@
             
 
         });
-        
-
-        
-        if(getOldCookie().localeCompare("") == 0) {
-                    $("#policy_dialog").show();
-                } else {
-                    $("#policy_dialog").hide();
-                }
-
-                $("#agree").click(function () {
-                       
-                       setNewCookie();
-                       $("#policy_dialog").hide();
-
-                   });
-
-                   $("#disagree").click(function () {
-                      
-                       $.ajax({
-
-                           url : "php/cookies.php",
-                           method : "POST",
-                           data : {
-                               "name_cookie" : "refused",
-                               "value_cookie" : "refused",
-                               "expiration_cookie" : "refused",
-                               "privacy_accepted" : "no"
-                           }
-
-                       });
-                       $("#policy_dialog").hide();
-
-                       alert("Você recusou a política de privacidade de Eduardo Programador.\nGentilmente, você será reconduzido à página anterior do seu navegador.\nCaso deseje voltar, é necessário concordar com os termos de uso.\n\nObrigado!");
-                       window.history.go(-1);
-
-                   });
-
-                   function setNewCookie() {            
-
-let chars = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','0','1','2','3','4','5','6','7','8','9'];
-let nums = ['0','1','2','3','4','5','6','7','8','9'];
-let len = chars.length;
-
-var cName = "_eduardoprogramador_com", cValue = "", cTime = "", cookie = "";
-
-for(var i = 0; i < 15; i++) {
-
-    let index = Math.floor(Math.random() * (len - 1));
-    cValue += chars[index];
-}
-
-for(var i = 0; i < 10; i++) {
-    let nIndex = nums.length;
-    let index = Math.floor(Math.random() * (nIndex-1));
-    cValue += nums[index];
-}
-
-let d = new Date();
-d.setTime(d.getTime() + 365 * 24 * 60 * 60 * 1000);
-
-cookie = cName + "=" + cValue + ";expires=" + d.toUTCString() + ";path=/";            
-document.cookie = cookie;            
-
-$.ajax({
-
-    url : "php/cookies.php",
-    method : "POST",
-    data : {
-
-        "name_cookie" : cName,
-        "value_cookie" : cValue,
-        "expiration_cookie" : d.toUTCString(),
-        "privacy_accepted" : "yes"
-    }
-
-});
-
-
-};
-
-function getOldCookie() {
-        
-let name = "_eduardoprogramador_com=";
-let decodedCookie = decodeURIComponent(document.cookie);
-let ca = decodedCookie.split(';');
-for(let i = 0; i <ca.length; i++) {
-    let c = ca[i];
-    while (c.charAt(0) == ' ') {
-        c = c.substring(1);
-    }
-if (c.indexOf(name) == 0) {
-return c.substring(name.length, c.length);
-}
-}
-
-return "";          
-
-};
+                
 
 
         function processCnpjInput() {
@@ -630,16 +509,7 @@ return "";
             var base = atob("aHR0cHM6Ly93d3cucmVjZWl0YXdzLmNvbS5ici92MS9jbnBqLw==");
             base += target;
 
-            $.ajax({
-                    url : "php/services.php",
-                    method : "POST",
-                    data : {
-                        'service' : "Consulta CNPJ",
-                        'date' : day + "/" + month + "/" + year,
-                        'time' : hour + ":" + min + ":" + seconds,
-                        'param' : target
-                    }
-                });
+ 
 
 
             $.ajax({                
@@ -756,8 +626,7 @@ return "";
         
 
         document.getElementById("consultTime").innerHTML = "Emitido no dia <strong>" + day + "/" + month + "/" + year + "</strong> às <strong>" + hour + ":" + min + ":" + seconds + "</strong> (data e hora de Brasília)."        
-
-        //mapSearch = "https://google.maps.com/place/" + logradouro.replace(" ","+") + ",+" + numero + ",+" + bairro.replace(" ","+") + ",+" + municipio.replace(" ","+") + ",+" + uf + ",+embed";
+        
         mapSearch = "https://www.google.com/maps?q=" + logradouro.replace(" ","+") + "+" + numero.replace(" ","+") + "+" + bairro.replace(" ","+") + "+" + municipio.replace(" ","+") + "+" + uf + "&rlz=1C1SQJL_pt-BRBR806BR806&um=1&ie=UTF-8&output=embed";
 
         mailSearch = email;

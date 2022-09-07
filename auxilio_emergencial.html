@@ -8,10 +8,9 @@
     <meta name="keywords" content="auxilio emergencial, consulta auxilio emergencial">
     <meta name="application-name" content="Eduardo Programador (Auxílio Emergencial)">
     <meta name="robots" content="index, follow">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="js/chat_functions.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>    
     <link rel="stylesheet" type="text/css" href="css/emergencial.css">
-    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="icon" type="image/png" href="img_/logos/logo.png">
     <title>Auxílio Emergencial</title>
 </head>
 
@@ -19,62 +18,7 @@
 
 </header>
 
-<body>
-
-    <!----
-    <div class="chat" id="initChat" onclick="displayChat()">
-
-        <img src="img/logo.png"></img>
-        <p>Fale agora com o Programador</p>
-
-    </div>
-
-    <div class="chat_inside" id="chat_inside">
-
-        <h1 id="insideClose" onclick="closeChat()">[X]</h1>
-
-        <div class="chat_content" id="chat_content">
-        <div class="chat_me">
-            <br>
-            <ul>
-            <li><img src="img/ico_dev.png"></img></li>
-            <li><h2>Eduardo Programador</h2></li>
-            </ul>
-        </div>
-
-        <table>
-            <tr>
-                <th><p>Nome:</p></th>
-                <td><input type="text" placeholder="Nome" maxlength="50" id="chat_name" required></td>
-            </tr>
-
-            <tr>
-                <th><p>E-mail:</p></th>
-                <td><input type="text" placeholder="E-mail" maxlength="50" id="chat_surname" required></td>
-            </tr>
-
-            <tr>
-                <th><p>Mensagem:</p></th>
-                <td><textarea placeholder="Escreva a sua mensagem." maxlength="500" id="chat_message" required></textarea></td>
-            </tr>
-
-        </table>
-
-        <button id="chat_send" onclick="sendChatMsg()">Enviar</button>
-        <br><br>
-
-        </div>
-
-    </div>
-    !-->
-
-    <div class="download_app">
-        <ul>
-        <li><h1>Baixe o Software!</h1></li>
-        <li><p>Transparência Robot<br>Consulta a Auxílio Emergencial<br>Licitação e Convênios<br>Bolsa Família<br>Servidores Públicos<br>Acordos de Leniência</p></li>
-        <li><a href="soft/TransparenciaRobotGUI.jar"><img src="img/java.png"></a></img></li>
-        </ul>
-    </div>
+<body>    
 
     <h1>Consulta de Auxílio Emergencial</h1>
 
@@ -118,11 +62,7 @@
 
     <button onclick="printIt()">Imprimir</button>
 
-    <script>
-
-        if(location.protocol === 'http:') {
-            window.location.replace("https://eduardoprogramador.com/auxilio_emergencial.html");
-        }
+    <script>      
         
        
         function enableButton() {
@@ -151,17 +91,6 @@
             var cpf = document.getElementById("editCpf").value;
             var loader = document.getElementById("loader");
             loader.style.visibility = "visible";
-
-            $.ajax({
-                    url : "php/services.php",
-                    method : "POST",
-                    data : {
-                        'service' : "Auxilio Emergencial",
-                        'date' : curTime.getDate() + "/" + curTime.getMonth() + "/" + curTime.getFullYear(),
-                        'time' : curTime.getHours() + ":" + curTime.getMinutes() + ":" + curTime.getSeconds(),
-                        'param' : cpf
-                    }
-                });
 
             $.ajaxSetup({
             headers : {
@@ -217,7 +146,7 @@
 
 <footer>
 
-    <p>Copyright 2021. Eduardo Programador</p>
+    <p>Copyright 2021. EMBF Informática</p>
 
 </footer>
 

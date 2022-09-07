@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="icon" type="image/png" href="img_/logos/logo.png">
     <link rel="stylesheet" type="text/css" href="css/whois.css">
     <title>WhoIS</title>
     <script type="text/javascript" src="js/functions.js"></script>
@@ -56,7 +56,7 @@
 
     <div class="copyright">
 
-        <p>Copyright 2021. Eduardo Programador. Versão 1.0. Atualizada em 05/08/2021</p>
+        <p>Copyright 2021. EMBF Informática. Versão 1.0. Atualizada em 05/08/2021</p>
 
     </div>
 
@@ -190,11 +190,9 @@
 
     <script>
 
-	if(location.protocol === 'http:') {
-                window.location.replace("https://eduardoprogramador.com/whois.html");
-            }
 
-            $.ajax({
+
+        
 
 url : "php/ip.php",
 method : "POST",
@@ -224,19 +222,7 @@ data : {
             var year = theTime.getFullYear();
             var hour = theTime.getHours();
             var min = theTime.getMinutes();
-            var seconds = theTime.getSeconds();
-            
-
-            $.ajax({
-                    url : "php/services.php",
-                    method : "POST",
-                    data : {
-                        'service' : "WhoIS",
-                        'date' : day + "/" + month + "/" + year,
-                        'time' : hour + ":" + min + ":" + seconds,
-                        'param' : "WhoIS"
-                    }
-                });
+            var seconds = theTime.getSeconds();             
 
                 
                 

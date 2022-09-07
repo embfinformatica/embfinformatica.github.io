@@ -4,64 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width;initial-scale=1.0">
     <title>Licitação e Contratos</title>
-    <link rel="icon" type="image/png" href="img/logo.png">
-    <link rel="stylesheet" type="text/css" href="css/licitacao.css">
-    <script type="text/javascript" src="js/functions.js"></script>
+    <link rel="icon" type="image/png" href="img_/logos/logo.png">
+    <link rel="stylesheet" type="text/css" href="css/licitacao.css">    
     <script type="text/javascript" src="js/licit_choose.js"></script>
-    <script type="text/javascript" src="js/licit_others.js"></script>
-    <script type="text/javascript" src="js/chat_functions.js"></script>
+    <script type="text/javascript" src="js/licit_others.js"></script>    
 
 </head>
 
 <header>
 
-    <!----
-    <div class="chat" id="initChat" onclick="displayChat()">
-
-        <img src="img/logo.png"></img>
-        <p>Fale agora com o Programador</p>
-
-    </div>
-
-    <div class="chat_inside" id="chat_inside">
-
-        <h1 id="insideClose" onclick="closeChat()">[X]</h1>
-
-        <div class="chat_content" id="chat_content">
-        <div class="chat_me">
-            <br>
-            <ul>
-            <li><img src="img/ico_dev.png"></img></li>
-            <li><h2>Eduardo Programador</h2></li>
-            </ul>
-        </div>
-
-        <table>
-            <tr>
-                <th><p>Nome:</p></th>
-                <td><input type="text" placeholder="Nome" maxlength="50" id="chat_name" required></td>
-            </tr>
-
-            <tr>
-                <th><p>E-mail:</p></th>
-                <td><input type="text" placeholder="E-mail" maxlength="50" id="chat_surname" required></td>
-            </tr>
-
-            <tr>
-                <th><p>Mensagem:</p></th>
-                <td><textarea placeholder="Escreva a sua mensagem." maxlength="500" id="chat_message" required></textarea></td>
-            </tr>
-
-        </table>
-
-        <button id="chat_send" onclick="sendChatMsg()">Enviar</button>
-        <br><br>
-
-        </div>
-
-    </div>
-    !-->
-
+    
     <div class="home">
         <a href="index.html">Início</a>
     </div>
@@ -72,7 +24,7 @@
     <h2>Serviço Web</h2>
     </div>
 
-    <p class="subtitle">Sistema desenvolvido por <strong>Eduardo Programador</strong>, totalmente gratuito, destinado aos profissionais que atuam na área de licitação e contratos, auditores governamentais, licitantes, analistas de dados, enfim, toda a sociedade. Informe um modo de pesquisa, clique em consultar e visualize os resultados. Maiores informações através do contato: consultoria@eduardoprogramador.com</p>
+    <p class="subtitle">Sistema desenvolvido por <strong>EMBF Informática</strong>, totalmente gratuito, destinado aos profissionais que atuam na área de licitação e contratos, auditores governamentais, licitantes, analistas de dados, enfim, toda a sociedade. Informe um modo de pesquisa, clique em consultar e visualize os resultados. Maiores informações através do contato: consultoria@eduardoprogramador.com</p>
 
     <div class="mode">
 
@@ -115,7 +67,7 @@
 
                 </div>
 
-                <p class="copyright">Copyright 2021. Eduardo Programador</p>
+                <p class="copyright">Copyright 2021. EMBF Informática</p>
 
 
             </ul>
@@ -251,17 +203,6 @@
             target = target.replace("-","");
             target = target.replace(".","");
 
-
-            $.ajax({
-                    url : "php/services.php",
-                    method : "POST",
-                    data : {
-                        'service' : "Licitação",
-                        'date' : day + "/" + month + "/" + year,
-                        'time' : hour + ":" + min + ":" + seconds,
-                        'param' : target
-                    }
-                });
 
             showWaitDialog();
             param = document.getElementById("editHolder").value;

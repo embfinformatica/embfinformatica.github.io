@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="icon" type="image/png" href="img_/logos/logo.png">
     <link rel="stylesheet" type="text/css" href="css/photo_edit.css">
     <script type="text/javascript" src="js/functions.js"></script>
 
@@ -40,7 +40,7 @@
     </div>
 
     <div class="copyright">
-        <p>Copyright 2021. Eduardo Programador</p>
+        <p>Copyright 2021. EMBF Informatica</p>
     </div>
 
     <a class="home" href="index.html">Início</a>
@@ -50,10 +50,7 @@
 <body>
     
     <script>
-
-        if(window.location.protocol === 'http:') {
-            window.location.replace("https://eduardoprogramador.com/photo_edit.html");
-        }
+        
 
         var theTime = new Date();
         
@@ -64,16 +61,7 @@
             var min = theTime.getMinutes();
             var seconds = theTime.getSeconds();
 
-        $.ajax({
-                    url : "php/services.php",
-                    method : "POST",
-                    data : {
-                        'service' : "Photo Edit",
-                        'date' : day + "/" + month + "/" + year,
-                        'time' : hour + ":" + min + ":" + seconds,
-                        'param' : "Photo Edit"
-                    }
-                });
+
         
 
         $("#refresh").on({

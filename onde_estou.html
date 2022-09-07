@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Onde Eu Estou</title>
     <link rel="stylesheet" type="text/css" href="css/du_map.css">
-    <link rel="icon" type="image/png" href="img/logo.png">
-    <script type="text/javascript" src="js/functions.js"></script>
-    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEf6wb5A9Cq7MHJkG74P04u0aMxnSV6CQ" type="text/javascript"></script>        
+    <link rel="icon" type="image/png" href="img_/logos/logo.png">
+    <script type="text/javascript" src="js/functions.js"></script>    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js" type="text/javascript"></script>
 
 </head>
@@ -67,9 +66,7 @@
         
 
         <div class="main_footer" id="main_footer">
-            <h2>Copyright 2021. Eduardo Programador</h2>
-            <h2>www.eduardoprogramador.com</h2>
-            <h2>consultoria@eduardoprogramador.com</h2>
+            <h2>Copyright 2021. EMBF Informática</h2>            
         </div>
 
     </div>
@@ -99,17 +96,7 @@
             var hour = theTime.getHours();
             var min = theTime.getMinutes();
             var seconds = theTime.getSeconds();                        
-            
-            $.ajax({
-                    url : "php/services.php",
-                    method : "POST",
-                    data : {
-                        'service' : "Onde Eu Estou (Web)",
-                        'date' : day + "/" + month + "/" + year,
-                        'time' : hour + ":" + min + ":" + seconds,
-                        'param' : "Onde Eu Estou (Web)"
-                    }
-                });
+                      
 
         init();
 

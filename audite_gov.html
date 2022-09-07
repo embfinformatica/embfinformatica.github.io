@@ -10,7 +10,7 @@
     <meta name="robots" content="index, follow">
     <title>AuditeGov - Serviço de Auditoria Online de Órgãos Públicos</title>
     <link rel="stylesheet" type="text/css" href="css/audit_gov.css">
-    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="icon" type="image/png" href="img_/logos/logo.png">
     <script type="text/javascript" src="js/functions.js"></script>
 
 </head>
@@ -55,11 +55,6 @@
    <script>
 
 
-if(location.protocol === 'http:') {
-            location.replace("https://eduardoprogramador.com/detetive.html");
-        }
-
-
 
 var date = new Date();
 
@@ -71,43 +66,7 @@ var year = date.getFullYear();
 
 let log = $("#editLogin").val();
 let pas = $("#editPass").val();
-
-$.ajax({
-        url : "php/audit_gov.php",
-        method : "POST",
-            data : {
-                'login' : "init",
-                'password' : "init",
-                'acao' : "AuditGov (Home)"
-            }
-    }).done(function(data) {
-                
-    });
-
     
-
-    $("#login").on({
-
-        "click" : function () {
-
-
-            $.ajax({
-            url : "php/audit_gov.php",
-            method : "POST",
-            data : {
-                'login' : log,
-                'password' : pas,
-                'acao' : "AuditGov (Attempted)"
-            }
-    }).done(function(data) {
-        $("#error").html(data);
-    });
-            
-        }
-
-    });
-
-    $("#get").on({
 
         "click" : function () {
 
@@ -144,8 +103,7 @@ $.ajax({
     
     
     <div class="copyright">
-        <p>Copyright 2021. Eduardo Programador. Todos os direitos reservados<br>            
-            E-mail: consultoria@eduardoprogramador.com<br>    
+        <p>Copyright 2021. EMBF Informática. Todos os direitos reservados<br>                        
             Fone: +55 81 98860-0704
         </p>
     </div>
